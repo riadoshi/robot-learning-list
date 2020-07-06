@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="access" content="No">
+
+    
+
+    <meta name="journal_id" content="10514"/>
+
+    <meta name="dc.title" content="Optimization-based iterative learning for precise quadrocopter trajectory tracking"/>
+
+    <meta name="dc.source" content="Autonomous Robots 2012 33:1"/>
+
+    <meta name="dc.format" content="text/html"/>
+
+    <meta name="dc.publisher" content="Springer"/>
+
+    <meta name="dc.date" content="2012-04-21"/>
+
+    <meta name="dc.type" content="OriginalPaper"/>
+
+    <meta name="dc.language" content="En"/>
+
+    <meta name="dc.copyright" content="2012 Springer Science+Business Media, LLC"/>
+
+    <meta name="dc.rightsAgent" content="journalpermissions@springernature.com"/>
+
+    <meta name="dc.description" content="Current control systems regulate the behavior of dynamic systems by reacting to noise and unexpected disturbances as they occur. To improve the performance of such control systems, experience from iterative executions can be used to anticipate recurring disturbances and proactively compensate for them. This paper presents an algorithm that exploits data from previous repetitions in order to learn to precisely follow a predefined trajectory. We adapt the feed-forward input signal to the system with the goal of achieving high tracking performance&#8212;even under the presence of model errors and other recurring disturbances. The approach is based on a dynamics model that captures the essential features of the system and that explicitly takes system input and state constraints into account. We combine traditional optimal filtering methods with state-of-the-art optimization techniques in order to obtain an effective and computationally efficient learning strategy that updates the feed-forward input signal according to a customizable learning objective. It is possible to define a termination condition that stops an execution early if the deviation from the nominal trajectory exceeds a given bound. This allows for a safe learning that gradually extends the time horizon of the trajectory. We developed a framework for generating arbitrary flight trajectories and for applying the algorithm to highly maneuverable autonomous quadrotor vehicles in the ETH Flying Machine Arena testbed. Experimental results are discussed for selected trajectories and different learning algorithm parameters."/>
+
+    <meta name="prism.issn" content="1573-7527"/>
+
+    <meta name="prism.publicationName" content="Autonomous Robots"/>
+
+    <meta name="prism.publicationDate" content="2012-04-21"/>
+
+    <meta name="prism.volume" content="33"/>
+
+    <meta name="prism.number" content="1"/>
+
+    <meta name="prism.section" content="OriginalPaper"/>
+
+    <meta name="prism.startingPage" content="103"/>
+
+    <meta name="prism.endingPage" content="127"/>
+
+    <meta name="prism.copyright" content="2012 Springer Science+Business Media, LLC"/>
+
+    <meta name="prism.rightsAgent" content="journalpermissions@springernature.com"/>
+
+    <meta name="prism.url" content="https://link.springer.com/article/10.1007/s10514-012-9283-2"/>
+
+    <meta name="prism.doi" content="doi:10.1007/s10514-012-9283-2"/>
+
+    <meta name="citation_pdf_url" content="https://link.springer.com/content/pdf/10.1007/s10514-012-9283-2.pdf"/>
+
+    <meta name="citation_fulltext_html_url" content="https://link.springer.com/article/10.1007/s10514-012-9283-2"/>
+
+    <meta name="citation_journal_title" content="Autonomous Robots"/>
+
+    <meta name="citation_journal_abbrev" content="Auton Robot"/>
+
+    <meta name="citation_publisher" content="Springer US"/>
+
+    <meta name="citation_issn" content="1573-7527"/>
+
+    <meta name="citation_title" content="Optimization-based iterative learning for precise quadrocopter trajectory tracking"/>
+
+    <meta name="citation_volume" content="33"/>
+
+    <meta name="citation_issue" content="1"/>
+
+    <meta name="citation_publication_date" content="2012/08"/>
+
+    <meta name="citation_online_date" content="2012/04/21"/>
+
+    <meta name="citation_firstpage" content="103"/>
+
+    <meta name="citation_lastpage" content="127"/>
+
+    <meta name="citation_article_type" content="Article"/>
+
+    <meta name="citation_language" content="en"/>
+
+    <meta name="dc.identifier" content="doi:10.1007/s10514-012-9283-2"/>
+
+    <meta name="DOI" content="10.1007/s10514-012-9283-2"/>
+
+    <meta name="citation_doi" content="10.1007/s10514-012-9283-2"/>
+
+    <meta name="description" content="Current control systems regulate the behavior of dynamic systems by reacting to noise and unexpected disturbances as they occur. To improve the performance"/>
+
+    <meta name="dc.creator" content="Angela P. Schoellig"/>
+
+    <meta name="dc.creator" content="Fabian L. Mueller"/>
+
+    <meta name="dc.creator" content="Raffaello D&#8217;Andrea"/>
+
+    <meta name="dc.subject" content="Robotics and Automation"/>
+
+    <meta name="dc.subject" content="Artificial Intelligence"/>
+
+    <meta name="dc.subject" content="Computer Imaging, Vision, Pattern Recognition and Graphics"/>
+
+    <meta name="dc.subject" content="Control, Robotics, Mechatronics"/>
+
+    <meta name="citation_reference" content="citation_title=Iterative learning control: robustness and monotonic convergence for interval systems; citation_publication_date=2007; citation_id=CR1; citation_author=H.-S. Ahn; citation_author=K. L. Moore; citation_author=Y. Chen; citation_publisher=Springer"/>
+
+    <meta name="citation_reference" content="citation_title=Quadrotor control using feedback linearization with dynamic extension; citation_inbook_title=Proceedings of the international symposium on mechatronics and its applications (ISMA); citation_publication_date=2009; citation_pages=1-3; citation_id=CR2; citation_author=S. Al-Hiddabi"/>
+
+    <meta name="citation_reference" content="citation_title=Constrained-control of a quadrotor helicopter for trajectory tracking under wind-gust disturbances; citation_inbook_title=Proceedings of the IEEE Mediterranean electrotechnical conference (MELECON); citation_publication_date=2010; citation_pages=1411-1416; citation_id=CR3; citation_author=K. Alexis; citation_author=G. Nikolakopoulos; citation_author=A. Tzes"/>
+
+    <meta name="citation_reference" content="citation_journal_title=International Journal of Control; citation_title=Iterative learning control using optimal feedback and feedforward actions; citation_author=N. Amann, D. H. Owens, E. Rogers; citation_volume=65; citation_issue=2; citation_publication_date=1996; citation_pages=277-293; citation_doi=10.1080/00207179608921697; citation_id=CR4"/>
+
+    <meta name="citation_reference" content="citation_title=Optimal filtering; citation_publication_date=2005; citation_id=CR5; citation_author=B. D. O. Anderson; citation_author=J. B. Moore; citation_publisher=Dover"/>
+
+    <meta name="citation_reference" content="citation_journal_title=Journal of Robotic Systems; citation_title=Bettering operation of robots by learning; citation_author=S. Arimoto, S. Kawamura, F. Miyazaki; citation_volume=1; citation_issue=2; citation_publication_date=1984; citation_pages=123-140; citation_doi=10.1002/rob.4620010203; citation_id=CR6"/>
+
+    <meta name="citation_reference" content="citation_journal_title=Systems &amp; Control Letters; citation_title=A lifting technique for linear periodic systems with applications to sampled-data control; citation_author=B. Bamieh, J. B. Pearson, B. A. Francis, A. Tannenbaum; citation_volume=17; citation_issue=2; citation_publication_date=1991; citation_pages=79-88; citation_doi=10.1016/0167-6911(91)90033-B; citation_id=CR7"/>
+
+    <meta name="citation_reference" content="citation_title=Robust iterative learning control: L1 adaptive feedback control in an ILC framework; citation_inbook_title=Proceedings of the American control conference (ACC); citation_publication_date=2011; citation_pages=3663-3668; citation_id=CR8; citation_author=K. Barton; citation_author=S. Mishra; citation_author=E. Xargay"/>
+
+    <meta name="citation_reference" content="citation_title=Discrete time minimax tracking control with state and disturbance estimation ii: Time-varying reference and disturbance signals; citation_inbook_title=Proceedings of the Mediterranean conference on control and automation (MED); citation_publication_date=2009; citation_pages=486-491; citation_id=CR9; citation_author=P. Bauer; citation_author=B. Kulcsar; citation_author=J. Bokor"/>
+
+    <meta name="citation_reference" content="
+Boost&#8212;Basic Linear Algebra Library (2012). Last accessed at 08 Feb 2012. [Online]. Available: 
+                    http://www.boost.org/doc/libs/1_46_1/libs/numeric/ublas/doc/index.htm
+                    
+                  .
+"/>
+
+    <meta name="citation_reference" content="citation_title=Backstepping and sliding-mode techniques applied to an indoor micro quadrotor; citation_inbook_title=Proceedings of the IEEE international conference on robotics and automation (ICRA); citation_publication_date=2005; citation_pages=2247-2252; citation_id=CR11; citation_author=S. Bouabdallah; citation_author=R. Siegwart"/>
+
+    <meta name="citation_reference" content="citation_title=Trajectory planning for a quadrotor helicopter; citation_inbook_title=Proceedings of the Mediterranean conference on control and automation; citation_publication_date=2008; citation_pages=1258-1263; citation_id=CR12; citation_author=Y. Bouktir; citation_author=M. Haddad; citation_author=T. Chettibi"/>
+
+    <meta name="citation_reference" content="citation_title=Convex optimization; citation_publication_date=2004; citation_id=CR13; citation_author=S. Boyd; citation_author=L. Vandenberghe; citation_publisher=Cambridge University Press"/>
+
+    <meta name="citation_reference" content="citation_journal_title=IEEE Control Systems Magazine; citation_title=A survey of iterative learning control; citation_author=D. A. Bristow, M. Tharayil, A. G. Alleyne; citation_volume=26; citation_issue=3; citation_publication_date=2006; citation_pages=96-114; citation_doi=10.1109/MCS.2006.1636313; citation_id=CR14"/>
+
+    <meta name="citation_reference" content="citation_title=Unmanned helicopter waypoint trajectory tracking using model predictive control; citation_inbook_title=Proceedings of the Mediterranean conference on control automation; citation_publication_date=2007; citation_pages=1-8; citation_id=CR15; citation_author=C. L. Castillo; citation_author=W. Moreno; citation_author=K. P. Valavanis"/>
+
+    <meta name="citation_reference" content="citation_title=Iterative learning control: convergence, robustness and applications; citation_publication_date=1999; citation_id=CR16; citation_author=Y. Chen; citation_author=C. Wen; citation_publisher=Springer"/>
+
+    <meta name="citation_reference" content="citation_journal_title=Automatica; citation_title=A two-stage iterative learning control technique combined with real-time feedback for independent disturbance rejection; citation_author=I. Chin, S. J. Qin, K. S. Lee, M. Cho; citation_volume=40; citation_issue=11; citation_publication_date=2004; citation_pages=1913-1922; citation_doi=10.1016/j.automatica.2004.05.011; citation_id=CR17"/>
+
+    <meta name="citation_reference" content="citation_journal_title=IEEE Transactions on Semiconductor Manufacturing; citation_title=Semi-empirical model-based multivariable iterative learning control of an RTP system; citation_author=M. Cho, Y. Lee, S. Joo, K. S. Lee; citation_volume=18; citation_issue=3; citation_publication_date=2005; citation_pages=430-439; citation_doi=10.1109/TSM.2005.852111; citation_id=CR18"/>
+
+    <meta name="citation_reference" content="citation_title=Kalman filtering: with real-time applications; citation_publication_date=1998; citation_id=CR19; citation_author=C. K. Chui; citation_author=G. Chen; citation_publisher=Springer"/>
+
+    <meta name="citation_reference" content="citation_title=A prototype of an autonomous controller for a quadrotor UAV; citation_inbook_title=Proceedings of the European control conference (ECC); citation_publication_date=2007; citation_pages=1-8; citation_id=CR20; citation_author=I. Cowling; citation_author=O. Yakimenko; citation_author=J. Whidborne; citation_author=A. Cooke"/>
+
+    <meta name="citation_reference" content="
+Curve Fitting Toolbox Splines and MATLAB Splines (2012). Last accessed 08 Feb 2012. [Online]. Available: 
+                    http://www.mathworks.com/help/toolbox/curvefit/f2-10452.html
+                    
+                  .
+"/>
+
+    <meta name="citation_reference" content="citation_title=A&#160;nonlinear adaptive control approach for quadrotor UAVs; citation_inbook_title=Proceedings of the Asian control conference (ASCC); citation_publication_date=2011; citation_pages=223-228; citation_id=CR22; citation_author=C. Diao; citation_author=B. Xian; citation_author=Q. Yin; citation_author=W. Zeng; citation_author=H. Li; citation_author=Y. Yang"/>
+
+    <meta name="citation_reference" content="citation_journal_title=IEEE Transactions on Neural Networks; citation_title=Output feedback control of a quadrotor UAV using neural networks; citation_author=T. Dierks, S. Jagannathan; citation_volume=21; citation_issue=1; citation_publication_date=2010; citation_pages=50-66; citation_doi=10.1109/TNN.2009.2034145; citation_id=CR23"/>
+
+    <meta name="citation_reference" content="citation_title=Energy-efficient autonomous four-rotor flying robot controlled at 1&#160;kHz; citation_inbook_title=Proceedings of the IEEE international conference on robotics and automation (ICRA); citation_publication_date=2007; citation_pages=361-366; citation_id=CR24; citation_author=D. Gurdan; citation_author=J. Stumpf; citation_author=M. Achtelik; citation_author=K.-M. Doth; citation_author=G. Hirzinger; citation_author=D. Rus"/>
+
+    <meta name="citation_reference" content="citation_title=Quadrotor helicopter trajectory tracking control; citation_inbook_title=Proceedings of the AIAA guidance, navigation and control conference and exhibit; citation_publication_date=2008; citation_id=CR25; citation_author=G. Hoffmann; citation_author=S. Waslander; citation_author=C. Tomlin"/>
+
+    <meta name="citation_reference" content="citation_journal_title=IEEE Control Systems Magazine; citation_title=Real-time indoor autonomous vehicle test environment; citation_author=J. P. How, B. Bethke, A. Frank, D. Dale, J. Vian; citation_volume=28; citation_issue=2; citation_publication_date=2008; citation_pages=51-64; citation_doi=10.1109/MCS.2007.914691; citation_id=CR26"/>
+
+    <meta name="citation_reference" content="citation_title=Aerodynamics and control of autonomous quadrotor helicopters in aggressive maneuvering; citation_inbook_title=Proceedings of the IEEE international conference on robotics and automation (ICRA); citation_publication_date=2009; citation_pages=3277-3282; citation_id=CR27; citation_author=H. Huang; citation_author=G. Hoffmann; citation_author=S. Waslander; citation_author=C. Tomlin"/>
+
+    <meta name="citation_reference" content="
+IBM ILOG CPLEX Optimizer (2012). Last accessed 08 Feb 2012. [Online]. Available: 
+                    http://www-01.ibm.com/software/integration/optimization/cplex-optimizer/
+                    
+                  .
+"/>
+
+    <meta name="citation_reference" content="citation_journal_title=Industrial &amp; Engineering Chemistry Research; citation_title=Control of wafer temperature uniformity in rapid thermal processing using an optimal iterative learning control technique; citation_author=K. S. Lee, J. Lee, I. Chin, J. Choi, J. H. Lee; citation_volume=40; citation_issue=7; citation_publication_date=2001; citation_pages=1661-1672; citation_doi=10.1021/ie0005553; citation_id=CR29"/>
+
+    <meta name="citation_reference" content="citation_title=Robust tracking control of an underactuated quadrotor aerial-robot based on a parametric uncertain model; citation_inbook_title=Proceedings of the IEEE international conference on systems, man and cybernetics (SMC); citation_publication_date=2009; citation_pages=3187-3192; citation_id=CR30; citation_author=D. Lee; citation_author=T. Burg; citation_author=D. Dawson; citation_author=D. Shu; citation_author=B. Xian; citation_author=E. Tatlicioglu"/>
+
+    <meta name="citation_reference" content="citation_title=Study of feasible trajectory generation algorithms for control of planar mobile robots; citation_inbook_title=Proceedings of the IEEE international conference on robotics and biomimetics (ROBIO); citation_publication_date=2005; citation_pages=121-126; citation_id=CR31; citation_author=S.-H. Lin; citation_author=F.-L. Lian"/>
+
+    <meta name="citation_reference" content="citation_journal_title=International Journal of Control; citation_title=Iterative learning control and repetitive control for engineering practice; citation_author=R. W. Longman; citation_volume=73; citation_issue=10; citation_publication_date=2000; citation_pages=930-954; citation_doi=10.1080/002071700405905; citation_id=CR32"/>
+
+    <meta name="citation_reference" content="citation_title=Adaptive open-loop aerobatic maneuvers for quadrocopters; citation_inbook_title=Proceedings of the IFAC World congress; citation_publication_date=2011; citation_pages=2600-2606; citation_id=CR33; citation_author=S. Lupashin; citation_author=R. D&#8217;Andrea"/>
+
+    <meta name="citation_reference" content="citation_title=A&#160;simple learning strategy for high-speed quadrocopter multi-flips; citation_inbook_title=Proceedings of the IEEE international conference on robotics and automation (ICRA); citation_publication_date=2010; citation_pages=1642-1648; citation_id=CR34; citation_author=S. Lupashin; citation_author=A.P. Schoellig; citation_author=M. Sherback; citation_author=R. D&#8217;Andrea"/>
+
+    <meta name="citation_reference" content="citation_title=Backstepping control for a quadrotor helicopter; citation_inbook_title=Proceedings of the IEEE/RSJ international conference on intelligent robots and systems (IROS); citation_publication_date=2006; citation_pages=3255-3260; citation_id=CR35; citation_author=T. Madani; citation_author=A. Benallegue"/>
+
+    <meta name="citation_reference" content="citation_title=Trajectory generation and control for precise aggressive maneuvers with quadrotors; citation_inbook_title=Proceedings of the international symposium on experimental robotics; citation_publication_date=2010; citation_id=CR36; citation_author=D. Mellinger; citation_author=N. Michael; citation_author=V. Kumar"/>
+
+    <meta name="citation_reference" content="citation_journal_title=IEEE Robotics &amp; Automation Magazine; citation_title=The GRASP multiple micro UAV testbed; citation_author=N. Michael, D. Mellinger, Q. Lindsey, V. Kumar; citation_volume=17; citation_issue=3; citation_publication_date=2010; citation_pages=56-65; citation_doi=10.1109/MRA.2010.937855; citation_id=CR37"/>
+
+    <meta name="citation_reference" content="citation_title=Dynamic feedback controller of Euler angles and wind parameters estimation for a quadrotor unmanned aerial vehicle; citation_inbook_title=Proceedings of the IEEE international conference on robotics and automation (ICRA); citation_publication_date=2004; citation_pages=2359-2366; citation_id=CR38; citation_author=A. Mokhtari; citation_author=A. Benallegue"/>
+
+    <meta name="citation_reference" content="citation_title=Multi-loop control approach to designing iterative learning controllers; citation_inbook_title=Proceedings of the IEEE conference on decision and control (CDC); citation_publication_date=1998; citation_pages=666-671; citation_id=CR39; citation_author=K. L. Moore"/>
+
+    <meta name="citation_reference" content="citation_journal_title=Mechatronics; citation_title=Robust adaptive control of a quadrotor helicopter; citation_author=C. Nicol, C. J. B. Macnab, A. Ramirez-Serrano; citation_volume=21; citation_issue=6; citation_publication_date=2011; citation_pages=927-938; citation_doi=10.1016/j.mechatronics.2011.02.007; citation_id=CR40"/>
+
+    <meta name="citation_reference" content="citation_journal_title=International Journal of Control; citation_title=Time and frequency domain convergence properties in iterative learning control; citation_author=M. Norrloef, S. Gunnarsson; citation_volume=75; citation_issue=14; citation_publication_date=2002; citation_pages=1114-1126; citation_doi=10.1080/00207170210159122; citation_id=CR41"/>
+
+    <meta name="citation_reference" content="citation_title=A mathematical theory of learning control for linear discrete multivariable systems; citation_inbook_title=Proceedings of the AIAA/AAS astrodynamics conference; citation_publication_date=1988; citation_pages=740-746; citation_id=CR42; citation_author=M. Q. Phan; citation_author=R. W. Longman"/>
+
+    <meta name="citation_reference" content="citation_title=Quintic 
+                    -splines for trajectory planning of autonomous vehicles; citation_inbook_title=Proceedings of the IEEE intelligent vehicles symposium; citation_publication_date=2000; citation_pages=198-203; citation_id=CR43; citation_author=A. Piazzi; citation_author=C. Guarino Lo Bianco"/>
+
+    <meta name="citation_reference" content="citation_title=Modelling and control of a quad-rotor robot; citation_inbook_title=Proceedings of the Australasian conference on robotics and automation; citation_publication_date=2006; citation_id=CR44; citation_author=P. Pounds; citation_author=R. Mahony; citation_author=P. Corke"/>
+
+    <meta name="citation_reference" content="citation_title=Performing aggressive maneuvers using iterative learning control; citation_inbook_title=Proceedings of the IEEE international conference on robotics and automation (ICRA); citation_publication_date=2009; citation_pages=1731-1736; citation_id=CR45; citation_author=O. Purwin; citation_author=R. D&#8217;Andrea"/>
+
+    <meta name="citation_reference" content="citation_title=Backstepping/nonlinear 
+                     control for path tracking of a quadrotor unmanned aerial vehicle; citation_inbook_title=Proceedings of the American control conference (ACC); citation_publication_date=2008; citation_pages=3356-3361; citation_id=CR46; citation_author=G. Raffo; citation_author=M. Ortega; citation_author=F. Rubio"/>
+
+    <meta name="citation_reference" content="citation_journal_title=International Journal of Control; citation_title=A structured matrix approach to efficient calculation of LQG repetitive learning controllers in the lifted setting; citation_author=J. K. Rice, M. Verhaegen; citation_volume=83; citation_issue=6; citation_publication_date=2010; citation_pages=1265-1276; citation_doi=10.1080/00207171003682671; citation_id=CR47"/>
+
+    <meta name="citation_reference" content="citation_title=Quadrotor performance benchmarking using optimal control; citation_inbook_title=Proceedings of the IEEE/RSJ international conference on intelligent robots and systems (IROS); citation_publication_date=2011; citation_pages=5179-5186; citation_id=CR48; citation_author=R. Ritz; citation_author=M. Hehn; citation_author=S. Lupashin; citation_author=R. D&#8217;Andrea"/>
+
+    <meta name="citation_reference" content="citation_title=Optimization-based iterative learning control for trajectory tracking; citation_inbook_title=Proceedings of the European control conference (ECC); citation_publication_date=2009; citation_pages=1505-1510; citation_id=CR49; citation_author=A. P. Schoellig; citation_author=R. D&#8217;Andrea"/>
+
+    <meta name="citation_reference" content="
+The Mathworks Optimization Toolbox (2012). Last accessed 08 Feb 2012. [Online]. Available: 
+                    http://www.mathworks.com/help/toolbox/optim/ug/fmincon.html
+                    
+                  .
+"/>
+
+    <meta name="citation_reference" content="citation_title=Design strategy for iterative learning control based on optimal control; citation_inbook_title=Proceedings of the IEEE conference on decision and control (CDC); citation_publication_date=2001; citation_pages=4463-4468; citation_id=CR51; citation_author=R. Tousain; citation_author=E. Meche; citation_author=O. Bosgra"/>
+
+    <meta name="citation_reference" content="citation_title=Multi-agent quadrotor testbed control design: integral sliding mode vs. reinforcement learning; citation_inbook_title=Proceedings of the IEEE/RSJ international conference on intelligent robots and systems (IROS); citation_publication_date=2005; citation_pages=3712-3717; citation_id=CR52; citation_author=S. L. Waslander; citation_author=G. M. Hoffmann; citation_author=J. S. Jang; citation_author=C. Tomlin"/>
+
+    <meta name="citation_reference" content="citation_title=Trajectory generation for aircraft based on differential flatness and spline theory; citation_inbook_title=Proceedings of the international conference on information networking and automation (ICINA); citation_publication_date=2010; citation_pages=V1-110-V1-114; citation_id=CR53; citation_author=C. Zhang; citation_author=N. Wang; citation_author=J. Chen"/>
+
+    <meta name="citation_reference" content="citation_title=Dead reckoning and Kalman filter design for trajectory tracking of a quadrotor UAV; citation_inbook_title=Proceedings of the IEEE/ASME international conference on mechatronics and embedded systems and applications (MESA); citation_publication_date=2010; citation_pages=119-124; citation_id=CR54; citation_author=Q.-L. Zhou; citation_author=Y. Zhang; citation_author=Y.-H. Qu; citation_author=C.-A. Rabbath"/>
+
+    <meta name="citation_reference" content="citation_title=Design of feedback linearization control and reconfigurable control allocation with application to a quadrotor UAV; citation_inbook_title=Proceedings of the conference on fault-tolerant systems (SysTol); citation_publication_date=2010; citation_pages=371-376; citation_id=CR55; citation_author=Q.-L. Zhou; citation_author=Y. Zhang; citation_author=C.-A. Rabbath; citation_author=D. Theilliol"/>
+
+    <meta name="citation_reference" content="citation_title=Trajectory linearization control for a quadrotor helicopter; citation_inbook_title=Proceedings of the IEEE international conference on control and automation (ICCA); citation_publication_date=2010; citation_pages=34-39; citation_id=CR56; citation_author=B. Zhu; citation_author=W. Huo"/>
+
+    <meta name="citation_reference" content="citation_journal_title=IET Control Theory &amp; Applications; citation_title=Trajectory tracking control design with command-filtered compensation for a quadrotor; citation_author=Z. Zuo; citation_volume=4; citation_issue=11; citation_publication_date=2010; citation_pages=2343-2355; citation_doi=10.1049/iet-cta.2009.0336; citation_id=CR57"/>
+
+    <meta name="citation_author" content="Angela P. Schoellig"/>
+
+    <meta name="citation_author_email" content="aschoellig@ethz.ch"/>
+
+    <meta name="citation_author_institution" content="Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland"/>
+
+    <meta name="citation_author" content="Fabian L. Mueller"/>
+
+    <meta name="citation_author_email" content="famuelle@ethz.ch"/>
+
+    <meta name="citation_author_institution" content="Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland"/>
+
+    <meta name="citation_author" content="Raffaello D&#8217;Andrea"/>
+
+    <meta name="citation_author_email" content="rdandrea@ethz.ch"/>
+
+    <meta name="citation_author_institution" content="Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland"/>
+
+    <meta name="twitter:card" content="summary"/>
+
+    <meta name="twitter:title" content="Optimization-based iterative learning for precise quadrocopter traject"/>
+
+    <meta name="twitter:site" content="@SpringerLink"/>
+
+    <meta name="twitter:description" content="Current control systems regulate the behavior of dynamic systems by reacting to noise and unexpected disturbances as they occur. To improve the performance of such control systems, experience from iterative executions can be used to anticipate recurring disturbances and proactively compensate for them. This paper presents an algorithm that exploits data from previous repetitions in order to learn to precisely follow a predefined trajectory. We adapt the feed-forward input signal to the system with the goal of achieving high tracking performance&#8212;even under the presence of model errors and other recurring disturbances. The approach is based on a dynamics model that captures the essential features of the system and that explicitly takes system input and state constraints into account. We combine traditional optimal filtering methods with state-of-the-art optimization techniques in order to obtain an effective and computationally efficient learning strategy that updates the feed-forward input signal according to a customizable learning objective. It is possible to define a termination condition that stops an execution early if the deviation from the nominal trajectory exceeds a given bound. This allows for a safe learning that gradually extends the time horizon of the trajectory. We developed a framework for generating arbitrary flight trajectories and for applying the algorithm to highly maneuverable autonomous quadrotor vehicles in the ETH Flying Machine Arena testbed. Experimental results are discussed for selected trajectories and different learning algorithm parameters."/>
+
+    <meta name="twitter:image" content="https://static-content.springer.com/cover/journal/10514/33/1.jpg"/>
+
+    <meta name="twitter:image:alt" content="Content cover image"/>
+
+    <meta name="citation_springer_api_url" content="http://api.springer.com/metadata/pam?q=doi:10.1007/s10514-012-9283-2&amp;api_key="/>
+
+    <meta name="format-detection" content="telephone=no"/>
+
+    <meta name="citation_cover_date" content="2012/08/01"/>
+
+
+    
+        <meta property="og:url" content="https://link.springer.com/article/10.1007/s10514-012-9283-2"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:site_name" content="Autonomous Robots"/>
+        <meta property="og:title" content="Optimization-based iterative learning for precise quadrocopter trajectory tracking"/>
+        <meta property="og:description" content="Current control systems regulate the behavior of dynamic systems by reacting to noise and unexpected disturbances as they occur. To improve the performance of such control systems, experience from iterative executions can be used to anticipate recurring disturbances and proactively compensate for them. This paper presents an algorithm that exploits data from previous repetitions in order to learn to precisely follow a predefined trajectory. We adapt the feed-forward input signal to the system with the goal of achieving high tracking performance—even under the presence of model errors and other recurring disturbances. The approach is based on a dynamics model that captures the essential features of the system and that explicitly takes system input and state constraints into account. We combine traditional optimal filtering methods with state-of-the-art optimization techniques in order to obtain an effective and computationally efficient learning strategy that updates the feed-forward input signal according to a customizable learning objective. It is possible to define a termination condition that stops an execution early if the deviation from the nominal trajectory exceeds a given bound. This allows for a safe learning that gradually extends the time horizon of the trajectory. We developed a framework for generating arbitrary flight trajectories and for applying the algorithm to highly maneuverable autonomous quadrotor vehicles in the ETH Flying Machine Arena testbed. Experimental results are discussed for selected trajectories and different learning algorithm parameters."/>
+        <meta property="og:image" content="https://media.springernature.com/w110/springer-static/cover/journal/10514.jpg"/>
+    
+
+    <title>Optimization-based iterative learning for precise quadrocopter trajectory tracking | SpringerLink</title>
+
+    <link rel="shortcut icon" href=/oscar-static/images/favicons/springerlink/favicon-eb9f5576a3.ico />
+<link rel="icon" sizes="16x16 32x32 48x48" href=/oscar-static/images/favicons/springerlink/favicon-eb9f5576a3.ico />
+<link rel="icon" sizes="16x16" type="image/png" href=/oscar-static/images/favicons/springerlink/favicon-16x16-8bd8c1c945.png />
+<link rel="icon" sizes="32x32" type="image/png" href=/oscar-static/images/favicons/springerlink/favicon-32x32-61a52d80ab.png />
+<link rel="icon" sizes="48x48" type="image/png" href=/oscar-static/images/favicons/springerlink/favicon-48x48-0ec46b6b10.png />
+<link rel="apple-touch-icon" href=/oscar-static/images/favicons/springerlink/app-icon-iphone@3x-f259d46347.png />
+<link rel="apple-touch-icon" sizes="72x72" href=/oscar-static/images/favicons/springerlink/ic_launcher_hdpi-f77cda7f65.png />
+<link rel="apple-touch-icon" sizes="76x76" href=/oscar-static/images/favicons/springerlink/app-icon-ipad-c3fd26520d.png />
+<link rel="apple-touch-icon" sizes="114x114" href=/oscar-static/images/favicons/springerlink/app-icon-114x114-3d7d4cf9f3.png />
+<link rel="apple-touch-icon" sizes="120x120" href=/oscar-static/images/favicons/springerlink/app-icon-iphone@2x-67b35150b3.png />
+<link rel="apple-touch-icon" sizes="144x144" href=/oscar-static/images/favicons/springerlink/ic_launcher_xxhdpi-986442de7b.png />
+<link rel="apple-touch-icon" sizes="152x152" href=/oscar-static/images/favicons/springerlink/app-icon-ipad@2x-677ba24d04.png />
+<link rel="apple-touch-icon" sizes="180x180" href=/oscar-static/images/favicons/springerlink/app-icon-iphone@3x-f259d46347.png />
+
+
+    
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+
+    <link rel="stylesheet" href=/oscar-static/app-springerlink/css/core-article-b0cd12fb00.css media="screen">
+    <link rel="stylesheet" id="js-mustard" href=/oscar-static/app-springerlink/css/enhanced-article-a6f75929d4.css media="only screen and (-webkit-min-device-pixel-ratio:0) and (min-color-index:0), (-ms-high-contrast: none), only all and (min--moz-device-pixel-ratio:0) and (min-resolution: 3e1dpcm)">
+    
+
+    
+    <script type="text/javascript">
+        window.dataLayer = [{"Country":"US","doi":"10.1007-s10514-012-9283-2","Journal Title":"Autonomous Robots","Journal Id":10514,"Keywords":"Motion planning and control, Aerial robotics, Quadrocopter control, Trajectory tracking, Learning, Input and state constraints, Kalman filtering, Convex optimization","kwrd":["Motion_planning_and_control","Aerial_robotics","Quadrocopter_control","Trajectory_tracking","Learning","Input_and_state_constraints","Kalman_filtering","Convex_optimization"],"Labs":"Y","ksg":"Krux.segments","kuid":"Krux.uid","Has Body":"Y","Features":[],"Open Access":"N","hasAccess":"N","bypassPaywall":"N","user":{"license":{"businessPartnerID":[],"businessPartnerIDString":""}},"Access Type":"no-access","Bpids":"","Bpnames":"","BPID":["1"],"VG Wort Identifier":"pw-vgzm.415900-10.1007-s10514-012-9283-2","Full HTML":"N","Subject Codes":["SCT","SCT19020","SCI21000","SCI22005","SCT19000"],"pmc":["T","T19020","I21000","I22005","T19000"],"session":{"authentication":{"loginStatus":"N"},"attributes":{"edition":"academic"}},"content":{"serial":{"eissn":"1573-7527","pissn":"0929-5593"},"type":"Article","category":{"pmc":{"primarySubject":"Engineering","primarySubjectCode":"T","secondarySubjects":{"1":"Robotics and Automation","2":"Artificial Intelligence","3":"Computer Imaging, Vision, Pattern Recognition and Graphics","4":"Control, Robotics, Mechatronics"},"secondarySubjectCodes":{"1":"T19020","2":"I21000","3":"I22005","4":"T19000"}},"sucode":"SC8"},"attributes":{"deliveryPlatform":"oscar"}},"Event Category":"Article","GA Key":"UA-26408784-1","DOI":"10.1007/s10514-012-9283-2","Page":"article","page":{"attributes":{"environment":"live"}}}];
+        var event = new CustomEvent('dataLayerCreated');
+        document.dispatchEvent(event);
+    </script>
+
+
+    
+
+
+<script src="/oscar-static/js/jquery-220afd743d.js" id="jquery"></script>
+
+<script>
+    function OptanonWrapper() {
+        dataLayer.push({
+            'event' : 'onetrustActive'
+        });
+    }
+</script>
+
+
+    <script data-test="onetrust-link" type="text/javascript" src="https://cdn.cookielaw.org/consent/6b2ec9cd-5ace-4387-96d2-963e596401c6.js" charset="UTF-8"></script>
+
+
+
+
+
+    
+    
+        <!-- Google Tag Manager -->
+        <script data-test="gtm-head">
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = d.getElementsByTagName(s)[0],
+                        j = d.createElement(s),
+                        dl = l != 'dataLayer' ? '&l=' + l : '';
+                j.async = true;
+                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-WCF9Z9');
+        </script>
+        <!-- End Google Tag Manager -->
+    
+
+
+    <script class="js-entry">
+    (function(w, d) {
+        window.config = window.config || {};
+        window.config.mustardcut = false;
+
+        var ctmLinkEl = d.getElementById('js-mustard');
+
+        if (ctmLinkEl && w.matchMedia && w.matchMedia(ctmLinkEl.media).matches) {
+            window.config.mustardcut = true;
+
+            
+            
+            
+                window.Component = {};
+            
+
+            var currentScript = d.currentScript || d.head.querySelector('script.js-entry');
+
+            
+            function catchNoModuleSupport() {
+                var scriptEl = d.createElement('script');
+                return (!('noModule' in scriptEl) && 'onbeforeload' in scriptEl)
+            }
+
+            var headScripts = [
+                { 'src' : '/oscar-static/js/polyfill-es5-bundle-ab77bcf8ba.js', 'async': false, 'module': false},
+                { 'src' : '/oscar-static/js/airbrake-es5-bundle-809363c45b.js', 'async': false, 'module': false},
+                { 'src' : '/oscar-static/js/airbrake-es6-bundle-ad96de13ae.js', 'async': false, 'module': true}
+            ];
+
+            var bodyScripts = [
+                { 'src' : '/oscar-static/js/app-es5-bundle-e1fd73bc93.js', 'async': false, 'module': false},
+                { 'src' : '/oscar-static/js/app-es6-bundle-b050fb65e4.js', 'async': false, 'module': true}
+                
+                
+                    , { 'src' : '/oscar-static/js/global-article-es5-bundle-db13f89e6c.js', 'async': false, 'module': false},
+                    { 'src' : '/oscar-static/js/global-article-es6-bundle-141e71f7f4.js', 'async': false, 'module': true}
+                
+            ];
+
+            function createScript(script) {
+                var scriptEl = d.createElement('script');
+                scriptEl.src = script.src;
+                scriptEl.async = script.async;
+                if (script.module === true) {
+                    scriptEl.type = "module";
+                    if (catchNoModuleSupport()) {
+                        scriptEl.src = '';
+                    }
+                } else if (script.module === false) {
+                    scriptEl.setAttribute('nomodule', true)
+                }
+                if (script.charset) {
+                    scriptEl.setAttribute('charset', script.charset);
+                }
+
+                return scriptEl;
+            }
+
+            for (var i=0; i<headScripts.length; ++i) {
+                var scriptEl = createScript(headScripts[i]);
+                currentScript.parentNode.insertBefore(scriptEl, currentScript.nextSibling);
+            }
+
+            d.addEventListener('DOMContentLoaded', function() {
+                for (var i=0; i<bodyScripts.length; ++i) {
+                    var scriptEl = createScript(bodyScripts[i]);
+                    d.body.appendChild(scriptEl);
+                }
+            });
+
+            // Webfont repeat view
+            var config = w.config;
+            if (config && config.publisherBrand && sessionStorage.fontsLoaded === 'true') {
+                d.documentElement.className += ' webfonts-loaded';
+            }
+        }
+    })(window, document);
+</script>
+
+</head>
+<body class="shared-article-renderer">
+    
+    
+    
+        <!-- Google Tag Manager (noscript) -->
+        <noscript data-test="gtm-body">
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCF9Z9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    
+
+
+    <div class="u-vh-full">
+        
+    <aside class="c-ad c-ad--728x90" data-test="springer-doubleclick-ad">
+        <div class="c-ad__inner">
+            <p class="c-ad__label">Advertisement</p>
+            <div id="div-gpt-ad-LB1" data-gpt-unitpath="/270604982/springerlink/10514/article" data-gpt-sizes="728x90" data-gpt-targeting="pos=LB1;articleid=9283;"></div>
+        </div>
+    </aside>
+
+<div class="u-position-relative">
+    <header class="c-header u-mb-24" data-test="publisher-header">
+        <div class="c-header__container">
+            <div class="c-header__brand">
+                
+    <a id="logo" class="u-display-block" href="/" title="Go to homepage" data-test="springerlink-logo">
+        <picture>
+            <source type="image/svg+xml" srcset=/oscar-static/images/springerlink/svg/springerlink-253e23a83d.svg>
+            <img src=/oscar-static/images/springerlink/png/springerlink-1db8a5b8b1.png alt="SpringerLink" width="148" height="30" data-test="header-academic">
+        </picture>
+        
+        
+    </a>
+
+
+            </div>
+            <div class="c-header__navigation">
+                
+    
+        <button type="button"
+                class="c-header__link u-button-reset u-mr-24"
+                data-expander
+                data-expander-target="#popup-search"
+                data-expander-autofocus="true"
+                data-test="header-search-button">
+            <span class="u-display-flex u-align-items-center">
+                Search
+                <svg class="c-icon u-ml-8" width="22" height="22" aria-hidden="true" focusable="false">
+                    <use xlink:href="#global-icon-search"></use>
+                </svg>
+            </span>
+        </button>
+        <nav>
+            <ul class="c-header__menu">
+                
+                <li class="c-header__item">
+                    <a data-test="login-link" class="c-header__link" href="//link.springer.com/signup-login?previousUrl=https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs10514-012-9283-2%3Ferror%3Dcookies_not_supported%26code%3D8361997f-5ead-4d2c-beb3-18ef268c7d2e">Log in</a>
+                </li>
+                
+
+                
+            </ul>
+        </nav>
+    
+
+    
+
+
+
+            </div>
+        </div>
+    </header>
+
+    
+        <div id="popup-search" class="c-popup-search u-mb-16 js-header-search u-js-hide">
+            <div class="c-popup-search__content">
+                <div class="u-container">
+                    <div class="c-popup-search__container" data-test="springerlink-popup-search">
+                        <div class="app-search">
+    <form role="search" method="GET" action="/search" >
+        <label for="search" class="app-search__label">Search SpringerLink</label>
+        <div class="app-search__content">
+            <input id="search" class="app-search__input" data-search-input autocomplete="off" role="textbox" name="query" type="text" value="">
+            <button class="app-search__button" type="submit">
+                <span class="u-visually-hidden">Search</span>
+                <svg class="c-icon" width="14" height="14" aria-hidden="true" focusable="false">
+                    <use xlink:href="#global-icon-search"></use>
+                </svg>
+            </button>
+            
+                <input type="hidden" name="searchType" value="publisherSearch">
+            
+            
+        </div>
+    </form>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+
+        
+
+    <div class="u-container u-mt-32 u-mb-32 u-clearfix" id="main-content" data-component="article-container">
+        <main class="c-article-main-column u-float-left js-main-column" data-track-component="article body">
+            
+            
+            <article itemscope itemtype="http://schema.org/ScholarlyArticle" lang="en">
+                <div class="c-article-header">
+                    <header>
+                        <ul class="c-article-identifiers" data-test="article-identifier">
+                            
+    
+    
+    
+
+                            <li class="c-article-identifiers__item"><a href="#article-info" data-track="click" data-track-action="publication date" data-track-label="link">Published: <time datetime="2012-04-21" itemprop="datePublished">21 April 2012</time></a></li>
+                        </ul>
+
+                        
+                        <h1 class="c-article-title" data-test="article-title" data-article-title="" itemprop="name headline">Optimization-based iterative learning for precise quadrocopter trajectory tracking</h1>
+                        <ul class="c-author-list js-etal-collapsed" data-etal="25" data-etal-small="3" data-test="authors-list" data-component-authors-activator="authors-list"><li class="c-author-list__item" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><span itemprop="name"><a data-test="author-name" data-track="click" data-track-action="open author" data-track-label="link" href="#auth-1" data-corresp-id="c1">Angela P. Schoellig<svg width="16" height="16" class="u-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#global-icon-email"></use></svg></a></span><sup class="u-js-hide"><a href="#Aff1">1</a><span itemprop="affiliation" itemscope="itemscope" itemtype="http://schema.org/Organization" class="u-visually-hidden"><meta itemprop="name" content="ETH Zurich" /><meta itemprop="address" content="grid.5801.c, 0000000121562780, Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland" /></span></sup>, </li><li class="c-author-list__item" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><span itemprop="name"><a data-test="author-name" data-track="click" data-track-action="open author" data-track-label="link" href="#auth-2">Fabian L. Mueller</a></span><sup class="u-js-hide"><a href="#Aff1">1</a><span itemprop="affiliation" itemscope="itemscope" itemtype="http://schema.org/Organization" class="u-visually-hidden"><meta itemprop="name" content="ETH Zurich" /><meta itemprop="address" content="grid.5801.c, 0000000121562780, Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland" /></span></sup> &amp; </li><li class="c-author-list__item" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person"><span itemprop="name"><a data-test="author-name" data-track="click" data-track-action="open author" data-track-label="link" href="#auth-3">Raffaello D’Andrea</a></span><sup class="u-js-hide"><a href="#Aff1">1</a><span itemprop="affiliation" itemscope="itemscope" itemtype="http://schema.org/Organization" class="u-visually-hidden"><meta itemprop="name" content="ETH Zurich" /><meta itemprop="address" content="grid.5801.c, 0000000121562780, Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland" /></span></sup> </li></ul>
+                        <p class="c-article-info-details" data-container-section="info">
+                            
+    <a data-test="journal-link" href="/journal/10514"><i data-test="journal-title">Autonomous Robots</i></a>
+
+                            <b data-test="journal-volume"><span class="u-visually-hidden">volume</span> 33</b>, <span class="u-visually-hidden">pages</span><span itemprop="pageStart">103</span>–<span itemprop="pageEnd">127</span>(<span data-test="article-publication-year">2012</span>)<a href="#citeas" class="c-article-info-details__cite-as u-hide-print" data-track="click" data-track-action="cite this article" data-track-label="link">Cite this article</a>
+                        </p>
+                        
+    
+
+                        <div data-test="article-metrics">
+                            <div id="altmetric-container">
+    
+        <div class="c-article-metrics-bar__wrapper u-clear-both">
+            <ul class="c-article-metrics-bar u-list-reset">
+                
+                    <li class=" c-article-metrics-bar__item">
+                        <p class="c-article-metrics-bar__count">3404 <span class="c-article-metrics-bar__label">Accesses</span></p>
+                    </li>
+                
+                
+                    <li class="c-article-metrics-bar__item">
+                        <p class="c-article-metrics-bar__count">76 <span class="c-article-metrics-bar__label">Citations</span></p>
+                    </li>
+                
+                
+                    
+                        <li class="c-article-metrics-bar__item">
+                            <p class="c-article-metrics-bar__count">1 <span class="c-article-metrics-bar__label">Altmetric</span></p>
+                        </li>
+                    
+                
+                <li class="c-article-metrics-bar__item">
+                    <p class="c-article-metrics-bar__details"><a href="/article/10.1007%2Fs10514-012-9283-2/metrics" data-track="click" data-track-action="view metrics" data-track-label="link" rel="nofollow">Metrics <span class="u-visually-hidden">details</span></a></p>
+                </li>
+            </ul>
+        </div>
+    
+</div>
+
+                        </div>
+                        
+                        
+                        
+                    </header>
+                </div>
+
+                <div data-article-body="true" data-track-component="article body" class="c-article-body">
+                    <section aria-labelledby="Abs1" lang="en"><div class="c-article-section" id="Abs1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Abs1">Abstract</h2><div class="c-article-section__content" id="Abs1-content"><p>Current control systems regulate the behavior of dynamic systems by reacting to noise and unexpected disturbances as they occur. To improve the performance of such control systems, experience from iterative executions can be used to anticipate recurring disturbances and proactively compensate for them. This paper presents an algorithm that exploits data from previous repetitions in order to learn to precisely follow a predefined trajectory. We adapt the feed-forward input signal to the system with the goal of achieving high tracking performance—even under the presence of model errors and other recurring disturbances. The approach is based on a dynamics model that captures the essential features of the system and that explicitly takes system input and state constraints into account. We combine traditional optimal filtering methods with state-of-the-art optimization techniques in order to obtain an effective and computationally efficient learning strategy that updates the feed-forward input signal according to a customizable learning objective. It is possible to define a termination condition that stops an execution early if the deviation from the nominal trajectory exceeds a given bound. This allows for a safe learning that gradually extends the time horizon of the trajectory. We developed a framework for generating arbitrary flight trajectories and for applying the algorithm to highly maneuverable autonomous quadrotor vehicles in the ETH Flying Machine Arena testbed. Experimental results are discussed for selected trajectories and different learning algorithm parameters.</p></div></div></section>
+                    
+    
+
+
+                    
+                        
+                            <div class="c-notes">
+                                <p class="c-notes__text">This is a preview of subscription content, <a id="test-login-banner-link" href="//link.springer.com/signup-login?previousUrl&#x3D;https%3A%2F%2Flink.springer.com%2Farticle%2F10.1007%2Fs10514-012-9283-2%3Ferror%3Dcookies_not_supported%26code%3D8361997f-5ead-4d2c-beb3-18ef268c7d2e" data-track="click" data-track-action="login" data-track-label="link">log in</a> to check access.</p>
+                            </div>
+                        
+                        
+                            <div class="c-article-buy-box c-article-buy-box--article">
+                                <div class="sprcom-buybox-articleSidebar" id="sprcom-buybox-articleSidebar">
+ <h2 class="c-box__heading">Access options</h2>
+ <article class="c-box" data-test-id="buy-article">
+  <h3 class="c-box__heading">Buy single article</h3>
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p>Instant access to the full article PDF.</p>
+   </div>
+   <div class="buybox__buy">
+    <p class="buybox__price">US$ 39.95</p>
+    <p class="buybox__price-info">Price <b>includes VAT</b> for USA</p>
+    <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_article&amp;abtest=v2" method="post">
+     <input type="hidden" name="type" value="article">
+     <input type="hidden" name="doi" value="10.1007/s10514-012-9283-2">
+     <input type="hidden" name="isxn" value="1573-7527">
+     <input type="hidden" name="contenttitle" value="Optimization-based iterative learning for precise quadrocopter trajectory tracking">
+     <input type="hidden" name="copyrightyear" value="2012">
+     <input type="hidden" name="year" value="2012">
+     <input type="hidden" name="authors" value="Angela P. Schoellig, Fabian L. Mueller, Raffaello D’Andrea">
+     <input type="hidden" name="title" value="Autonomous Robots">
+     <input type="hidden" name="mac" value="D4A79419862B472C78DAE71E6F91236D">
+     <input type="submit" class="c-box__button" data-track="click" data-track-action="buy pdf" data-track-category="ppv" data-track-label="buy article action, new buybox" value="Buy article PDF">
+    </form>
+   </div>
+  </div>
+ </article>
+ <article class="c-box buybox__subscribe-subscription" data-test-id="journal-subscription">
+  <h3 class="c-box__heading">Subscribe to journal</h3>
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p>Immediate online access to all issues from 2019. Subscription will auto renew annually.</p>
+   </div>
+   <div class="buybox__buy">
+    <p class="buybox__price">US$ 99</p>
+    <p class="buybox__price-info">This is the <b>net price</b>. Taxes to be calculated in checkout.</p>
+    <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_journal&amp;abtest=v2" method="post">
+     <input type="hidden" name="type" value="journal">
+     <input type="hidden" name="contenttitle" value="Autonomous Robots">
+     <input type="hidden" name="journalnumber" value="10514">
+     <input type="hidden" name="pricetype" value="PS2">
+     <input type="hidden" name="countrycode" value="US">
+     <input type="submit" class="c-box__button" data-track="click" data-track-action="subscribe to journal" data-track-category="journal" data-track-label="subscribe action, new buybox" value="Buy journal subscription">
+    </form>
+   </div>
+  </div>
+ </article>
+ <article class="c-box buybox__rent-article" id="deepdyve" style="display: none" data-test-id="journal-subscription">
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p><a class="deepdyve-link" target="deepdyve" data-track="click" data-track-action="rent article" data-track-label="rent action, new buybox">Rent this article via DeepDyve.</a></p>
+   </div>
+  </div>
+  <script>
+            function deepDyveResponse(data) {
+                if (data.status === 'ok') {
+                    [].slice.call(document.querySelectorAll('.c-box.buybox__rent-article')).forEach(function (article) {
+                        article.style.display = 'flex'
+                        var link = article.querySelector('.deepdyve-link')
+                        if (link) {
+                          link.setAttribute('href', data.url)
+                        }
+                    })
+                }
+            }
+
+            var script = document.createElement('script')
+            script.src = '//www.deepdyve.com/rental-link?docId=10.1007/s10514-012-9283-2&journal=1573-7527&fieldName=journal_doi&affiliateId=springer&format=jsonp&callback=deepDyveResponse'
+            document.body.appendChild(script)
+          </script>
+ </article>
+ <aside class="buybox__institutional-sub">
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p><a href="https://www.springernature.com/gp/librarians/licensing/license-options?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_institutionalCustomer&amp;abtest=v2" data-track="click" data-track-action="institutional link" data-track-label="institutional subscriptions, new buybox">Learn more about Institutional subscriptions</a></p>
+   </div>
+  </div>
+ </aside>
+ <style>.sprcom-buybox-articleSidebar{
+  box-shadow: 0px 0px 5px rgba(51,51,51,0.101);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar *{
+  box-sizing: border-box;
+  line-height: calc(100% + 4px);
+  margin: 0px;
+}
+.sprcom-buybox-articleSidebar > *{
+  display: flex;
+  flex-basis: 240px;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0.5px;
+}
+.sprcom-buybox-articleSidebar > *{
+  box-shadow: 0 0 0 1px rgba(204,204,204,0.494);
+}
+.sprcom-buybox-articleSidebar .c-box__body{
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 6%;
+}
+.sprcom-buybox-articleSidebar .c-box__body .buybox__buy{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sprcom-buybox-articleSidebar p{
+  color: #333;
+  font-size: 15px;
+}
+.sprcom-buybox-articleSidebar .buybox__price{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(100% + 8px);
+  margin: 20px 0;
+  order: 1;
+}
+.sprcom-buybox-articleSidebar form{
+  order: 1;
+}
+.sprcom-buybox-articleSidebar .buybox__price-info{
+  margin-bottom: 20px;
+}
+.sprcom-buybox-articleSidebar .c-box__heading{
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar .c-box__button{
+  background-color: #3365A4;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  max-width: 222px;
+  padding: 10px 12px;
+  text-decoration: none;
+  width: 100%;
+}
+.sprcom-buybox-articleSidebar h3{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar h2{
+  flex-basis: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .c-box__body{
+  flex-direction: row;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .buybox__info{
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub{
+  background-color: #f0f0f0;
+}
+.sprcom-buybox-articleSidebar .visually-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar style{
+  display: none;
+}
+</style>
+</div>
+                            </div>
+                        
+                        <div class="u-display-none">
+                            <div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-1"><figure><figcaption><b id="Fig1" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 1</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig1_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig1_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-2"><figure><figcaption><b id="Fig2" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 2</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig2_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig2_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-3"><figure><figcaption><b id="Fig3" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 3</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig3_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig3_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-4"><figure><figcaption><b id="Fig4" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 4</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig4_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig4_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-5"><figure><figcaption><b id="Fig5" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 5</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig5_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig5_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-6"><figure><figcaption><b id="Fig6" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 6</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig6_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig6_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-7"><figure><figcaption><b id="Fig7" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 7</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig7_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig7_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-8"><figure><figcaption><b id="Fig8" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 8</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig8_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig8_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-9"><figure><figcaption><b id="Fig9" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 9</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig9_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig9_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-10"><figure><figcaption><b id="Fig10" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 10</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig10_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig10_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-11"><figure><figcaption><b id="Fig11" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 11</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig11_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig11_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-12"><figure><figcaption><b id="Fig12" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 12</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig12_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig12_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-13"><figure><figcaption><b id="Fig13" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 13</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig13_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig13_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-14"><figure><figcaption><b id="Fig14" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 14</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig14_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig14_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-15"><figure><figcaption><b id="Fig15" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 15</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig15_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig15_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-16"><figure><figcaption><b id="Fig16" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 16</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig16_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig16_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-17"><figure><figcaption><b id="Fig17" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 17</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig17_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig17_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-18"><figure><figcaption><b id="Fig18" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 18</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig18_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig18_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-19"><figure><figcaption><b id="Fig19" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 19</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig19_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig19_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-20"><figure><figcaption><b id="Fig20" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 20</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig20_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig20_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-21"><figure><figcaption><b id="Fig21" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 21</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig21_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig21_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-22"><figure><figcaption><b id="Fig22" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 22</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig22_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig22_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div><div class="c-article-section__figure js-c-reading-companion-figures-item" data-test="figure" data-container-section="figure" id="figure-23"><figure><figcaption><b id="Fig23" class="c-article-section__figure-caption" data-test="figure-caption-text">Fig. 23</b></figcaption><div class="c-article-section__figure-content"><div class="c-article-section__figure-item"><picture><source type="image/webp" srcset="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig23_HTML.gif?as=webp"></source><img src="//media.springernature.com/m312/springer-static/image/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_Fig23_HTML.gif" alt="" loading="lazy" /></picture></div></div></figure></div>
+                        </div>
+                    
+
+                    
+
+                    
+
+                    <section aria-labelledby="notes"><div class="c-article-section" id="notes-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="notes">Notes</h2><div class="c-article-section__content" id="notes-content"><ol class="c-article-footnote c-article-footnote--listed"><li class="c-article-footnote--listed__item" id="Fn1"><span class="c-article-footnote--listed__index">1.</span><div class="c-article-footnote--listed__content"><p>The accompanying video is found at <a href="http://tiny.cc/QuadroLearnsTrajectory">http://tiny.cc/QuadroLearnsTrajectory</a>.</p></div></li><li class="c-article-footnote--listed__item" id="Fn2"><span class="c-article-footnote--listed__index">2.</span><div class="c-article-footnote--listed__content"><p>
+                      <a href="http://www.FlyingMachineArena.org">www.FlyingMachineArena.org</a>.</p></div></li><li class="c-article-footnote--listed__item" id="Fn3"><span class="c-article-footnote--listed__index">3.</span><div class="c-article-footnote--listed__content"><p>The accompanying video is found at <a href="http://tiny.cc/QuadroLearnsTrajectory">http://tiny.cc/QuadroLearnsTrajectory</a>.</p></div></li></ol></div></div></section><section aria-labelledby="Bib1"><div class="c-article-section" id="Bib1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Bib1">References</h2><div class="c-article-section__content" id="Bib1-content"><div data-container-section="references"><ol class="c-article-references"><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="H.-S.. Ahn, K. L.. Moore, Y.. Chen, " /><meta itemprop="datePublished" content="2007" /><meta itemprop="headline" content="&#xA;Ahn, H.-S., Moore, K. L., &amp; Chen, Y. (2007). Communications and control engineering. Iterative learning contr" /><p class="c-article-references__text" id="ref-CR1">
+Ahn, H.-S., Moore, K. L., &amp; Chen, Y. (2007). <i>Communications and control engineering</i>. <i>Iterative learning control: robustness and monotonic convergence for interval systems</i> (1st ed.). Berlin: Springer.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 1 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Iterative%20learning%20control%3A%20robustness%20and%20monotonic%20convergence%20for%20interval%20systems&amp;publication_year=2007&amp;author=Ahn%2CH.-S.&amp;author=Moore%2CK.%20L.&amp;author=Chen%2CY.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S.. Al-Hiddabi, " /><meta itemprop="datePublished" content="2009" /><meta itemprop="headline" content="&#xA;Al-Hiddabi, S. (2009). Quadrotor control using feedback linearization with dynamic extension. In Proceedings " /><p class="c-article-references__text" id="ref-CR2">
+Al-Hiddabi, S. (2009). Quadrotor control using feedback linearization with dynamic extension. In <i>Proceedings of the international symposium on mechatronics and its applications (ISMA)</i> (pp. 1–3).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 2 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20international%20symposium%20on%20mechatronics%20and%20its%20applications%20%28ISMA%29&amp;pages=1-3&amp;publication_year=2009&amp;author=Al-Hiddabi%2CS.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="K.. Alexis, G.. Nikolakopoulos, A.. Tzes, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Alexis, K., Nikolakopoulos, G., &amp; Tzes, A. (2010). Constrained-control of a quadrotor helicopter for trajecto" /><p class="c-article-references__text" id="ref-CR3">
+Alexis, K., Nikolakopoulos, G., &amp; Tzes, A. (2010). Constrained-control of a quadrotor helicopter for trajectory tracking under wind-gust disturbances. In <i>Proceedings of the IEEE Mediterranean electrotechnical conference (MELECON)</i> (pp. 1411–1416).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 3 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20Mediterranean%20electrotechnical%20conference%20%28MELECON%29&amp;pages=1411-1416&amp;publication_year=2010&amp;author=Alexis%2CK.&amp;author=Nikolakopoulos%2CG.&amp;author=Tzes%2CA.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="N.. Amann, D. H.. Owens, E.. Rogers, " /><meta itemprop="datePublished" content="1996" /><meta itemprop="headline" content="&#xA;Amann, N., Owens, D. H., &amp; Rogers, E. (1996). Iterative learning control using optimal feedback and feedforwa" /><p class="c-article-references__text" id="ref-CR4">
+Amann, N., Owens, D. H., &amp; Rogers, E. (1996). Iterative learning control using optimal feedback and feedforward actions. <i>International Journal of Control</i>, <i>65</i>(2), 277–293.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=1658300" aria-label="View reference 4 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.emis.de/MATH-item?0857.93044" aria-label="View reference 4 on MATH">MATH</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1080%2F00207179608921697" aria-label="View reference 4">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 4 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Iterative%20learning%20control%20using%20optimal%20feedback%20and%20feedforward%20actions&amp;journal=International%20Journal%20of%20Control&amp;volume=65&amp;issue=2&amp;pages=277-293&amp;publication_year=1996&amp;author=Amann%2CN.&amp;author=Owens%2CD.%20H.&amp;author=Rogers%2CE.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="B. D. O.. Anderson, J. B.. Moore, " /><meta itemprop="datePublished" content="2005" /><meta itemprop="headline" content="&#xA;Anderson, B. D. O., &amp; Moore, J. B. (2005). Dover books on engineering. Optimal filtering. New York: Dover.&#xA;" /><p class="c-article-references__text" id="ref-CR5">
+Anderson, B. D. O., &amp; Moore, J. B. (2005). <i>Dover books on engineering</i>. <i>Optimal filtering</i>. New York: Dover.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 5 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Optimal%20filtering&amp;publication_year=2005&amp;author=Anderson%2CB.%20D.%20O.&amp;author=Moore%2CJ.%20B.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="S.. Arimoto, S.. Kawamura, F.. Miyazaki, " /><meta itemprop="datePublished" content="1984" /><meta itemprop="headline" content="&#xA;Arimoto, S., Kawamura, S., &amp; Miyazaki, F. (1984). Bettering operation of robots by learning. Journal of Robot" /><p class="c-article-references__text" id="ref-CR6">
+Arimoto, S., Kawamura, S., &amp; Miyazaki, F. (1984). Bettering operation of robots by learning. <i>Journal of Robotic Systems</i>, <i>1</i>(2), 123–140.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1002%2Frob.4620010203" aria-label="View reference 6">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 6 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Bettering%20operation%20of%20robots%20by%20learning&amp;journal=Journal%20of%20Robotic%20Systems&amp;volume=1&amp;issue=2&amp;pages=123-140&amp;publication_year=1984&amp;author=Arimoto%2CS.&amp;author=Kawamura%2CS.&amp;author=Miyazaki%2CF.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="B.. Bamieh, J. B.. Pearson, B. A.. Francis, A.. Tannenbaum, " /><meta itemprop="datePublished" content="1991" /><meta itemprop="headline" content="&#xA;Bamieh, B., Pearson, J. B., Francis, B. A., &amp; Tannenbaum, A. (1991). A lifting technique for linear periodic " /><p class="c-article-references__text" id="ref-CR7">
+Bamieh, B., Pearson, J. B., Francis, B. A., &amp; Tannenbaum, A. (1991). A lifting technique for linear periodic systems with applications to sampled-data control. <i>Systems &amp; Control Letters</i>, <i>17</i>(2), 79–88.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=1120753" aria-label="View reference 7 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.emis.de/MATH-item?0747.93057" aria-label="View reference 7 on MATH">MATH</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1016%2F0167-6911%2891%2990033-B" aria-label="View reference 7">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 7 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20lifting%20technique%20for%20linear%20periodic%20systems%20with%20applications%20to%20sampled-data%20control&amp;journal=Systems%20%26%20Control%20Letters&amp;volume=17&amp;issue=2&amp;pages=79-88&amp;publication_year=1991&amp;author=Bamieh%2CB.&amp;author=Pearson%2CJ.%20B.&amp;author=Francis%2CB.%20A.&amp;author=Tannenbaum%2CA.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="K.. Barton, S.. Mishra, E.. Xargay, " /><meta itemprop="datePublished" content="2011" /><meta itemprop="headline" content="&#xA;Barton, K., Mishra, S., &amp; Xargay, E. (2011). Robust iterative learning control: L1 adaptive feedback control " /><p class="c-article-references__text" id="ref-CR8">
+Barton, K., Mishra, S., &amp; Xargay, E. (2011). Robust iterative learning control: L1 adaptive feedback control in an ILC framework. In <i>Proceedings of the American control conference (ACC)</i> (pp. 3663–3668).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 8 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20American%20control%20conference%20%28ACC%29&amp;pages=3663-3668&amp;publication_year=2011&amp;author=Barton%2CK.&amp;author=Mishra%2CS.&amp;author=Xargay%2CE.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="P.. Bauer, B.. Kulcsar, J.. Bokor, " /><meta itemprop="datePublished" content="2009" /><meta itemprop="headline" content="&#xA;Bauer, P., Kulcsar, B., &amp; Bokor, J. (2009). Discrete time minimax tracking control with state and disturbance" /><p class="c-article-references__text" id="ref-CR9">
+Bauer, P., Kulcsar, B., &amp; Bokor, J. (2009). Discrete time minimax tracking control with state and disturbance estimation ii: Time-varying reference and disturbance signals. In <i>Proceedings of the Mediterranean conference on control and automation (MED)</i> (pp. 486–491).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 9 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20Mediterranean%20conference%20on%20control%20and%20automation%20%28MED%29&amp;pages=486-491&amp;publication_year=2009&amp;author=Bauer%2CP.&amp;author=Kulcsar%2CB.&amp;author=Bokor%2CJ.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="headline" content="&#xA;Boost—Basic Linear Algebra Library (2012). Last accessed at 08 Feb 2012. [Online]. Available: http://www.boos" /><p class="c-article-references__text" id="ref-CR10">
+Boost—Basic Linear Algebra Library (2012). Last accessed at 08 Feb 2012. [Online]. Available: <a href="http://www.boost.org/doc/libs/1_46_1/libs/numeric/ublas/doc/index.htm">http://www.boost.org/doc/libs/1_46_1/libs/numeric/ublas/doc/index.htm</a>.
+</p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S.. Bouabdallah, R.. Siegwart, " /><meta itemprop="datePublished" content="2005" /><meta itemprop="headline" content="&#xA;Bouabdallah, S., &amp; Siegwart, R. (2005). Backstepping and sliding-mode techniques applied to an indoor micro q" /><p class="c-article-references__text" id="ref-CR11">
+Bouabdallah, S., &amp; Siegwart, R. (2005). Backstepping and sliding-mode techniques applied to an indoor micro quadrotor. In <i>Proceedings of the IEEE international conference on robotics and automation (ICRA)</i> (pp. 2247–2252).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 11 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20automation%20%28ICRA%29&amp;pages=2247-2252&amp;publication_year=2005&amp;author=Bouabdallah%2CS.&amp;author=Siegwart%2CR.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="Y.. Bouktir, M.. Haddad, T.. Chettibi, " /><meta itemprop="datePublished" content="2008" /><meta itemprop="headline" content="&#xA;Bouktir, Y., Haddad, M., &amp; Chettibi, T. (2008). Trajectory planning for a quadrotor helicopter. In Proceeding" /><p class="c-article-references__text" id="ref-CR12">
+Bouktir, Y., Haddad, M., &amp; Chettibi, T. (2008). Trajectory planning for a quadrotor helicopter. In <i>Proceedings of the Mediterranean conference on control and automation</i> (pp. 1258–1263).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 12 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20Mediterranean%20conference%20on%20control%20and%20automation&amp;pages=1258-1263&amp;publication_year=2008&amp;author=Bouktir%2CY.&amp;author=Haddad%2CM.&amp;author=Chettibi%2CT.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S.. Boyd, L.. Vandenberghe, " /><meta itemprop="datePublished" content="2004" /><meta itemprop="headline" content="&#xA;Boyd, S., &amp; Vandenberghe, L. (2004). Convex optimization. Cambridge: Cambridge University Press.&#xA;" /><p class="c-article-references__text" id="ref-CR13">
+Boyd, S., &amp; Vandenberghe, L. (2004). <i>Convex optimization</i>. Cambridge: Cambridge University Press.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 13 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Convex%20optimization&amp;publication_year=2004&amp;author=Boyd%2CS.&amp;author=Vandenberghe%2CL.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="D. A.. Bristow, M.. Tharayil, A. G.. Alleyne, " /><meta itemprop="datePublished" content="2006" /><meta itemprop="headline" content="&#xA;Bristow, D. A., Tharayil, M., &amp; Alleyne, A. G. (2006). A survey of iterative learning control. IEEE Control S" /><p class="c-article-references__text" id="ref-CR14">
+Bristow, D. A., Tharayil, M., &amp; Alleyne, A. G. (2006). A survey of iterative learning control. <i>IEEE Control Systems Magazine</i>, <i>26</i>(3), 96–114.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1109%2FMCS.2006.1636313" aria-label="View reference 14">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 14 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20survey%20of%20iterative%20learning%20control&amp;journal=IEEE%20Control%20Systems%20Magazine&amp;volume=26&amp;issue=3&amp;pages=96-114&amp;publication_year=2006&amp;author=Bristow%2CD.%20A.&amp;author=Tharayil%2CM.&amp;author=Alleyne%2CA.%20G.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="C. L.. Castillo, W.. Moreno, K. P.. Valavanis, " /><meta itemprop="datePublished" content="2007" /><meta itemprop="headline" content="&#xA;Castillo, C. L., Moreno, W., &amp; Valavanis, K. P. (2007). Unmanned helicopter waypoint trajectory tracking usin" /><p class="c-article-references__text" id="ref-CR15">
+Castillo, C. L., Moreno, W., &amp; Valavanis, K. P. (2007). Unmanned helicopter waypoint trajectory tracking using model predictive control. In <i>Proceedings of the Mediterranean conference on control automation</i> (pp. 1–8).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 15 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20Mediterranean%20conference%20on%20control%20automation&amp;pages=1-8&amp;publication_year=2007&amp;author=Castillo%2CC.%20L.&amp;author=Moreno%2CW.&amp;author=Valavanis%2CK.%20P.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="Y.. Chen, C.. Wen, " /><meta itemprop="datePublished" content="1999" /><meta itemprop="headline" content="&#xA;Chen, Y., &amp; Wen, C. (1999). Lecture notes in control and information sciences. Iterative learning control: co" /><p class="c-article-references__text" id="ref-CR16">
+Chen, Y., &amp; Wen, C. (1999). <i>Lecture notes in control and information sciences</i>. <i>Iterative learning control: convergence, robustness and applications</i> (1st ed.). Berlin: Springer.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 16 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Iterative%20learning%20control%3A%20convergence%2C%20robustness%20and%20applications&amp;publication_year=1999&amp;author=Chen%2CY.&amp;author=Wen%2CC.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="I.. Chin, S. J.. Qin, K. S.. Lee, M.. Cho, " /><meta itemprop="datePublished" content="2004" /><meta itemprop="headline" content="&#xA;Chin, I., Qin, S. J., Lee, K. S., &amp; Cho, M. (2004). A two-stage iterative learning control technique combined" /><p class="c-article-references__text" id="ref-CR17">
+Chin, I., Qin, S. J., Lee, K. S., &amp; Cho, M. (2004). A two-stage iterative learning control technique combined with real-time feedback for independent disturbance rejection. <i>Automatica</i>, <i>40</i>(11), 1913–1922.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=2155999" aria-label="View reference 17 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.emis.de/MATH-item?1060.93510" aria-label="View reference 17 on MATH">MATH</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1016%2Fj.automatica.2004.05.011" aria-label="View reference 17">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 17 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20two-stage%20iterative%20learning%20control%20technique%20combined%20with%20real-time%20feedback%20for%20independent%20disturbance%20rejection&amp;journal=Automatica&amp;volume=40&amp;issue=11&amp;pages=1913-1922&amp;publication_year=2004&amp;author=Chin%2CI.&amp;author=Qin%2CS.%20J.&amp;author=Lee%2CK.%20S.&amp;author=Cho%2CM.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="M.. Cho, Y.. Lee, S.. Joo, K. S.. Lee, " /><meta itemprop="datePublished" content="2005" /><meta itemprop="headline" content="&#xA;Cho, M., Lee, Y., Joo, S., &amp; Lee, K. S. (2005). Semi-empirical model-based multivariable iterative learning c" /><p class="c-article-references__text" id="ref-CR18">
+Cho, M., Lee, Y., Joo, S., &amp; Lee, K. S. (2005). Semi-empirical model-based multivariable iterative learning control of an RTP system. <i>IEEE Transactions on Semiconductor Manufacturing</i>, <i>18</i>(3), 430–439.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1109%2FTSM.2005.852111" aria-label="View reference 18">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 18 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Semi-empirical%20model-based%20multivariable%20iterative%20learning%20control%20of%20an%20RTP%20system&amp;journal=IEEE%20Transactions%20on%20Semiconductor%20Manufacturing&amp;volume=18&amp;issue=3&amp;pages=430-439&amp;publication_year=2005&amp;author=Cho%2CM.&amp;author=Lee%2CY.&amp;author=Joo%2CS.&amp;author=Lee%2CK.%20S.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="C. K.. Chui, G.. Chen, " /><meta itemprop="datePublished" content="1998" /><meta itemprop="headline" content="&#xA;Chui, C. K., &amp; Chen, G. (1998). Springer series in information sciences. Kalman filtering: with real-time app" /><p class="c-article-references__text" id="ref-CR19">
+Chui, C. K., &amp; Chen, G. (1998). <i>Springer series in information sciences</i>. <i>Kalman filtering: with real-time applications</i>. Berlin: Springer.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 19 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Kalman%20filtering%3A%20with%20real-time%20applications&amp;publication_year=1998&amp;author=Chui%2CC.%20K.&amp;author=Chen%2CG.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="I.. Cowling, O.. Yakimenko, J.. Whidborne, A.. Cooke, " /><meta itemprop="datePublished" content="2007" /><meta itemprop="headline" content="&#xA;Cowling, I., Yakimenko, O., Whidborne, J., &amp; Cooke, A. (2007). A prototype of an autonomous controller for a " /><p class="c-article-references__text" id="ref-CR20">
+Cowling, I., Yakimenko, O., Whidborne, J., &amp; Cooke, A. (2007). A prototype of an autonomous controller for a quadrotor UAV. In <i>Proceedings of the European control conference (ECC)</i> (pp. 1–8).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 20 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20European%20control%20conference%20%28ECC%29&amp;pages=1-8&amp;publication_year=2007&amp;author=Cowling%2CI.&amp;author=Yakimenko%2CO.&amp;author=Whidborne%2CJ.&amp;author=Cooke%2CA.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="headline" content="&#xA;Curve Fitting Toolbox Splines and MATLAB Splines (2012). Last accessed 08 Feb 2012. [Online]. Available: http" /><p class="c-article-references__text" id="ref-CR21">
+Curve Fitting Toolbox Splines and MATLAB Splines (2012). Last accessed 08 Feb 2012. [Online]. Available: <a href="http://www.mathworks.com/help/toolbox/curvefit/f2-10452.html">http://www.mathworks.com/help/toolbox/curvefit/f2-10452.html</a>.
+</p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="C.. Diao, B.. Xian, Q.. Yin, W.. Zeng, H.. Li, Y.. Yang, " /><meta itemprop="datePublished" content="2011" /><meta itemprop="headline" content="&#xA;Diao, C., Xian, B., Yin, Q., Zeng, W., Li, H., &amp; Yang, Y. (2011). A nonlinear adaptive control approach for q" /><p class="c-article-references__text" id="ref-CR22">
+Diao, C., Xian, B., Yin, Q., Zeng, W., Li, H., &amp; Yang, Y. (2011). A nonlinear adaptive control approach for quadrotor UAVs. In <i>Proceedings of the Asian control conference (ASCC)</i> (pp. 223–228).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 22 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20Asian%20control%20conference%20%28ASCC%29&amp;pages=223-228&amp;publication_year=2011&amp;author=Diao%2CC.&amp;author=Xian%2CB.&amp;author=Yin%2CQ.&amp;author=Zeng%2CW.&amp;author=Li%2CH.&amp;author=Yang%2CY.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="T.. Dierks, S.. Jagannathan, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Dierks, T., &amp; Jagannathan, S. (2010). Output feedback control of a quadrotor UAV using neural networks. IEEE " /><p class="c-article-references__text" id="ref-CR23">
+Dierks, T., &amp; Jagannathan, S. (2010). Output feedback control of a quadrotor UAV using neural networks. <i>IEEE Transactions on Neural Networks</i>, <i>21</i>(1), 50–66.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1109%2FTNN.2009.2034145" aria-label="View reference 23">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 23 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Output%20feedback%20control%20of%20a%20quadrotor%20UAV%20using%20neural%20networks&amp;journal=IEEE%20Transactions%20on%20Neural%20Networks&amp;volume=21&amp;issue=1&amp;pages=50-66&amp;publication_year=2010&amp;author=Dierks%2CT.&amp;author=Jagannathan%2CS.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="D.. Gurdan, J.. Stumpf, M.. Achtelik, K.-M.. Doth, G.. Hirzinger, D.. Rus, " /><meta itemprop="datePublished" content="2007" /><meta itemprop="headline" content="&#xA;Gurdan, D., Stumpf, J., Achtelik, M., Doth, K.-M., Hirzinger, G., &amp; Rus, D. (2007). Energy-efficient autonomo" /><p class="c-article-references__text" id="ref-CR24">
+Gurdan, D., Stumpf, J., Achtelik, M., Doth, K.-M., Hirzinger, G., &amp; Rus, D. (2007). Energy-efficient autonomous four-rotor flying robot controlled at 1 kHz. In <i>Proceedings of the IEEE international conference on robotics and automation (ICRA)</i> (pp. 361–366).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 24 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20automation%20%28ICRA%29&amp;pages=361-366&amp;publication_year=2007&amp;author=Gurdan%2CD.&amp;author=Stumpf%2CJ.&amp;author=Achtelik%2CM.&amp;author=Doth%2CK.-M.&amp;author=Hirzinger%2CG.&amp;author=Rus%2CD.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="G.. Hoffmann, S.. Waslander, C.. Tomlin, " /><meta itemprop="datePublished" content="2008" /><meta itemprop="headline" content="&#xA;Hoffmann, G., Waslander, S., &amp; Tomlin, C. (2008). Quadrotor helicopter trajectory tracking control. In Procee" /><p class="c-article-references__text" id="ref-CR25">
+Hoffmann, G., Waslander, S., &amp; Tomlin, C. (2008). Quadrotor helicopter trajectory tracking control. In <i>Proceedings of the AIAA guidance, navigation and control conference and exhibit</i>, Honolulu, Hawaii.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 25 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20AIAA%20guidance%2C%20navigation%20and%20control%20conference%20and%20exhibit&amp;publication_year=2008&amp;author=Hoffmann%2CG.&amp;author=Waslander%2CS.&amp;author=Tomlin%2CC.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="J. P.. How, B.. Bethke, A.. Frank, D.. Dale, J.. Vian, " /><meta itemprop="datePublished" content="2008" /><meta itemprop="headline" content="&#xA;How, J. P., Bethke, B., Frank, A., Dale, D., &amp; Vian, J. (2008). Real-time indoor autonomous vehicle test envi" /><p class="c-article-references__text" id="ref-CR26">
+How, J. P., Bethke, B., Frank, A., Dale, D., &amp; Vian, J. (2008). Real-time indoor autonomous vehicle test environment. <i>IEEE Control Systems Magazine</i>, <i>28</i>(2), 51–64.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=2398716" aria-label="View reference 26 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1109%2FMCS.2007.914691" aria-label="View reference 26">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 26 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Real-time%20indoor%20autonomous%20vehicle%20test%20environment&amp;journal=IEEE%20Control%20Systems%20Magazine&amp;volume=28&amp;issue=2&amp;pages=51-64&amp;publication_year=2008&amp;author=How%2CJ.%20P.&amp;author=Bethke%2CB.&amp;author=Frank%2CA.&amp;author=Dale%2CD.&amp;author=Vian%2CJ.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="H.. Huang, G.. Hoffmann, S.. Waslander, C.. Tomlin, " /><meta itemprop="datePublished" content="2009" /><meta itemprop="headline" content="&#xA;Huang, H., Hoffmann, G., Waslander, S., &amp; Tomlin, C. (2009). Aerodynamics and control of autonomous quadrotor" /><p class="c-article-references__text" id="ref-CR27">
+Huang, H., Hoffmann, G., Waslander, S., &amp; Tomlin, C. (2009). Aerodynamics and control of autonomous quadrotor helicopters in aggressive maneuvering. In <i>Proceedings of the IEEE international conference on robotics and automation (ICRA)</i> (pp. 3277–3282).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 27 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20automation%20%28ICRA%29&amp;pages=3277-3282&amp;publication_year=2009&amp;author=Huang%2CH.&amp;author=Hoffmann%2CG.&amp;author=Waslander%2CS.&amp;author=Tomlin%2CC.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="headline" content="&#xA;IBM ILOG CPLEX Optimizer (2012). Last accessed 08 Feb 2012. [Online]. Available: http://www-01.ibm.com/softwa" /><p class="c-article-references__text" id="ref-CR28">
+IBM ILOG CPLEX Optimizer (2012). Last accessed 08 Feb 2012. [Online]. Available: <a href="http://www-01.ibm.com/software/integration/optimization/cplex-optimizer/">http://www-01.ibm.com/software/integration/optimization/cplex-optimizer/</a>.
+</p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="K. S.. Lee, J.. Lee, I.. Chin, J.. Choi, J. H.. Lee, " /><meta itemprop="datePublished" content="2001" /><meta itemprop="headline" content="&#xA;Lee, K. S., Lee, J., Chin, I., Choi, J., &amp; Lee, J. H. (2001). Control of wafer temperature uniformity in rapi" /><p class="c-article-references__text" id="ref-CR29">
+Lee, K. S., Lee, J., Chin, I., Choi, J., &amp; Lee, J. H. (2001). Control of wafer temperature uniformity in rapid thermal processing using an optimal iterative learning control technique. <i>Industrial &amp; Engineering Chemistry Research</i>, <i>40</i>(7), 1661–1672.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1021%2Fie0005553" aria-label="View reference 29">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 29 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Control%20of%20wafer%20temperature%20uniformity%20in%20rapid%20thermal%20processing%20using%20an%20optimal%20iterative%20learning%20control%20technique&amp;journal=Industrial%20%26%20Engineering%20Chemistry%20Research&amp;volume=40&amp;issue=7&amp;pages=1661-1672&amp;publication_year=2001&amp;author=Lee%2CK.%20S.&amp;author=Lee%2CJ.&amp;author=Chin%2CI.&amp;author=Choi%2CJ.&amp;author=Lee%2CJ.%20H.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="D.. Lee, T.. Burg, D.. Dawson, D.. Shu, B.. Xian, E.. Tatlicioglu, " /><meta itemprop="datePublished" content="2009" /><meta itemprop="headline" content="&#xA;Lee, D., Burg, T., Dawson, D., Shu, D., Xian, B., &amp; Tatlicioglu, E. (2009). Robust tracking control of an und" /><p class="c-article-references__text" id="ref-CR30">
+Lee, D., Burg, T., Dawson, D., Shu, D., Xian, B., &amp; Tatlicioglu, E. (2009). Robust tracking control of an underactuated quadrotor aerial-robot based on a parametric uncertain model. In <i>Proceedings of the IEEE international conference on systems, man and cybernetics (SMC)</i> (pp. 3187–3192).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 30 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20systems%2C%20man%20and%20cybernetics%20%28SMC%29&amp;pages=3187-3192&amp;publication_year=2009&amp;author=Lee%2CD.&amp;author=Burg%2CT.&amp;author=Dawson%2CD.&amp;author=Shu%2CD.&amp;author=Xian%2CB.&amp;author=Tatlicioglu%2CE.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S.-H.. Lin, F.-L.. Lian, " /><meta itemprop="datePublished" content="2005" /><meta itemprop="headline" content="&#xA;Lin, S.-H., &amp; Lian, F.-L. (2005). Study of feasible trajectory generation algorithms for control of planar mo" /><p class="c-article-references__text" id="ref-CR31">
+Lin, S.-H., &amp; Lian, F.-L. (2005). Study of feasible trajectory generation algorithms for control of planar mobile robots. In <i>Proceedings of the IEEE international conference on robotics and biomimetics (ROBIO)</i> (pp. 121–126).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 31 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20biomimetics%20%28ROBIO%29&amp;pages=121-126&amp;publication_year=2005&amp;author=Lin%2CS.-H.&amp;author=Lian%2CF.-L.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="R. W.. Longman, " /><meta itemprop="datePublished" content="2000" /><meta itemprop="headline" content="&#xA;Longman, R. W. (2000). Iterative learning control and repetitive control for engineering practice. Internatio" /><p class="c-article-references__text" id="ref-CR32">
+Longman, R. W. (2000). Iterative learning control and repetitive control for engineering practice. <i>International Journal of Control</i>, <i>73</i>(10), 930–954.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=1781979" aria-label="View reference 32 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.emis.de/MATH-item?1006.93598" aria-label="View reference 32 on MATH">MATH</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1080%2F002071700405905" aria-label="View reference 32">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 32 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Iterative%20learning%20control%20and%20repetitive%20control%20for%20engineering%20practice&amp;journal=International%20Journal%20of%20Control&amp;volume=73&amp;issue=10&amp;pages=930-954&amp;publication_year=2000&amp;author=Longman%2CR.%20W.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S.. Lupashin, R.. D’Andrea, " /><meta itemprop="datePublished" content="2011" /><meta itemprop="headline" content="&#xA;Lupashin, S., &amp; D’Andrea, R. (2011). Adaptive open-loop aerobatic maneuvers for quadrocopters. In Proceedings" /><p class="c-article-references__text" id="ref-CR33">
+Lupashin, S., &amp; D’Andrea, R. (2011). Adaptive open-loop aerobatic maneuvers for quadrocopters. In <i>Proceedings of the IFAC World congress</i> (Vol. 18(1), pp. 2600–2606).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 33 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IFAC%20World%20congress&amp;pages=2600-2606&amp;publication_year=2011&amp;author=Lupashin%2CS.&amp;author=D%E2%80%99Andrea%2CR.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S.. Lupashin, A.P.. Schoellig, M.. Sherback, R.. D’Andrea, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Lupashin, S., Schoellig, A.P., Sherback, M., &amp; D’Andrea, R. (2010). A simple learning strategy for high-speed" /><p class="c-article-references__text" id="ref-CR34">
+Lupashin, S., Schoellig, A.P., Sherback, M., &amp; D’Andrea, R. (2010). A simple learning strategy for high-speed quadrocopter multi-flips. In <i>Proceedings of the IEEE international conference on robotics and automation (ICRA)</i> (pp. 1642–1648).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 34 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20automation%20%28ICRA%29&amp;pages=1642-1648&amp;publication_year=2010&amp;author=Lupashin%2CS.&amp;author=Schoellig%2CA.P.&amp;author=Sherback%2CM.&amp;author=D%E2%80%99Andrea%2CR.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="T.. Madani, A.. Benallegue, " /><meta itemprop="datePublished" content="2006" /><meta itemprop="headline" content="&#xA;Madani, T., &amp; Benallegue, A. (2006). Backstepping control for a quadrotor helicopter. In Proceedings of the I" /><p class="c-article-references__text" id="ref-CR35">
+Madani, T., &amp; Benallegue, A. (2006). Backstepping control for a quadrotor helicopter. In <i>Proceedings of the IEEE/RSJ international conference on intelligent robots and systems (IROS)</i> (pp. 3255–3260).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 35 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%2FRSJ%20international%20conference%20on%20intelligent%20robots%20and%20systems%20%28IROS%29&amp;pages=3255-3260&amp;publication_year=2006&amp;author=Madani%2CT.&amp;author=Benallegue%2CA.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="D.. Mellinger, N.. Michael, V.. Kumar, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Mellinger, D., Michael, N., &amp; Kumar, V. (2010). Trajectory generation and control for precise aggressive mane" /><p class="c-article-references__text" id="ref-CR36">
+Mellinger, D., Michael, N., &amp; Kumar, V. (2010). Trajectory generation and control for precise aggressive maneuvers with quadrotors. In <i>Proceedings of the international symposium on experimental robotics</i>.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 36 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20international%20symposium%20on%20experimental%20robotics&amp;publication_year=2010&amp;author=Mellinger%2CD.&amp;author=Michael%2CN.&amp;author=Kumar%2CV.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="N.. Michael, D.. Mellinger, Q.. Lindsey, V.. Kumar, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Michael, N., Mellinger, D., Lindsey, Q., &amp; Kumar, V. (2010). The GRASP multiple micro UAV testbed. IEEE Robot" /><p class="c-article-references__text" id="ref-CR37">
+Michael, N., Mellinger, D., Lindsey, Q., &amp; Kumar, V. (2010). The GRASP multiple micro UAV testbed. <i>IEEE Robotics &amp; Automation Magazine</i>, <i>17</i>(3), 56–65.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1109%2FMRA.2010.937855" aria-label="View reference 37">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 37 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=The%20GRASP%20multiple%20micro%20UAV%20testbed&amp;journal=IEEE%20Robotics%20%26%20Automation%20Magazine&amp;volume=17&amp;issue=3&amp;pages=56-65&amp;publication_year=2010&amp;author=Michael%2CN.&amp;author=Mellinger%2CD.&amp;author=Lindsey%2CQ.&amp;author=Kumar%2CV.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="A.. Mokhtari, A.. Benallegue, " /><meta itemprop="datePublished" content="2004" /><meta itemprop="headline" content="&#xA;Mokhtari, A., &amp; Benallegue, A. (2004). Dynamic feedback controller of Euler angles and wind parameters estima" /><p class="c-article-references__text" id="ref-CR38">
+Mokhtari, A., &amp; Benallegue, A. (2004). Dynamic feedback controller of Euler angles and wind parameters estimation for a quadrotor unmanned aerial vehicle. In <i>Proceedings of the IEEE international conference on robotics and automation (ICRA)</i> (Vol. 3, pp. 2359–2366).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 38 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20automation%20%28ICRA%29&amp;pages=2359-2366&amp;publication_year=2004&amp;author=Mokhtari%2CA.&amp;author=Benallegue%2CA.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="K. L.. Moore, " /><meta itemprop="datePublished" content="1998" /><meta itemprop="headline" content="&#xA;Moore, K. L. (1998). Multi-loop control approach to designing iterative learning controllers. In Proceedings " /><p class="c-article-references__text" id="ref-CR39">
+Moore, K. L. (1998). Multi-loop control approach to designing iterative learning controllers. In <i>Proceedings of the IEEE conference on decision and control (CDC)</i> (Vol. 1, pp. 666–671).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 39 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20conference%20on%20decision%20and%20control%20%28CDC%29&amp;pages=666-671&amp;publication_year=1998&amp;author=Moore%2CK.%20L.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="C.. Nicol, C. J. B.. Macnab, A.. Ramirez-Serrano, " /><meta itemprop="datePublished" content="2011" /><meta itemprop="headline" content="&#xA;Nicol, C., Macnab, C. J. B., &amp; Ramirez-Serrano, A. (2011). Robust adaptive control of a quadrotor helicopter." /><p class="c-article-references__text" id="ref-CR40">
+Nicol, C., Macnab, C. J. B., &amp; Ramirez-Serrano, A. (2011). Robust adaptive control of a quadrotor helicopter. <i>Mechatronics</i>, <i>21</i>(6), 927–938.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1016%2Fj.mechatronics.2011.02.007" aria-label="View reference 40">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 40 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Robust%20adaptive%20control%20of%20a%20quadrotor%20helicopter&amp;journal=Mechatronics&amp;volume=21&amp;issue=6&amp;pages=927-938&amp;publication_year=2011&amp;author=Nicol%2CC.&amp;author=Macnab%2CC.%20J.%20B.&amp;author=Ramirez-Serrano%2CA.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="M.. Norrloef, S.. Gunnarsson, " /><meta itemprop="datePublished" content="2002" /><meta itemprop="headline" content="&#xA;Norrloef, M., &amp; Gunnarsson, S. (2002). Time and frequency domain convergence properties in iterative learning" /><p class="c-article-references__text" id="ref-CR41">
+Norrloef, M., &amp; Gunnarsson, S. (2002). Time and frequency domain convergence properties in iterative learning control. <i>International Journal of Control</i>, <i>75</i>(14), 1114–1126.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=1935518" aria-label="View reference 41 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.emis.de/MATH-item?1030.93016" aria-label="View reference 41 on MATH">MATH</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1080%2F00207170210159122" aria-label="View reference 41">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 41 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Time%20and%20frequency%20domain%20convergence%20properties%20in%20iterative%20learning%20control&amp;journal=International%20Journal%20of%20Control&amp;volume=75&amp;issue=14&amp;pages=1114-1126&amp;publication_year=2002&amp;author=Norrloef%2CM.&amp;author=Gunnarsson%2CS.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="M. Q.. Phan, R. W.. Longman, " /><meta itemprop="datePublished" content="1988" /><meta itemprop="headline" content="&#xA;Phan, M. Q., &amp; Longman, R. W. (1988). A mathematical theory of learning control for linear discrete multivari" /><p class="c-article-references__text" id="ref-CR42">
+Phan, M. Q., &amp; Longman, R. W. (1988). A mathematical theory of learning control for linear discrete multivariable systems. In <i>Proceedings of the AIAA/AAS astrodynamics conference</i> (pp. 740–746).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 42 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20AIAA%2FAAS%20astrodynamics%20conference&amp;pages=740-746&amp;publication_year=1988&amp;author=Phan%2CM.%20Q.&amp;author=Longman%2CR.%20W.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="A.. Piazzi, C.. Guarino Lo Bianco, " /><meta itemprop="datePublished" content="2000" /><meta itemprop="headline" content="&#xA;Piazzi, A., &amp; Guarino Lo Bianco, C. (2000). Quintic G&#xA;                  2-splines for trajectory planning of " /><p class="c-article-references__text" id="ref-CR43">
+Piazzi, A., &amp; Guarino Lo Bianco, C. (2000). Quintic <i>G</i>
+                  <sup>2</sup>-splines for trajectory planning of autonomous vehicles. In <i>Proceedings of the IEEE intelligent vehicles symposium</i> (pp. 198–203).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 43 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20intelligent%20vehicles%20symposium&amp;pages=198-203&amp;publication_year=2000&amp;author=Piazzi%2CA.&amp;author=Guarino%20Lo%20Bianco%2CC.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="P.. Pounds, R.. Mahony, P.. Corke, " /><meta itemprop="datePublished" content="2006" /><meta itemprop="headline" content="&#xA;Pounds, P., Mahony, R., &amp; Corke, P. (2006). Modelling and control of a quad-rotor robot. In Proceedings of th" /><p class="c-article-references__text" id="ref-CR44">
+Pounds, P., Mahony, R., &amp; Corke, P. (2006). Modelling and control of a quad-rotor robot. In <i>Proceedings of the Australasian conference on robotics and automation</i>.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 44 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20Australasian%20conference%20on%20robotics%20and%20automation&amp;publication_year=2006&amp;author=Pounds%2CP.&amp;author=Mahony%2CR.&amp;author=Corke%2CP.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="O.. Purwin, R.. D’Andrea, " /><meta itemprop="datePublished" content="2009" /><meta itemprop="headline" content="&#xA;Purwin, O., &amp; D’Andrea, R. (2009). Performing aggressive maneuvers using iterative learning control. In Proce" /><p class="c-article-references__text" id="ref-CR45">
+Purwin, O., &amp; D’Andrea, R. (2009). Performing aggressive maneuvers using iterative learning control. In <i>Proceedings of the IEEE international conference on robotics and automation (ICRA)</i> (pp. 1731–1736).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 45 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20robotics%20and%20automation%20%28ICRA%29&amp;pages=1731-1736&amp;publication_year=2009&amp;author=Purwin%2CO.&amp;author=D%E2%80%99Andrea%2CR.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="G.. Raffo, M.. Ortega, F.. Rubio, " /><meta itemprop="datePublished" content="2008" /><meta itemprop="headline" content="&#xA;Raffo, G., Ortega, M., &amp; Rubio, F. (2008). Backstepping/nonlinear H&#xA;                  ∞ control for path trac" /><p class="c-article-references__text" id="ref-CR46">
+Raffo, G., Ortega, M., &amp; Rubio, F. (2008). Backstepping/nonlinear <i>H</i>
+                  <sub>∞</sub> control for path tracking of a quadrotor unmanned aerial vehicle. In <i>Proceedings of the American control conference (ACC)</i> (pp. 3356–3361).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 46 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20American%20control%20conference%20%28ACC%29&amp;pages=3356-3361&amp;publication_year=2008&amp;author=Raffo%2CG.&amp;author=Ortega%2CM.&amp;author=Rubio%2CF.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="J. K.. Rice, M.. Verhaegen, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Rice, J. K., &amp; Verhaegen, M. (2010). A structured matrix approach to efficient calculation of LQG repetitive " /><p class="c-article-references__text" id="ref-CR47">
+Rice, J. K., &amp; Verhaegen, M. (2010). A structured matrix approach to efficient calculation of LQG repetitive learning controllers in the lifted setting. <i>International Journal of Control</i>, <i>83</i>(6), 1265–1276.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=2662774" aria-label="View reference 47 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.emis.de/MATH-item?1222.93141" aria-label="View reference 47 on MATH">MATH</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1080%2F00207171003682671" aria-label="View reference 47">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 47 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=A%20structured%20matrix%20approach%20to%20efficient%20calculation%20of%20LQG%20repetitive%20learning%20controllers%20in%20the%20lifted%20setting&amp;journal=International%20Journal%20of%20Control&amp;volume=83&amp;issue=6&amp;pages=1265-1276&amp;publication_year=2010&amp;author=Rice%2CJ.%20K.&amp;author=Verhaegen%2CM.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="R.. Ritz, M.. Hehn, S.. Lupashin, R.. D’Andrea, " /><meta itemprop="datePublished" content="2011" /><meta itemprop="headline" content="&#xA;Ritz, R., Hehn, M., Lupashin, S., &amp; D’Andrea, R. (2011). Quadrotor performance benchmarking using optimal con" /><p class="c-article-references__text" id="ref-CR48">
+Ritz, R., Hehn, M., Lupashin, S., &amp; D’Andrea, R. (2011). Quadrotor performance benchmarking using optimal control. In <i>Proceedings of the IEEE/RSJ international conference on intelligent robots and systems (IROS)</i> (pp. 5179–5186).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 48 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%2FRSJ%20international%20conference%20on%20intelligent%20robots%20and%20systems%20%28IROS%29&amp;pages=5179-5186&amp;publication_year=2011&amp;author=Ritz%2CR.&amp;author=Hehn%2CM.&amp;author=Lupashin%2CS.&amp;author=D%E2%80%99Andrea%2CR.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="A. P.. Schoellig, R.. D’Andrea, " /><meta itemprop="datePublished" content="2009" /><meta itemprop="headline" content="&#xA;Schoellig, A. P., &amp; D’Andrea, R. (2009). Optimization-based iterative learning control for trajectory trackin" /><p class="c-article-references__text" id="ref-CR49">
+Schoellig, A. P., &amp; D’Andrea, R. (2009). Optimization-based iterative learning control for trajectory tracking. In <i>Proceedings of the European control conference (ECC)</i> (pp. 1505–1510).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 49 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20European%20control%20conference%20%28ECC%29&amp;pages=1505-1510&amp;publication_year=2009&amp;author=Schoellig%2CA.%20P.&amp;author=D%E2%80%99Andrea%2CR.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="headline" content="&#xA;The Mathworks Optimization Toolbox (2012). Last accessed 08 Feb 2012. [Online]. Available: http://www.mathwor" /><p class="c-article-references__text" id="ref-CR50">
+The Mathworks Optimization Toolbox (2012). Last accessed 08 Feb 2012. [Online]. Available: <a href="http://www.mathworks.com/help/toolbox/optim/ug/fmincon.html">http://www.mathworks.com/help/toolbox/optim/ug/fmincon.html</a>.
+</p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="R.. Tousain, E.. Meche, O.. Bosgra, " /><meta itemprop="datePublished" content="2001" /><meta itemprop="headline" content="&#xA;Tousain, R., van der Meche, E., &amp; Bosgra, O. (2001). Design strategy for iterative learning control based on " /><p class="c-article-references__text" id="ref-CR51">
+Tousain, R., van der Meche, E., &amp; Bosgra, O. (2001). Design strategy for iterative learning control based on optimal control. In <i>Proceedings of the IEEE conference on decision and control (CDC)</i> (Vol. 5, pp. 4463–4468).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 51 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20conference%20on%20decision%20and%20control%20%28CDC%29&amp;pages=4463-4468&amp;publication_year=2001&amp;author=Tousain%2CR.&amp;author=Meche%2CE.&amp;author=Bosgra%2CO.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="S. L.. Waslander, G. M.. Hoffmann, J. S.. Jang, C.. Tomlin, " /><meta itemprop="datePublished" content="2005" /><meta itemprop="headline" content="&#xA;Waslander, S. L., Hoffmann, G. M., Jang, J. S., &amp; Tomlin, C. (2005). Multi-agent quadrotor testbed control de" /><p class="c-article-references__text" id="ref-CR52">
+Waslander, S. L., Hoffmann, G. M., Jang, J. S., &amp; Tomlin, C. (2005). Multi-agent quadrotor testbed control design: integral sliding mode vs. reinforcement learning. In <i>Proceedings of the IEEE/RSJ international conference on intelligent robots and systems (IROS)</i>, August 2005 (pp. 3712–3717).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 52 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%2FRSJ%20international%20conference%20on%20intelligent%20robots%20and%20systems%20%28IROS%29&amp;pages=3712-3717&amp;publication_year=2005&amp;author=Waslander%2CS.%20L.&amp;author=Hoffmann%2CG.%20M.&amp;author=Jang%2CJ.%20S.&amp;author=Tomlin%2CC.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="C.. Zhang, N.. Wang, J.. Chen, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Zhang, C., Wang, N., &amp; Chen, J. (2010). Trajectory generation for aircraft based on differential flatness and" /><p class="c-article-references__text" id="ref-CR53">
+Zhang, C., Wang, N., &amp; Chen, J. (2010). Trajectory generation for aircraft based on differential flatness and spline theory. In <i>Proceedings of the international conference on information networking and automation (ICINA)</i> (Vol. 1, pp. V1-110–V1-114).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 53 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20international%20conference%20on%20information%20networking%20and%20automation%20%28ICINA%29&amp;pages=V1-110-V1-114&amp;publication_year=2010&amp;author=Zhang%2CC.&amp;author=Wang%2CN.&amp;author=Chen%2CJ.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="Q.-L.. Zhou, Y.. Zhang, Y.-H.. Qu, C.-A.. Rabbath, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Zhou, Q.-L., Zhang, Y., Qu, Y.-H., &amp; Rabbath, C.-A. (2010a). Dead reckoning and Kalman filter design for traj" /><p class="c-article-references__text" id="ref-CR54">
+Zhou, Q.-L., Zhang, Y., Qu, Y.-H., &amp; Rabbath, C.-A. (2010a). Dead reckoning and Kalman filter design for trajectory tracking of a quadrotor UAV. In <i>Proceedings of the IEEE/ASME international conference on mechatronics and embedded systems and applications (MESA)</i> (pp. 119–124).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 54 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%2FASME%20international%20conference%20on%20mechatronics%20and%20embedded%20systems%20and%20applications%20%28MESA%29&amp;pages=119-124&amp;publication_year=2010&amp;author=Zhou%2CQ.-L.&amp;author=Zhang%2CY.&amp;author=Qu%2CY.-H.&amp;author=Rabbath%2CC.-A.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="Q.-L.. Zhou, Y.. Zhang, C.-A.. Rabbath, D.. Theilliol, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Zhou, Q.-L., Zhang, Y., Rabbath, C.-A., &amp; Theilliol, D. (2010b). Design of feedback linearization control and" /><p class="c-article-references__text" id="ref-CR55">
+Zhou, Q.-L., Zhang, Y., Rabbath, C.-A., &amp; Theilliol, D. (2010b). Design of feedback linearization control and reconfigurable control allocation with application to a quadrotor UAV. In <i>Proceedings of the conference on fault-tolerant systems (SysTol)</i> (pp. 371–376).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 55 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20conference%20on%20fault-tolerant%20systems%20%28SysTol%29&amp;pages=371-376&amp;publication_year=2010&amp;author=Zhou%2CQ.-L.&amp;author=Zhang%2CY.&amp;author=Rabbath%2CC.-A.&amp;author=Theilliol%2CD.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/Book"><meta itemprop="author" content="B.. Zhu, W.. Huo, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Zhu, B., &amp; Huo, W. (2010). Trajectory linearization control for a quadrotor helicopter. In Proceedings of the" /><p class="c-article-references__text" id="ref-CR56">
+Zhu, B., &amp; Huo, W. (2010). Trajectory linearization control for a quadrotor helicopter. In <i>Proceedings of the IEEE international conference on control and automation (ICCA)</i> (pp. 34–39).
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 56 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Proceedings%20of%20the%20IEEE%20international%20conference%20on%20control%20and%20automation%20%28ICCA%29&amp;pages=34-39&amp;publication_year=2010&amp;author=Zhu%2CB.&amp;author=Huo%2CW.">
+                    Google Scholar</a> 
+                </p></li><li class="c-article-references__item js-c-reading-companion-references-item" itemprop="citation" itemscope="itemscope" itemtype="http://schema.org/ScholarlyArticle"><meta itemprop="author" content="Z.. Zuo, " /><meta itemprop="datePublished" content="2010" /><meta itemprop="headline" content="&#xA;Zuo, Z. (2010). Trajectory tracking control design with command-filtered compensation for a quadrotor. IET Co" /><p class="c-article-references__text" id="ref-CR57">
+Zuo, Z. (2010). Trajectory tracking control design with command-filtered compensation for a quadrotor. <i>IET Control Theory &amp; Applications</i>, <i>4</i>(11), 2343–2355.
+</p><p class="c-article-references__links u-hide-print"><a data-track="click" data-track-action="outbound reference" data-track-label="link" href="http://www.ams.org/mathscinet-getitem?mr=2798828" aria-label="View reference 57 on MathSciNet">MathSciNet</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" href="https://doi.org/10.1049%2Fiet-cta.2009.0336" aria-label="View reference 57">Article</a> 
+    <a data-track="click" data-track-action="outbound reference" data-track-label="link" aria-label="Search for reference 57 on Google Scholar" href="http://scholar.google.com/scholar_lookup?&amp;title=Trajectory%20tracking%20control%20design%20with%20command-filtered%20compensation%20for%20a%20quadrotor&amp;journal=IET%20Control%20Theory%20%26%20Applications&amp;volume=4&amp;issue=11&amp;pages=2343-2355&amp;publication_year=2010&amp;author=Zuo%2CZ.">
+                    Google Scholar</a> 
+                </p></li></ol><p class="c-article-references__download u-hide-print"><a data-track="click" data-track-action="download citation references" data-track-label="link" href="/article/10.1007/s10514-012-9283-2-references.ris">Download references<svg width="16" height="16" class="u-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#global-icon-download"></use></svg></a></p></div></div></div></section><section aria-labelledby="Ack1"><div class="c-article-section" id="Ack1-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Ack1">Acknowledgements</h2><div class="c-article-section__content" id="Ack1-content"><p>This research was funded in part by the Swiss National Science Foundation (SNSF). The authors thank the anonymous reviewers for their thoughtful comments.</p></div></div></section><section aria-labelledby="author-information"><div class="c-article-section" id="author-information-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="author-information">Author information</h2><div class="c-article-section__content" id="author-information-content"><h3 class="c-article__sub-heading" id="affiliations">Affiliations</h3><ol class="c-article-author-affiliation__list"><li id="Aff1"><p class="c-article-author-affiliation__address">Institute for Dynamic Systems and Control (IDSC), ETH Zurich, Zurich, Switzerland</p><p class="c-article-author-affiliation__authors-list">Angela P. Schoellig, Fabian L. Mueller &amp; Raffaello D’Andrea</p></li></ol><div class="js-hide u-hide-print" data-test="author-info"><span class="c-article__sub-heading">Authors</span><ol class="c-article-authors-search u-list-reset"><li id="auth-1"><span class="c-article-authors-search__title u-h3 js-search-name">Angela P. Schoellig</span><div class="c-article-authors-search__list"><div class="c-article-authors-search__item c-article-authors-search__list-item--left"><a href="/search?dc.creator=&#34;Angela P.+Schoellig&#34;" class="c-article-button" data-track="click" data-track-action="author link - publication" data-track-label="link">View author publications</a></div><div class="c-article-authors-search__item c-article-authors-search__list-item--right"><p class="search-in-title-js c-article-authors-search__text">You can also search for this author in
+                        <span class="c-article-identifiers"><a class="c-article-identifiers__item" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;term=Angela P.+Schoellig" data-track="click" data-track-action="author link - pubmed" data-track-label="link">PubMed</a><span class="u-hide"> </span><a class="c-article-identifiers__item" href="http://scholar.google.co.uk/scholar?as_q=&amp;num=10&amp;btnG=Search+Scholar&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=any&amp;as_sauthors=%22Angela P.+Schoellig%22&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;as_allsubj=all&amp;hl=en" data-track="click" data-track-action="author link - scholar" data-track-label="link">Google Scholar</a></span></p></div></div></li><li id="auth-2"><span class="c-article-authors-search__title u-h3 js-search-name">Fabian L. Mueller</span><div class="c-article-authors-search__list"><div class="c-article-authors-search__item c-article-authors-search__list-item--left"><a href="/search?dc.creator=&#34;Fabian L.+Mueller&#34;" class="c-article-button" data-track="click" data-track-action="author link - publication" data-track-label="link">View author publications</a></div><div class="c-article-authors-search__item c-article-authors-search__list-item--right"><p class="search-in-title-js c-article-authors-search__text">You can also search for this author in
+                        <span class="c-article-identifiers"><a class="c-article-identifiers__item" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;term=Fabian L.+Mueller" data-track="click" data-track-action="author link - pubmed" data-track-label="link">PubMed</a><span class="u-hide"> </span><a class="c-article-identifiers__item" href="http://scholar.google.co.uk/scholar?as_q=&amp;num=10&amp;btnG=Search+Scholar&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=any&amp;as_sauthors=%22Fabian L.+Mueller%22&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;as_allsubj=all&amp;hl=en" data-track="click" data-track-action="author link - scholar" data-track-label="link">Google Scholar</a></span></p></div></div></li><li id="auth-3"><span class="c-article-authors-search__title u-h3 js-search-name">Raffaello D’Andrea</span><div class="c-article-authors-search__list"><div class="c-article-authors-search__item c-article-authors-search__list-item--left"><a href="/search?dc.creator=&#34;Raffaello+D%E2%80%99Andrea&#34;" class="c-article-button" data-track="click" data-track-action="author link - publication" data-track-label="link">View author publications</a></div><div class="c-article-authors-search__item c-article-authors-search__list-item--right"><p class="search-in-title-js c-article-authors-search__text">You can also search for this author in
+                        <span class="c-article-identifiers"><a class="c-article-identifiers__item" href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=search&amp;term=Raffaello+D%E2%80%99Andrea" data-track="click" data-track-action="author link - pubmed" data-track-label="link">PubMed</a><span class="u-hide"> </span><a class="c-article-identifiers__item" href="http://scholar.google.co.uk/scholar?as_q=&amp;num=10&amp;btnG=Search+Scholar&amp;as_epq=&amp;as_oq=&amp;as_eq=&amp;as_occt=any&amp;as_sauthors=%22Raffaello+D%E2%80%99Andrea%22&amp;as_publication=&amp;as_ylo=&amp;as_yhi=&amp;as_allsubj=all&amp;hl=en" data-track="click" data-track-action="author link - scholar" data-track-label="link">Google Scholar</a></span></p></div></div></li></ol></div><h3 class="c-article__sub-heading" id="corresponding-author">Corresponding author</h3><p id="corresponding-author-list">Correspondence to
+                <a id="corresp-c1" rel="nofollow" href="/article/10.1007/s10514-012-9283-2/email/correspondent/c1/new">Angela P. Schoellig</a>.</p></div></div></section><section aria-labelledby="Sec29"><div class="c-article-section" id="Sec29-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="Sec29">Electronic Supplementary Material</h2><div class="c-article-section__content" id="Sec29-content"><div data-test="supplementary-info"><div id="figshareContainer" class="c-article-figshare-container" data-test="figshare-container"></div><p>Below is the link to the electronic supplementary material. </p><div id="MOESM1"><div class="video" id="mijsvdiv7n_eDqji6vxi8ewaJo15wJ"><div mi24-video-player="true" video-id="7n_eDqji6vxi8ewaJo15wJ" player-id="8PcXmCm9nWqE6posBEkd1h" config-type="vmpro" flash-path="//e.video-cdn.net/v2/" api-url="//d.video-cdn.net/play"></div><script src="//e.video-cdn.net/v2/embed.js"></script></div><div class="serif suppress-bottom-margin add-top-margin standard-space-below" data-test="bottom-caption"><p>(WMV 43.5 MB)</p></div></div>
+                <div class="c-article-supplementary__item" data-test="supp-item" id="MOESM1"><h3 class="c-article-supplementary__title u-h3"><a class="print-link" data-track="click" data-track-action="view supplementary info" data-track-label="link" data-test="supp-info-link" href="https://static-content.springer.com/esm/art%3A10.1007%2Fs10514-012-9283-2/MediaObjects/10514_2012_9283_MOESM1_ESM.wmv" data-supp-info-image="">(WMV 43.5 MB)</a></h3></div></div></div></div></section><section aria-labelledby="appendices"><div class="c-article-section" id="appendices-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="appendices">Appendix: Input update as convex optimization problem</h2><div class="c-article-section__content" id="appendices-content"><h3 class="c-article__sub-heading u-visually-hidden" id="App2">Appendix: Input update as convex optimization problem</h3><p>The update law defined in (<a data-track="click" data-track-label="link" data-track-action="equation anchor" href="/article/10.1007/s10514-012-9283-2#Equ28">28</a>) can be transformed into a convex optimization problem of the form: 
+</p><div id="Equ64" class="c-article-equation"><div class="c-article-equation__content"><span class="mathjax-tex">$$ \min_{z} \biggl(\frac{1}{2} z^T V z+ v^T z \biggr)\quad\mbox{subject to}\quad W z\leq w,$$</span></div><div class="c-article-equation__number">
+                    (64)
+                </div></div><p> where <i>z</i> represents the vector of decision variables and <i>V</i> is a symmetric positive semi-definite matrix. The number of constraints is defined by the length of <i>w</i>. We call (<a data-track="click" data-track-label="link" data-track-action="equation anchor" href="/article/10.1007/s10514-012-9283-2#Equ64">64</a>) a ‘linear program’ if <i>V</i> is zero and a ‘quadratic program’ otherwise, cf. Boyd and Vandenberghe (<a data-track="click" data-track-action="reference anchor" data-track-label="link" data-test="citation-ref" aria-label="Reference 2004" title="&#xA;Boyd, S., &amp; Vandenberghe, L. (2004). Convex optimization. Cambridge: Cambridge University Press.&#xA;" href="/article/10.1007/s10514-012-9283-2#ref-CR13" id="ref-link-section-d52046e8679">2004</a>).</p><p>For simplicity, we consider <i>α</i>=0 in the following derivations. However, similar arguments can be made for arbitrary <i>α</i>&gt;0. In case of norms ∥⋅∥<sub>
+                    <i>ℓ</i>
+                  </sub>,<i>ℓ</i>∈{1,∞}, which are inherently nonlinear, non-quadratic functions, (<a data-track="click" data-track-label="link" data-track-action="equation anchor" href="/article/10.1007/s10514-012-9283-2#Equ28">28</a>) is re-formulated by extending the original vector of decision variables <i>u</i>
+                  <sub>
+                    <i>j</i>+1</sub> and adding additional inequality constraints. Thus, in case of the 1-norm, the objective function in (<a data-track="click" data-track-label="link" data-track-action="equation anchor" href="/article/10.1007/s10514-012-9283-2#Equ28">28</a>) is replaced by 
+</p><div id="Equ65" class="c-article-equation"><div class="c-article-equation__content"><span class="mathjax-tex">$$ \min_{{u} _{j+1}, e} \mathbb{I}^T e\quad\mbox{subject to}\quad -e \leq S (F {u} _{j+1}+{\widehat {d}}_{j}) \leq e ,$$</span></div><div class="c-article-equation__number">
+                    (65)
+                </div></div><p> where <span class="mathjax-tex">\(e\in \mathbb {R}^{Nn_{\textup {\MakeLowercase {\MakeLowercase {x}}}}}\)</span> and <span class="mathjax-tex">\(\mathbb{I}\)</span> represent a vector of ones, <span class="mathjax-tex">\(\mathbb{I}=[1, 1, 1, \ldots]^{T}\in \mathbb {R}^{Nn_{\textup {\MakeLowercase {\MakeLowercase {x}}}}}\)</span>. Similarly, for the maximum norm, the extended equation reads as 
+</p><div id="Equ66" class="c-article-equation"><div class="c-article-equation__content"><span class="mathjax-tex">$$ \min_{{u} _{j+1}, e} e\quad\mbox{subject to}\quad -e \mathbb{I} \leq S ( F {u} _{j+1}+{\widehat {d}}_{j}) \leq e \mathbb{I}$$</span></div><div class="c-article-equation__number">
+                    (66)
+                </div></div><p> with <i>e</i>∈ℝ. In both cases, the constraints in (<a data-track="click" data-track-label="link" data-track-action="equation anchor" href="/article/10.1007/s10514-012-9283-2#Equ28">28</a>) must still be satisfied. The 2-norm results in the following objective function: 
+</p><div id="Equ67" class="c-article-equation"><div class="c-article-equation__content"><span class="mathjax-tex">$$ \min_{{u} _{j+1}} (F {u} _{j+1}+{\widehat {d}}_{j})^T S^T S (F {u} _{j+1}+{\widehat {d}}_{j}).$$</span></div><div class="c-article-equation__number">
+                    (67)
+                </div></div>
+                </div></div></section><section aria-labelledby="rightslink"><div class="c-article-section" id="rightslink-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="rightslink">Rights and permissions</h2><div class="c-article-section__content" id="rightslink-content"><p class="c-article-rights"><a data-track="click" data-track-action="view rights and permissions" data-track-label="link" href="https://s100.copyright.com/AppDispatchServlet?title=Optimization-based%20iterative%20learning%20for%20precise%20quadrocopter%20trajectory%20tracking&amp;author=Angela%20P.%20Schoellig%20et%20al&amp;contentID=10.1007%2Fs10514-012-9283-2&amp;publication=0929-5593&amp;publicationDate=2012-04-21&amp;publisherName=SpringerNature&amp;orderBeanReset=true">Reprints and Permissions</a></p></div></div></section><section aria-labelledby="article-info"><div class="c-article-section" id="article-info-section"><h2 class="c-article-section__title js-section-title js-c-reading-companion-sections-item" id="article-info">About this article</h2><div class="c-article-section__content" id="article-info-content"><div class="c-bibliographic-information"><div class="c-bibliographic-information__column"><h3 class="c-article__sub-heading" id="citeas">Cite this article</h3><p class="c-bibliographic-information__citation">Schoellig, A.P., Mueller, F.L. &amp; D’Andrea, R. Optimization-based iterative learning for precise quadrocopter trajectory tracking.
+                    <i>Auton Robot</i> <b>33, </b>103–127 (2012). https://doi.org/10.1007/s10514-012-9283-2</p><p class="c-bibliographic-information__download-citation u-hide-print"><a data-test="citation-link" data-track="click" data-track-action="download article citation" data-track-label="link" href="/article/10.1007/s10514-012-9283-2.ris">Download citation<svg width="16" height="16" class="u-icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#global-icon-download"></use></svg></a></p><ul class="c-bibliographic-information__list" data-test="publication-history"><li class="c-bibliographic-information__list-item"><p>Received<span class="u-hide">: </span><span class="c-bibliographic-information__value"><time datetime="2011-08-01">01 August 2011</time></span></p></li><li class="c-bibliographic-information__list-item"><p>Accepted<span class="u-hide">: </span><span class="c-bibliographic-information__value"><time datetime="2012-02-10">10 February 2012</time></span></p></li><li class="c-bibliographic-information__list-item"><p>Published<span class="u-hide">: </span><span class="c-bibliographic-information__value"><time datetime="2012-04-21">21 April 2012</time></span></p></li><li class="c-bibliographic-information__list-item"><p>Issue Date<span class="u-hide">: </span><span class="c-bibliographic-information__value"><time datetime="2012-08">August 2012</time></span></p></li><li class="c-bibliographic-information__list-item c-bibliographic-information__list-item--doi"><p><abbr title="Digital Object Identifier">DOI</abbr><span class="u-hide">: </span><span class="c-bibliographic-information__value"><a href="https://doi.org/10.1007/s10514-012-9283-2" data-track="click" data-track-action="view doi" data-track-label="link" itemprop="sameAs">https://doi.org/10.1007/s10514-012-9283-2</a></span></p></li></ul><div data-component="share-box"></div><h3 class="c-article__sub-heading">Keywords</h3><ul class="c-article-subject-list"><li class="c-article-subject-list__subject"><span itemprop="about">Motion planning and control</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Aerial robotics</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Quadrocopter control</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Trajectory tracking</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Learning</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Input and state constraints</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Kalman filtering</span></li><li class="c-article-subject-list__subject"><span itemprop="about">Convex optimization</span></li></ul><div data-component="article-info-list"></div></div></div></div></div></section>
+                </div>
+            </article>
+        </main>
+
+        <div class="c-article-extras u-text-sm u-hide-print" id="sidebar" data-container-type="reading-companion" data-track-component="reading companion">
+            <aside>
+                <div data-test="download-article-link-wrapper">
+                    
+                </div>
+
+                <div data-test="collections">
+                    
+                </div>
+
+                <div data-test="editorial-summary">
+                    
+                </div>
+
+                <div class="c-reading-companion">
+                    <div class="c-reading-companion__sticky" data-component="reading-companion-sticky" data-test="reading-companion-sticky">
+                        
+                            <div class="c-article-buy-box">
+                                <div class="sprcom-buybox-articleSidebar" id="sprcom-buybox-articleSidebar">
+ <h2 class="c-box__heading">Access options</h2>
+ <article class="c-box" data-test-id="buy-article">
+  <h3 class="c-box__heading">Buy single article</h3>
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p>Instant access to the full article PDF.</p>
+   </div>
+   <div class="buybox__buy">
+    <p class="buybox__price">US$ 39.95</p>
+    <p class="buybox__price-info">Price <b>includes VAT</b> for USA</p>
+    <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_article&amp;abtest=v2" method="post">
+     <input type="hidden" name="type" value="article">
+     <input type="hidden" name="doi" value="10.1007/s10514-012-9283-2">
+     <input type="hidden" name="isxn" value="1573-7527">
+     <input type="hidden" name="contenttitle" value="Optimization-based iterative learning for precise quadrocopter trajectory tracking">
+     <input type="hidden" name="copyrightyear" value="2012">
+     <input type="hidden" name="year" value="2012">
+     <input type="hidden" name="authors" value="Angela P. Schoellig, Fabian L. Mueller, Raffaello D’Andrea">
+     <input type="hidden" name="title" value="Autonomous Robots">
+     <input type="hidden" name="mac" value="D4A79419862B472C78DAE71E6F91236D">
+     <input type="submit" class="c-box__button" data-track="click" data-track-action="buy pdf" data-track-category="ppv" data-track-label="buy article action, new buybox" value="Buy article PDF">
+    </form>
+   </div>
+  </div>
+ </article>
+ <article class="c-box buybox__subscribe-subscription" data-test-id="journal-subscription">
+  <h3 class="c-box__heading">Subscribe to journal</h3>
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p>Immediate online access to all issues from 2019. Subscription will auto renew annually.</p>
+   </div>
+   <div class="buybox__buy">
+    <p class="buybox__price">US$ 99</p>
+    <p class="buybox__price-info">This is the <b>net price</b>. Taxes to be calculated in checkout.</p>
+    <form action="https://order.springer.com/public/checkout?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_journal&amp;abtest=v2" method="post">
+     <input type="hidden" name="type" value="journal">
+     <input type="hidden" name="contenttitle" value="Autonomous Robots">
+     <input type="hidden" name="journalnumber" value="10514">
+     <input type="hidden" name="pricetype" value="PS2">
+     <input type="hidden" name="countrycode" value="US">
+     <input type="submit" class="c-box__button" data-track="click" data-track-action="subscribe to journal" data-track-category="journal" data-track-label="subscribe action, new buybox" value="Buy journal subscription">
+    </form>
+   </div>
+  </div>
+ </article>
+ <article class="c-box buybox__rent-article" id="deepdyve" style="display: none" data-test-id="journal-subscription">
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p><a class="deepdyve-link" target="deepdyve" data-track="click" data-track-action="rent article" data-track-label="rent action, new buybox">Rent this article via DeepDyve.</a></p>
+   </div>
+  </div>
+  <script>
+            function deepDyveResponse(data) {
+                if (data.status === 'ok') {
+                    [].slice.call(document.querySelectorAll('.c-box.buybox__rent-article')).forEach(function (article) {
+                        article.style.display = 'flex'
+                        var link = article.querySelector('.deepdyve-link')
+                        if (link) {
+                          link.setAttribute('href', data.url)
+                        }
+                    })
+                }
+            }
+
+            var script = document.createElement('script')
+            script.src = '//www.deepdyve.com/rental-link?docId=10.1007/s10514-012-9283-2&journal=1573-7527&fieldName=journal_doi&affiliateId=springer&format=jsonp&callback=deepDyveResponse'
+            document.body.appendChild(script)
+          </script>
+ </article>
+ <aside class="buybox__institutional-sub">
+  <div class="c-box__body">
+   <div class="buybox__info">
+    <p><a href="https://www.springernature.com/gp/librarians/licensing/license-options?utm_source=springerlink&amp;utm_medium=referral&amp;utm_campaign=sl-buybox_articlePage_institutionalCustomer&amp;abtest=v2" data-track="click" data-track-action="institutional link" data-track-label="institutional subscriptions, new buybox">Learn more about Institutional subscriptions</a></p>
+   </div>
+  </div>
+ </aside>
+ <style>.sprcom-buybox-articleSidebar{
+  box-shadow: 0px 0px 5px rgba(51,51,51,0.101);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar *{
+  box-sizing: border-box;
+  line-height: calc(100% + 4px);
+  margin: 0px;
+}
+.sprcom-buybox-articleSidebar > *{
+  display: flex;
+  flex-basis: 240px;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0.5px;
+}
+.sprcom-buybox-articleSidebar > *{
+  box-shadow: 0 0 0 1px rgba(204,204,204,0.494);
+}
+.sprcom-buybox-articleSidebar .c-box__body{
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+  justify-content: space-between;
+  padding: 6%;
+}
+.sprcom-buybox-articleSidebar .c-box__body .buybox__buy{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.sprcom-buybox-articleSidebar p{
+  color: #333;
+  font-size: 15px;
+}
+.sprcom-buybox-articleSidebar .buybox__price{
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(100% + 8px);
+  margin: 20px 0;
+  order: 1;
+}
+.sprcom-buybox-articleSidebar form{
+  order: 1;
+}
+.sprcom-buybox-articleSidebar .buybox__price-info{
+  margin-bottom: 20px;
+}
+.sprcom-buybox-articleSidebar .c-box__heading{
+  background-color: #f0f0f0;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 10px 12px;
+  text-align: center;
+}
+.sprcom-buybox-articleSidebar .c-box__button{
+  background-color: #3365A4;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
+  max-width: 222px;
+  padding: 10px 12px;
+  text-decoration: none;
+  width: 100%;
+}
+.sprcom-buybox-articleSidebar h3{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar h2{
+  flex-basis: 100%;
+  margin-bottom: 16px;
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .c-box__body{
+  flex-direction: row;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub, .buybox__rent-article .buybox__info{
+  text-align: left;
+}
+.sprcom-buybox-articleSidebar .buybox__institutional-sub{
+  background-color: #f0f0f0;
+}
+.sprcom-buybox-articleSidebar .visually-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+.sprcom-buybox-articleSidebar style{
+  display: none;
+}
+</style>
+</div>
+                            </div>
+                        
+
+                        <div class="c-reading-companion__panel c-reading-companion__sections c-reading-companion__panel--active" id="tabpanel-sections">
+                            <div class="js-ad">
+    <aside class="c-ad c-ad--300x250">
+        <div class="c-ad__inner">
+            <p class="c-ad__label">Advertisement</p>
+            <div id="div-gpt-ad-MPU1" data-gpt-unitpath="/270604982/springerlink/10514/article" data-gpt-sizes="300x250" data-gpt-targeting="pos=MPU1;articleid=9283;"></div>
+        </div>
+    </aside>
+</div>
+
+                        </div>
+                        <div class="c-reading-companion__panel c-reading-companion__figures c-reading-companion__panel--full-width" id="tabpanel-figures"></div>
+                        <div class="c-reading-companion__panel c-reading-companion__references c-reading-companion__panel--full-width" id="tabpanel-references"></div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+
+        
+    <footer class="app-footer" role="contentinfo">
+        <div class="app-footer__aside-wrapper u-hide-print">
+            <div class="app-footer__container">
+                <p class="app-footer__strapline">Over 10 million scientific documents at your fingertips</p>
+                
+                    <div class="app-footer__edition" data-component="SV.EditionSwitcher">
+                        <span class="u-visually-hidden" data-role="button-dropdown__title" data-btn-text="Switch between Academic & Corporate Edition">Switch Edition</span>
+                        <ul class="app-footer-edition-list" data-role="button-dropdown__content" data-test="footer-edition-switcher-list">
+                            <li class="selected">
+                                <a data-test="footer-academic-link"
+                                   href="/siteEdition/link"
+                                   id="siteedition-academic-link">Academic Edition</a>
+                            </li>
+                            <li>
+                                <a data-test="footer-corporate-link"
+                                   href="/siteEdition/rd"
+                                   id="siteedition-corporate-link">Corporate Edition</a>
+                            </li>
+                        </ul>
+                    </div>
+                
+            </div>
+        </div>
+        <div class="app-footer__container">
+            <ul class="app-footer__nav u-hide-print">
+                <li><a href="/">Home</a></li>
+                <li><a href="/impressum">Impressum</a></li>
+                <li><a href="/termsandconditions">Legal information</a></li>
+                <li><a href="/privacystatement">Privacy statement</a></li>
+                <li><a href="/cookiepolicy">How we use cookies</a></li>
+                <li><a href="/accessibility">Accessibility</a></li>
+                <li><a id="contactus-footer-link" href="/contactus">Contact us</a></li>
+            </ul>
+            <div class="c-user-metadata">
+    
+        <p class="c-user-metadata__item">
+            <span data-test="footer-user-login-status">Not logged in</span>
+            <span data-test="footer-user-ip"> - 73.70.238.107</span>
+        </p>
+        <p class="c-user-metadata__item" data-test="footer-business-partners">
+            Not affiliated
+        </p>
+
+        
+    
+</div>
+
+            <a class="app-footer__parent-logo" target="_blank" rel="noopener" href="//www.springernature.com"  title="Go to Springer Nature">
+                <span class="u-visually-hidden">Springer Nature</span>
+                <svg width="125" height="12" focusable="false" aria-hidden="true">
+                    <image width="125" height="12" alt="Springer Nature logo"
+                           src=/oscar-static/images/springerlink/png/springernature-60a72a849b.png
+                           xmlns:xlink="http://www.w3.org/1999/xlink"
+                           xlink:href=/oscar-static/images/springerlink/svg/springernature-ecf01c77dd.svg>
+                    </image>
+                </svg>
+            </a>
+            <p class="app-footer__copyright">&copy; 2020 Springer Nature Switzerland AG. Part of <a target="_blank" rel="noopener" href="//www.springernature.com">Springer Nature</a>.</p>
+            
+        </div>
+        
+    <svg class="u-hide hide">
+        <symbol id="global-icon-chevron-right" viewBox="0 0 16 16">
+            <path d="M7.782 7L5.3 4.518c-.393-.392-.4-1.022-.02-1.403a1.001 1.001 0 011.417 0l4.176 4.177a1.001 1.001 0 010 1.416l-4.176 4.177a.991.991 0 01-1.4.016 1 1 0 01.003-1.42L7.782 9l1.013-.998z" fill-rule="evenodd"/>
+        </symbol>
+        <symbol id="global-icon-download" viewBox="0 0 16 16">
+            <path d="M2 14c0-.556.449-1 1.002-1h9.996a.999.999 0 110 2H3.002A1.006 1.006 0 012 14zM9 2v6.8l2.482-2.482c.392-.392 1.022-.4 1.403-.02a1.001 1.001 0 010 1.417l-4.177 4.177a1.001 1.001 0 01-1.416 0L3.115 7.715a.991.991 0 01-.016-1.4 1 1 0 011.42.003L7 8.8V2c0-.55.444-.996 1-.996.552 0 1 .445 1 .996z" fill-rule="evenodd"/>
+        </symbol>
+        <symbol id="global-icon-email" viewBox="0 0 18 18">
+            <path d="M1.995 2h14.01A2 2 0 0118 4.006v9.988A2 2 0 0116.005 16H1.995A2 2 0 010 13.994V4.006A2 2 0 011.995 2zM1 13.994A1 1 0 001.995 15h14.01A1 1 0 0017 13.994V4.006A1 1 0 0016.005 3H1.995A1 1 0 001 4.006zM9 11L2 7V5.557l7 4 7-4V7z" fill-rule="evenodd"/>
+        </symbol>
+        <symbol id="global-icon-institution" viewBox="0 0 18 18">
+            <path d="M14 8a1 1 0 011 1v6h1.5a.5.5 0 01.5.5v.5h.5a.5.5 0 01.5.5V18H0v-1.5a.5.5 0 01.5-.5H1v-.5a.5.5 0 01.5-.5H3V9a1 1 0 112 0v6h8V9a1 1 0 011-1zM6 8l2 1v4l-2 1zm6 0v6l-2-1V9zM9.573.401l7.036 4.925A.92.92 0 0116.081 7H1.92a.92.92 0 01-.528-1.674L8.427.401a1 1 0 011.146 0zM9 2.441L5.345 5h7.31z" fill-rule="evenodd"/>
+        </symbol>
+        <symbol id="global-icon-search" viewBox="0 0 22 22">
+            <path fill-rule="evenodd" d="M21.697 20.261a1.028 1.028 0 01.01 1.448 1.034 1.034 0 01-1.448-.01l-4.267-4.267A9.812 9.811 0 010 9.812a9.812 9.811 0 1117.43 6.182zM9.812 18.222A8.41 8.41 0 109.81 1.403a8.41 8.41 0 000 16.82z"/>
+        </symbol>
+    </svg>
+
+    </footer>
+
+
+
+    </div>
+    
+    
+</body>
+</html>
+

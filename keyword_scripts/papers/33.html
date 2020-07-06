@@ -1,0 +1,1498 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth=fCzlsmYQFAUQ_UXneGJNag&gtm_preview=env-2&gtm_cookies_win=x';
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TZGWTGG');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"598a124f17","applicationID":"3007887","transactionName":"MQcDMkECCkNSW0YMWghNLDBwTCVCR1FRCVAlDQ8SQQwIXFZKHSNACg41A0sXJkl3d3s=","queueTime":0,"applicationTime":332,"agent":"","atts":""}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgUHUl5WGwAAVFZaDwY=",licenseKey:"598a124f17",applicationID:"3007887"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(21),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,s){try{p?p-=1:o(s||new UncaughtException(t,n,e),!0)}catch(f){try{i("ierr",[f,c.now(),!0])}catch(d){}}return"function"==typeof u&&u.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t,n){var e=n?null:c.now();i("err",[t,e])}var i=t("handle"),a=t(22),s=t("ee"),c=t("loader"),f=t("gos"),u=window.onerror,d=!1,l="nr@seenError",p=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(h){"stack"in h&&(t(9),t(8),"addEventListener"in window&&t(5),c.xhrWrappable&&t(10),d=!0)}s.on("fn-start",function(t,n,e){d&&(p+=1)}),s.on("fn-err",function(t,n,e){d&&!e[l]&&(f(e,l,function(){return!0}),this.thrown=!0,o(e))}),s.on("fn-end",function(){d&&!this.thrown&&p>0&&(p-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(9),s=t(8),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",g="pushState",y=t("loader");y.features.stn=!0,t(7),"addEventListener"in window&&t(5);var x=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof x&&(this.bstStart=y.now())}),o.on(w,function(t,n){var e=t[0];e instanceof x&&i("bst",[e,n,this.bstStart,y.now()])}),a.on(m,function(t,n,e){this.bstStart=y.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,y.now(),this.bstType])}),s.on(m,function(){this.bstStart=y.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,y.now(),"requestAnimationFrame"])}),o.on(g+p,function(t){this.time=y.now(),this.startPath=location.pathname+location.hash}),o.on(g+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t("wrap-function")(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){function r(t,n,e){var r=t[n];"function"==typeof r&&(t[n]=function(){var t=i(arguments),n={};o.emit(e+"before-start",[t],n);var a;n[m]&&n[m].dt&&(a=n[m].dt);var s=r.apply(this,t);return o.emit(e+"start",[t,a],s),s.then(function(t){return o.emit(e+"end",[null,t],s),t},function(t){throw o.emit(e+"end",[t],s),t})})}var o=t("ee").get("fetch"),i=t(22),a=t(21);n.exports=o;var s=window,c="fetch-",f=c+"body-",u=["arrayBuffer","blob","json","text","formData"],d=s.Request,l=s.Response,p=s.fetch,h="prototype",m="nr@context";d&&l&&p&&(a(u,function(t,n){r(d[h],n,f),r(l[h],n,f)}),r(s,"fetch",c),o.on(c+"end",function(t,n){var e=this;if(n){var r=n.headers.get("content-length");null!==r&&(e.rxSize=r),o.emit(c+"done",[null,n],e)}else o.emit(c+"done",[t],e)}))},{}],7:[function(t,n,e){var r=t("ee").get("history"),o=t("wrap-function")(r);n.exports=r;var i=window.history&&window.history.constructor&&window.history.constructor.prototype,a=window.history;i&&i.pushState&&i.replaceState&&(a=i),o.inPlace(a,["pushState","replaceState"],"-")},{}],8:[function(t,n,e){var r=t("ee").get("raf"),o=t("wrap-function")(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],9:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t("wrap-function")(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],10:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,g,"fn-",s)}function i(t){y.push(t),h&&(b?b.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<y.length;t++)r([],y[t]);y.length&&(y=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t("wrap-function")(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",g=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],y=[];n.exports=u;var x=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,x),x.prototype=p.prototype,d.inPlace(x.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var b=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],11:[function(t,n,e){function r(t){if(!i(t))return null;var n=window.NREUM;if(!n.loader_config)return null;var e=(n.loader_config.accountID||"").toString()||null,r=(n.loader_config.agentID||"").toString()||null,s=(n.loader_config.trustKey||"").toString()||null;if(!e||!r)return null;var c=a.generateCatId(),f=a.generateCatId(),u=Date.now(),d=o(c,f,u,e,r,s);return{header:d,guid:c,traceId:f,timestamp:u}}function o(t,n,e,r,o,i){var a="btoa"in window&&"function"==typeof window.btoa;if(!a)return null;var s={v:[0,1],d:{ty:"Browser",ac:r,ap:o,id:t,tr:n,ti:e}};return i&&r!==i&&(s.d.tk=i),btoa(JSON.stringify(s))}function i(t){var n=!1,e=!1,r={};if("init"in NREUM&&"distributed_tracing"in NREUM.init&&(r=NREUM.init.distributed_tracing,e=!!r.enabled),e)if(t.sameOrigin)n=!0;else if(r.allowed_origins instanceof Array)for(var o=0;o<r.allowed_origins.length;o++){var i=s(r.allowed_origins[o]);if(t.hostname===i.hostname&&t.protocol===i.protocol&&t.port===i.port){n=!0;break}}return e&&n}var a=t(19),s=t(13);n.exports={generateTracePayload:r,shouldGenerateTrace:i}},{}],12:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<l;r++)t.removeEventListener(d[r],this.listener,!1);n.aborted||(e.duration=a.now()-this.startTime,this.loadCaptureCalled||4!==t.readyState?null==n.status&&(n.status=0):i(this,t),e.cbTime=this.cbTime,u.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime]))}}function o(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.parsedOrigin=c(n),t.sameOrigin=t.parsedOrigin.sameOrigin}function i(t,n){t.params.status=n.status;var e=w(n,t.lastSize);if(e&&(t.metrics.rxSize=e),t.sameOrigin){var r=n.getResponseHeader("X-NewRelic-App-Data");r&&(t.params.cat=r.split(", ").pop())}t.loadCaptureCalled=!0}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(13),f=t(11).generateTracePayload,u=t("ee"),d=["load","error","abort","timeout"],l=d.length,p=t("id"),h=t(17),m=t(16),w=t(14),v=window.XMLHttpRequest;a.features.xhr=!0,t(10),t(6),u.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,n.loadCaptureCalled=!1,t.addEventListener("load",function(e){i(n,t)},!1),h&&(h>34||h<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),u.on("open-xhr-start",function(t){this.params={method:t[0]},o(this,t[1]),this.metrics={}}),u.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid);var e=f(this.parsedOrigin);e&&e.header&&(n.setRequestHeader("newrelic",e.header),this.dt=e)}),u.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=m(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"!==t.type||o.loadCaptureCalled||(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<l;s++)n.addEventListener(d[s],this.listener,!1)}),u.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),u.on("xhr-load-added",function(t,n){var e=""+p(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),u.on("xhr-load-removed",function(t,n){var e=""+p(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),u.on("addEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&u.emit("xhr-load-added",[t[1],t[2]],n)}),u.on("removeEventListener-end",function(t,n){n instanceof v&&"load"===t[0]&&u.emit("xhr-load-removed",[t[1],t[2]],n)}),u.on("fn-start",function(t,n,e){n instanceof v&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),u.on("fn-end",function(t,n){this.xhrCbStart&&u.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)}),u.on("fetch-before-start",function(t){var n,e=t[1]||{};"string"==typeof t[0]?n=t[0]:t[0]&&t[0].url&&(n=t[0].url),n&&(this.parsedOrigin=c(n),this.sameOrigin=this.parsedOrigin.sameOrigin);var r=f(this.parsedOrigin);if(r&&r.header){var o=r.header;if("string"==typeof t[0]){var i={};for(var a in e)i[a]=e[a];i.headers=new Headers(e.headers||{}),i.headers.set("newrelic",o),this.dt=r,t.length>1?t[1]=i:t.push(i)}else t[0]&&t[0].headers&&(t[0].headers.append("newrelic",o),this.dt=r)}})}},{}],13:[function(t,n,e){var r={};n.exports=function(t){if(t in r)return r[t];var n=document.createElement("a"),e=window.location,o={};n.href=t,o.port=n.port;var i=n.href.split("://");!o.port&&i[1]&&(o.port=i[1].split("/")[0].split("@").pop().split(":")[1]),o.port&&"0"!==o.port||(o.port="https"===i[0]?"443":"80"),o.hostname=n.hostname||e.hostname,o.pathname=n.pathname,o.protocol=i[0],"/"!==o.pathname.charAt(0)&&(o.pathname="/"+o.pathname);var a=!n.protocol||":"===n.protocol||n.protocol===e.protocol,s=n.hostname===document.domain&&n.port===e.port;return o.sameOrigin=a&&(!n.hostname||s),"/"===o.pathname&&(r[t]=o),o}},{}],14:[function(t,n,e){function r(t,n){var e=t.responseType;return"json"===e&&null!==n?n:"arraybuffer"===e||"blob"===e||"json"===e?o(t.response):"text"===e||""===e||void 0===e?o(t.responseText):void 0}var o=t(16);n.exports=r},{}],15:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(21),s=t(22),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}catch(t){throw c.emit("fn-err",[arguments,this,t],e),t}finally{c.emit("fn-end",[f.now()],e)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t,n){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now(),!1,n])}},{}],16:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],17:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],18:[function(t,n,e){function r(t,n){var e=t.getEntries();e.forEach(function(t){"first-paint"===t.name?c("timing",["fp",Math.floor(t.startTime)]):"first-contentful-paint"===t.name&&c("timing",["fcp",Math.floor(t.startTime)])})}function o(t,n){var e=t.getEntries();e.length>0&&c("lcp",[e[e.length-1]])}function i(t){if(t instanceof u&&!l){var n,e=Math.round(t.timeStamp);n=e>1e12?Date.now()-e:f.now()-e,l=!0,c("timing",["fi",e,{type:t.type,fid:n}])}}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var a,s,c=t("handle"),f=t("loader"),u=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){a=new PerformanceObserver(r),s=new PerformanceObserver(o);try{a.observe({entryTypes:["paint"]}),s.observe({entryTypes:["largest-contentful-paint"]})}catch(d){}}if("addEventListener"in document){var l=!1,p=["click","keydown","mousedown","pointerdown","touchstart"];p.forEach(function(t){document.addEventListener(t,i,!1)})}}},{}],19:[function(t,n,e){function r(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&(n=r.getRandomValues(new Uint8Array(31)));for(var o,i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx",a="",s=0;s<i.length;s++)o=i[s],"x"===o?a+=t().toString(16):"y"===o?(o=3&t()|8,a+=o.toString(16)):a+=o;return a}function o(){function t(){return n?15&n[e++]:16*Math.random()|0}var n=null,e=0,r=window.crypto||window.msCrypto;r&&r.getRandomValues&&Uint8Array&&(n=r.getRandomValues(new Uint8Array(31)));for(var o=[],i=0;i<16;i++)o.push(t().toString(16));return o.join("")}n.exports={generateUuid:r,generateCatId:o}},{}],20:[function(t,n,e){function r(t,n){if(!o)return!1;if(t!==o)return!1;if(!n)return!0;if(!i)return!1;for(var e=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==e[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var s=navigator.userAgent,c=s.match(a);c&&s.indexOf("Chrome")===-1&&s.indexOf("Chromium")===-1&&(o="Safari",i=c[1])}n.exports={agent:o,version:i,match:r}},{}],21:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],22:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],23:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=m(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([x,e,r,a]),a}}function p(t,n){g[t]=m(t).concat(n)}function h(t,n){var e=g[t];if(e)for(var r=0;r<e.length;r++)e[r]===n&&e.splice(r,1)}function m(t){return g[t]||[]}function w(t){return d[t]=d[t]||o(e)}function v(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var g={},y={},x={on:p,addEventListener:p,removeEventListener:h,emit:e,get:w,listeners:m,context:n,buffer:v,abort:a,aborted:!1};return x}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(21),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!E++){var t=b.info=NREUM.info,n=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=p.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===p.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(21),u=t("ee"),d=t(20),l=window,p=l.document,h="addEventListener",m="attachEvent",w=l.XMLHttpRequest,v=w&&w.prototype;NREUM.o={ST:setTimeout,SI:l.setImmediate,CT:clearTimeout,XHR:w,REQ:l.Request,EV:l.Event,PR:l.Promise,MO:l.MutationObserver};var g=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1169.min.js"},x=w&&v&&v[h]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:g,features:{},xhrWrappable:x,userAgent:d};t(15),t(18),p[h]?(p[h]("DOMContentLoaded",i,!1),l[h]("load",r,!1)):(p[m]("onreadystatechange",o),l[m]("onload",r)),c("mark",["firstbyte",s],null,"api");var E=0,O=t(23)},{}],"wrap-function":[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(22),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}]},{},["loader",2,12,4,3]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>Frontiers | Everyday robotic action: lessons from human action control | Frontiers in Neurorobotics</title>
+
+    <link rel="shortcut icon" href="https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/favicon_16x16.ico" type="image/x-icon" />
+
+    <meta property="og:type" content="article" />
+    <meta property="frontiers:type" content="Article" />
+    <meta property="og:site_name" name="site_name" content="Frontiers" />
+    <meta property="og:title" name="Title" content="Everyday robotic action: lessons from human action control" />
+    <meta property="og:description" name="Description" content="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." />
+    <meta property="og:url" name="url" content="https://www.frontiersin.org/articles/10.3389/fnbot.2014.00013/full" />
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"
+            integrity="sha256-h0cGsrExGgcZtSZ/fRz4AwV+Nn6Urh/3v3jFRQ0w9dQ=" crossorigin="anonymous"></script>
+
+    <link href="https://static.frontiersin.org/navigation-plugins/footer/css" rel="stylesheet" />
+
+    <link href="https://static.frontiersin.org/navigation-plugins/header/css" rel="stylesheet" />
+
+        <meta property="og:image" content="https://www.frontiersin.org/files/MyHome%20Article%20Library/73519/73519_Thumb_400.jpg" />
+            <meta name="citation_volume" content="8" />
+        <meta name="citation_journal_title" content="Frontiers in Neurorobotics" />
+        <meta name="citation_publisher" content="Frontiers" />
+        <meta name="citation_journal_abbrev" content="Front. Neurorobot." />
+        <meta name="citation_issn" content="1662-5218" />
+        <meta name="citation_doi" content="10.3389/fnbot.2014.00013" />
+        <meta name="citation_pages" content="13" />
+        <meta name="citation_language" content="English" />
+        <meta name="citation_title" content="Everyday robotic action: lessons from human action control" />
+        <meta name="citation_keywords" content="complex action; Action control; action sequencing; naturalistic action; goal-directed behavior" />
+        <meta name="citation_abstract" content="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally-extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." />
+        <meta name="description" content="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally-extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." />
+        <meta name="citation_online_date" content="2014/02/25" />
+        <meta name="citation_date" content="2014" />
+        <meta name="citation_publication_date" content="2014/03/17" />
+        <meta name="citation_pdf_url" content="https://www.frontiersin.org/articles/10.3389/fnbot.2014.00013/pdf" />
+        <meta name="citation_author" content="De Kleijn, Roy" />
+        <meta name="citation_author_institution" content="Leiden University, Cognitive Psychology Unit, Wassenaarseweg 52, Leiden, 2333 AK, Netherlands" />
+        <meta name="citation_author_email" content="kleijnrde@fsw.leidenuniv.nl" />
+        <meta name="citation_author" content="Kachergis, George" />
+        <meta name="citation_author_institution" content="Leiden University, Cognitive Psychology Unit, Wassenaarseweg 52, Leiden, 2333 AK, Netherlands" />
+        <meta name="citation_author_email" content="george.kachergis@gmail.com" />
+        <meta name="citation_author" content="Hommel, Bernhard" />
+        <meta name="citation_author_institution" content="Leiden University, Cognitive Psychology Unit, Wassenaarseweg 52, Leiden, 2333 AK, Netherlands" />
+        <meta name="citation_author_email" content="hommel@fsw.leidenuniv.nl" />
+    <meta name="Keywords" content="complex action, Action control, action sequencing, naturalistic action, goal-directed behavior" />
+
+    
+    <script type="text/javascript">
+
+        var CurrentIBarMenu = 'bysubjects';
+        var CurrentPageCode = 'ARTICLE_PAGE_NEW';
+
+        var FRConfiguration = (function() {
+            return {
+                Environment: 'Live',
+                SANVirtualPath: 'https://www.frontiersin.org/files/',
+                SharepointWebsiteUrl: 'https://www.frontiersin.org',
+                FrontiersJournalUIUrl: 'https://www.frontiersin.org',
+                FrontiersJournalAPIUrl: 'https://api-journal.frontiersin.org',
+                FrontiersReviewUIUrl: '',
+                FrontiersReviewAPIUrl: '',
+                FrontiersCookie: 'frontiersN',
+                FrontiersCookieRememberMe: 'frontiersNt',
+                FrontiersLoginUrl: 'https://www.frontiersin.org/Login.aspx',
+                FrontiersRegistrationUrl: 'http://www.frontiersin.org/Registration/Register.aspx',
+                IsCommentVisible: 'True',
+                IsPreview:'False'
+            };
+        })();
+
+        var FRLanguage = (function() {
+            var languageSet = {"ART_FRONTIERS":"Frontiers ","Article_AcceptedDate":"Accepted: ","Article_AnalyticsToolTip":"The total view count is updated once a day, so not to worry if you don\u0027t see immediate results.","Article_AnalyticsTotalViews":"total views","Article_AnalyticsViewImpact":"View Article Impact","Article_ArchiveLinkText":"Articles","Article_BibTex":"BibTex","Article_Citation":"Citation: ","Article_Commentary":"COMMENTARY","Article_Copyright":"Copyright: ","Article_CopyrightText":"This is an open-access article distributed under the terms of the \u003ca href=\"http://creativecommons.org/licenses/by/4.0/\"\u003eCreative Commons Attribution License (CC BY)\u003c/a\u003e. The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.","Article_Correspondence":"* Correspondence: ","Article_DownloadArticle":"Download Article","Article_DownloadPDF":"Download PDF","Article_DownloadProvisionalArticle":"Download Provisional Article","Article_DownloadProvisionalPDF":"Download Provisional PDF","Article_EditedBy":"Edited by: ","Article_EndNote":"EndNote","Article_EPUB":"EPUB","Article_ExportCitation":"Export Citation","Article_JATS":"JATS","Article_Keywords":"Keywords: ","Article_NLM":"XML (NLM)","Article_OriginalArticle":"ORIGINAL ARTICLE","Article_PaperPendingPublishedDate":"Paper pending published: ","Article_PDF":"PDF","Article_ProvisionalPDF":"Provisional PDF","Article_PublishedDate":"Published online: ","Article_ReadFullText":"Read Full Text","Article_ReceivedDate":"Received: ","Article_ReferenceManager":"Reference Manager","Article_ReviewedBy":"Reviewed by: ","Article_RTInfoText":"This article is part of the Research Topic","Article_ShareOn":"SHARE ON","Article_SimpleTEXTfile":"Simple TEXT file","Article_SupplementalData":"SUPPLEMENTAL DATA","Article_TableOfContent":"TABLE OF CONTENTS","Article_ViewEnhancedPDF":"ReadCube","Article_XML":"XML","BrowserWarningText":"\u003ch2\u003eWarning!\u003c/h2\u003e\u003cp\u003eYou are using an \u003cstrong\u003eoutdated\u003c/strong\u003e browser. This page doesn\u0027t support Internet Explorer 6, 7 and 8.\u003cbr /\u003ePlease \u003ca class=\"blue\" href=\"http://browsehappy.com/\"\u003eupgrade your browser\u003c/a\u003e or \u003ca class=\"blue\" href=\"http://www.google.com/chromeframe/?redirect=true\"\u003eactivate Google Chrome Frame\u003c/a\u003e to improve your experience.\u003c/p\u003e","COMMENT_HEADERTEXT":"Comment text too long","COMMENT_WARNINGTEXT":"Comments must be less than 4,000 characters. You have entered ","Impact_BackToArticle":"Back to article","People_Also_LookedAt":"People also looked at"};
+
+            return {
+                value: function(key) {
+                    if (languageSet[key]) {
+                        return languageSet[key];
+                    } else {
+                        throw new Error('Unable to get the value status from the language set'); // Use Error, not FRError
+                    }
+                }
+            };
+
+        })();
+
+        var FRJournalDetails = (function() {
+            return {
+                JournalType: 'journal',
+                JournalId: '13',
+                SectionId: '0'
+            };
+        })();
+
+        var FRArticleDetails = (function() {
+            return {
+                ArticleId: '73519'
+            };
+        })();
+        var FRArticleRecaptchaSettings = (function() {
+            return {
+                RecaptchaSiteKey: '6LdG3i0UAAAAAOC4qUh35ubHgJotEHp_STXHgr_v'
+            };
+        })();
+
+    </script>
+
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-535f7e222fc3ca72"></script>
+
+
+    <script language="javascript">
+        var addthis_config = addthis_config || {};
+        addthis_config.data_track_addressbar = false;
+        addthis_config.data_track_clickback = false;
+    </script>
+
+    
+    
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <script src="/areas/research-topics/content/scripts/frontiers/frontiers.markerclusterer.js"></script>
+
+
+    <link href="https://209cd62b0febf2a55d40-715eb384bc6027b876e93ad33d5c5ec3.ssl.cf3.rackcdn.com/font-awesome-4.3.0/css/font-awesome.css" rel="stylesheet"/>
+
+    <link href="https://9d0dd7a648345f19af83-877d2ecaf11b88d5e17327c758e17ef6.ssl.cf2.rackcdn.com/museo-sans-1.0.1/css/museo-sans.css" rel="stylesheet"/>
+
+    <link href="https://9d0dd7a648345f19af83-877d2ecaf11b88d5e17327c758e17ef6.ssl.cf2.rackcdn.com/museo-slab-1.0.1/css/museo-slab.css" rel="stylesheet"/>
+
+    <link href="https://209cd62b0febf2a55d40-715eb384bc6027b876e93ad33d5c5ec3.ssl.cf3.rackcdn.com/open-sans-1.0.0/css/open-sans.css" rel="stylesheet"/>
+
+    <link href="https://static.frontiersin.org/areas/articles/css/app?v=uGnVIBtFZRneVAILDxEGZtaRF-r0UzZGOi9fosx1j-I1" rel="stylesheet"/>
+
+    
+    <style type="text/css"> .journal-neurorobotics {
+ background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 99% 14px;
+ background-size: 41%;
+}
+
+/* Displays/Screens (e.g. 19" WS @ 1440x900) --------------- */ @media only screen and (max-width: 1649px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 99% 14px;
+ background-size: 44%;
+ }}
+
+/* Displays/Screens (e.g. MacBook @ 1280x800) -------------- */
+@media only screen and (max-width: 1409px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 835px 7px;
+  background-size: 44%; 
+ }}
+ 
+/* Large Devices, Wide Screens --------- */  @media only screen and (max-width : 1250px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 825px 11px;
+  background-size: 44%; 
+ }}
+
+/* Medium Devices, Desktops ---------- */  @media only screen and (max-width : 992px) { 
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 580px 37px;
+  background-size: 41%; 
+ }}
+
+/* Small Devices, Tablets ------------ */  @media only screen and (max-width : 768px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 455px 60px;
+  background-size: 51%; 
+ }}
+
+/* Small Devices, Tablets  --------- */ @media only screen and (max-width : 640px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 250px 0px;
+ }}
+
+/* Extra Small Devices, Phones-----------  */  @media only screen and (max-width : 480px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 225px 150px;
+  background-size: 51%; 
+ }}
+
+/* Custom, iPhone Retina  -------*/  @media only screen and (max-width : 320px) {
+.journal-neurorobotics {
+  background: #fff url('https://3718aeafc638f96f5bd6-d4a9ca15fc46ba40e71f94dec0aad28c.ssl.cf1.rackcdn.com/journal-neurorobotics.png') no-repeat 165px 170px;
+  background-size: 51%; 
+ }} </style>
+    
+</head>
+<body class="journal-neurorobotics">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TZGWTGG&gtm_auth=fCzlsmYQFAUQ_UXneGJNag&gtm_preview=env-2&gtm_cookies_win=x"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div data-navigation-plugin="header"></div>
+    <script src="https://static.frontiersin.org/navigation-plugins/header/js"></script>
+
+    
+
+    <!--[if lte IE 8]>
+        <div class="row">
+            <div class="col-md-16">
+                <div style="margin-bottom: 15px;"><h2>Warning!</h2><p>You are using an <strong>outdated</strong> browser. This page doesn't support Internet Explorer 6, 7 and 8.<br />Please <a class="blue" href="http://browsehappy.com/">upgrade your browser</a> or <a class="blue" href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p></div>
+            </div>
+        </div>
+    <![endif]-->
+    <!-- BEGIN: SIDE MENU PLACEHOLDER-->
+
+    <side-menu journalid="13" sectionid="0" activepath="articles" baseurl="https://www.frontiersin.org" isfaceliftpage="true"></side-menu>
+    <!-- END: SIDE MENU PLACEHOLDER-->
+
+    <div class="page-container">
+        
+
+
+<div id="article" class="boxed white no-padding">
+    <div class="container-fluid main-container-xxl">
+            <div class="side-article-mrk hidden-md hidden-lg top clearfix">
+                <div style="padding: 100% 0 0 0; position: relative; border-bottom: 1px solid #e7e7e7;"><iframe src="https://player.vimeo.com/video/369504878?background=1&amp;autoplay=1&amp;loop=0" allowfullscreen="" frameborder="0" allow="autoplay; fullscreen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<p style="text-align: center;"><a href="https://spotlight.frontiersin.org/submit?utm_source=fweb&amp;utm_medium=fjour&amp;utm_campaign=rtlg_sl19_gen"><br /><strong>Suggest a Research Topic &gt;</strong></a></p>
+            </div>
+        <div class="row">
+
+            
+<aside class="a col-xs-12 col-sm-12 col-lg-2 col-md-3 pull-right side-article right-container">
+        <button type="button" class="navbar-toggle navbar-download collapsed" data-toggle="collapse" data-target=".show" aria-expanded="false">
+            <span class="icon"><i class="fa fa-download"></i></span>
+        </button>
+    <button type="button" class="navbar-toggle navbar-share collapsed" data-toggle="collapse" data-target=".show" aria-expanded="false">
+        <span class="icon"><i class="fa fa-share-alt"></i></span>
+    </button>
+        <div class="side-article-download show collapse clearfix">
+            <ul class="list-unstyled list-inline clearfix">
+                    <li class="dropdown text-center paper">
+                        <a data-target="#" class="dropdown-toggle" data-test-id="download-button" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <span class="icon icon-article"><i class="fa fa-file-pdf-o"></i></span>
+                            <span class="icon-label">Download Article</span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a class="download-files-pdf action-link" href="/articles/10.3389/fnbot.2014.00013/pdf" data-test-id="article-downloadpdf">
+                                        Download PDF
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="download-files-readcube" href="http://www.readcube.com/articles/10.3389/fnbot.2014.00013" data-test-id="article-viewenhancedpdf">
+                                        ReadCube
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="download-files-epub" href="/articles/10.3389/fnbot.2014.00013/epub" data-test-id="article-epub">
+                                        EPUB
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="download-files-nlm" href="/articles/10.3389/fnbot.2014.00013/xml/nlm" data-test-id="article-nlm">
+                                        XML (NLM)
+                                    </a>
+                                </li>
+                                                            <li class="disable">
+
+                                        <span class="supplemental-data-disabled">
+                                            Supplementary
+                                            <br>
+                                            Material
+                                        </span>
+
+                                </li>
+                        </ul>
+                    </li>
+                <li class="dropdown text-center citation">
+                    <a data-target="#" class="dropdown-toggle" data-test-id="citation-button" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span class="icon icon-citation"><i class="fa fa-quote-left"></i></span>
+                        <span class="icon-label">Export citation</span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a data-test-id="article-endnote" href="/articles/10.3389/fnbot.2014.00013/endNote">
+                                    EndNote
+                                </a>
+                            </li>
+                            <li>
+                                <a data-test-id="article-referencemanager" href="/articles/10.3389/fnbot.2014.00013/reference">
+                                    Reference Manager
+                                </a>
+                            </li>
+                            <li>
+                                <a data-test-id="article-simpletextfile" href="/articles/10.3389/fnbot.2014.00013/text">
+                                    Simple TEXT file
+                                </a>
+                            </li>
+                            <li>
+                                <a data-test-id="article-bibtex" href="/articles/10.3389/fnbot.2014.00013/bibTex">
+                                    BibTex
+                                </a>
+                            </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <div class="side-article-impact">
+        <ul class="nav">
+            <li class="impact-data" title="The total view count is updated once a day, so not to worry if you don&#39;t see immediate results.">
+                <span class="title-number"></span>
+                <span class="title-text">total views</span>
+            </li>
+            <li class="hidden-sm hidden-xs">
+                <div class="altmetric-icon">
+                    <div class='altmetric-embed' data-badge-type='1' data-doi='10.3389/fnbot.2014.00013' data-link-target="new"></div>
+                </div>
+            </li>
+        </ul>
+            <a type="button" class="btn btn-default hidden-sm hidden-xs btn-impact " data-test-id="view-article-impact" href="http://loop-impact.frontiersin.org/impact/article/73519#views" target="_blank">
+                <span class="icon-impact"><i class="fa fa-line-chart"></i></span> View Article Impact
+            </a>
+    </div>
+        <div class="side-article-mrk hidden-sm hidden-xs clearfix">
+            <div style="padding: 100% 0 0 0; position: relative; border-bottom: 1px solid #e7e7e7;"><iframe src="https://player.vimeo.com/video/369504878?background=1&amp;autoplay=1&amp;loop=0" allowfullscreen="" frameborder="0" allow="autoplay; fullscreen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<p style="text-align: center;"><a href="https://spotlight.frontiersin.org/submit?utm_source=fweb&amp;utm_medium=fjour&amp;utm_campaign=rtlg_sl19_gen"><br /><strong>Suggest a Research Topic &gt;</strong></a></p>
+        </div>
+
+    <aside id="anchors" class="pull-left table-of-contents side-article">
+    <div class="side-people hidden-sm hidden-xs">
+    </div>
+    <nav>
+            <header><h5 class="like-h4" style="padding-top: 14px; padding-left: 6px; margin-bottom: 6px;">TABLE OF CONTENTS</h5></header>
+            <ul class="nav nav-list list-unstyled contents">
+                <li>
+<ul class="flyoutJournal">
+<li><a href="#h1">Abstract</a></li>
+<li><a href="#h2">Introduction</a></li>
+<li><a href="#h3">Integrating Symbolic and Subsymbolic Planning</a></li>
+<li><a href="#h4">Integrating Feedforward and Feedback Mechanisms</a></li>
+<li><a href="#h5">Hierarchical Action Representation</a></li>
+<li><a href="#h6">Contextualizing Action Control</a></li>
+<li><a href="#h7">Conclusion</a></li>
+<li><a href="#h8">Conflict of Interest Statement</a></li>
+<li><a href="#h9">Acknowledgment</a></li>
+<li><a href="#h10">References</a></li>
+</ul>
+                </li>
+            </ul>
+    </nav>
+</aside>
+
+
+    <div class="side-article-share show collapse">
+        <h5 class="like-h4">SHARE ON</h5>
+        <ul class="share-media clearfix" style="padding: 0;">
+            <li class="social_block">
+                <div class="atButton">
+                    <a class="addthis_button_facebook at300b" addthis:title="Everyday robotic action: lessons from human action control" addthis:description="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." addthis:url="/articles/10.3389/fnbot.2014.00013" title="Facebook"></a>
+                </div>
+                <a><span class="facebook_count"></span></a>
+            </li>
+            <li class="social_block">
+                <div class="atButton">
+                    <a class="addthis_button_twitter at300b" addthis:title="Everyday robotic action: lessons from human action control" addthis:description="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." addthis:url="/articles/10.3389/fnbot.2014.00013" title="Tweet"></a>
+                </div>
+                <a><span class="twitter_count"></span></a>
+            </li>
+            <li class="social_block">
+                <div class="atButton">
+                    <a class="addthis_button_linkedin at300b" addthis:title="Everyday robotic action: lessons from human action control" addthis:description="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." addthis:url="/articles/10.3389/fnbot.2014.00013" title="LinkedIn"></a>
+                </div>
+                <a><span class="linkedin_count"></span></a>
+            </li>
+            <li class="social_block">
+                <div class="atButton">
+                    <a class="addthis_button_more at300b" addthis:title="Everyday robotic action: lessons from human action control" addthis:description="Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations." addthis:url="/articles/10.3389/fnbot.2014.00013" title="View more services"></a>
+                </div>
+                <a><span class="total_count"></span></a>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+
+            
+<main class="b col-xs-12 col-sm-12 col-lg-8 col-lg-push-2 col-md-7 col-md-push-2 pull-left">
+    <div class="article-section">
+        <div class="article-container" data-html="True">
+            <div class="abstract-container">
+
+                <div class="article-header-container">
+                    <!-- Start CrossMark Snippet v2.0 -->
+                    <!-- End CrossMark Snippet -->
+
+                    <div class="header-bar-one">
+                        <h2>
+                            Review ARTICLE
+
+                        </h2>
+                    </div>
+                    <div class="header-bar-three">
+                        Front. Neurorobot., 17 March 2014
+                                 | <a href="https://doi.org/10.3389/fnbot.2014.00013">https://doi.org/10.3389/fnbot.2014.00013</a>
+                    </div>
+                </div>
+
+<div class="JournalAbstract">
+<a id="h1" name="h1"></a><h1>Everyday robotic action: lessons from human action control</h1>
+<div class="authors">
+<a href="http://www.frontiersin.org/people/u/116899" class="user-id-116899"><img class="pr5" src="http://www.frontiersin.org/files/Profile%20Library/116899/Thumb_24.jpg" onerror="this.src='https://f96a1a95aaa960e01625-a34624e694c43cdf8b40aa048a644ca4.ssl.cf2.rackcdn.com/Design/Images/newprofile_default_profileimage_new.jpg'" />Roy de Kleijn</a><sup>1,2*</sup> <a href="http://www.frontiersin.org/people/u/44940" class="user-id-44940"><img class="pr5" src="http://www.frontiersin.org/files/Profile%20Library/44940/Thumb_24.jpg" onerror="this.src='https://f96a1a95aaa960e01625-a34624e694c43cdf8b40aa048a644ca4.ssl.cf2.rackcdn.com/Design/Images/newprofile_default_profileimage_new.jpg'" />George Kachergis</a><sup>1,2</sup> and <a href="http://www.frontiersin.org/people/u/7950" class="user-id-7950"><img class="pr5" src="http://www.frontiersin.org/files/Profile%20Library/7950/Thumb_24.jpg" onerror="this.src='https://f96a1a95aaa960e01625-a34624e694c43cdf8b40aa048a644ca4.ssl.cf2.rackcdn.com/Design/Images/newprofile_default_profileimage_new.jpg'" />Bernhard Hommel</a><sup>1,2</sup></div>
+<ul class="notes">
+<li><span><sup>1</sup></span>Cognitive Psychology Unit, Institute for Psychological Research, Leiden University, Leiden, Netherlands</li>
+<li><span><sup>2</sup></span>Leiden Institute for Brain and Cognition, Leiden University, Leiden, Netherlands</li>
+</ul>
+<p>Robots are increasingly capable of performing everyday human activities such as cooking, cleaning, and doing the laundry. This requires the real-time planning and execution of complex, temporally extended sequential actions under high degrees of uncertainty, which provides many challenges to traditional approaches to robot action control. We argue that important lessons in this respect can be learned from research on human action control. We provide a brief overview of available psychological insights into this issue and focus on four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations.</p>
+<div class="clear"></div>
+</div>
+<div class="JournalFullText">
+<a id="h2" name="h2"></a><h2>Introduction</h2>
+<p class="mb15">In a relatively short time span, the discipline of robotics has advanced from producing industrial non-autonomous, repetitive machines to semi-autonomous agents that should be able to function in a dynamic, human-driven world. Simple examples include automatic vacuum cleaners such as Roombas, but more flexible and autonomous humanoid robots are currently under development (e.g., the RoboHow.Cog project: <a href="http://www.robohow.eu">www.robohow.eu</a>). As robots perform more and more everyday human activities such as household chores, interacting with humans, and thereby almost becoming citizens in our societies, we believe that psychologists can provide relevant knowledge about human behavior that is generalizable to robots.</p>
+<p class="mb15">Like early approaches to artificial intelligence (AI), traditional cognitive psychology considers behavior (of biological or artificial agents) to emerge from discrete series of cognitive operations that take information from the environment (registered by sensory organs or artificial sensors), process this information in more or less complex ways, and eventually manipulate something in the environment as a result of this processing. In psychology, this <i>discrete, serial processing model</i> of cognition has been successful in explaining various psychological phenomena, but for one reason or another most research has focused on the early and middle stages of this process, leaving action and motor control far behind. Indeed, psychology as an autonomous science has historically shown an impressive neglect of the study of action and motor control, to the extent that it has even been called the &#x0201C;Cinderella of psychology&#x0201D; (<a href="#B55">Rosenbaum, 2005</a>).</p>
+<p class="mb0">Fortunately, however, more recent approaches have emphasized the role of action not only as an output function but as a precondition and basic ingredient of human cognition (e.g., <a href="#B8">Clark, 1997</a>; <a href="#B24">Hommel et al., 2001</a>; <a href="#B44">O&#x02019;Regan and Noe, 2001</a>). These recent approaches have criticized the traditional sequential-stage account of human behavior for analyzing action as a consequence of stimuli. They argue that action is more aptly characterized as people&#x02019;s means to produce stimuli (desired outcomes), rather than as a means to respond to stimuli (<a href="#B22">Hommel, 2009</a>). Moreover, actions are more than mere ballistic outputs: they are events that unfold in time and that must be structured in such a way that their outcome satisfies current needs and goals. Consider, for example, the act of tea-making, which consists of a number of components: (1) boiling water, (2) putting a tea bag in a teapot, (3) pouring the boiling water in the teapot, and (4) pouring the tea in one or more cups. Executing these different components in such a way that the intended goal is eventually achieved requires planning. In the following, we will provide a brief overview of available psychological insights into how this planning works in humans, and how these insights might inform the creation of robotic everyday action systems. At the moment, although robot actions mimic human action, the control systems are in fact quite different. We will confine our discussion to four principles that we think could be particularly beneficial for robot control: the integration of symbolic and subsymbolic planning of action sequences, the integration of feedforward and feedback control, the clustering of complex actions into subcomponents, and the contextualization of action-control structures through goal representations.</p>
+<a id="h3" name="h3"></a><h2>Integrating Symbolic and Subsymbolic Planning</h2>
+<p class="mb15">In contrast to the ballistic, single-step actions that participants in laboratory experiments often carry out, everyday action commonly consists of multiple components, as in the tea-making example. In AI and robotics, multi-component actions are commonly planned at a symbolic level, with each action component being represented by an arbitrary symbol or function. The STRIPS (Stanford Research Institute Problem Solver) planner (<a href="#B15">Fikes and Nilsson, 1971</a>) is a famous example: it serves to translate an initial state into an intended goal state by determining the subset of actions (defined as a symbolically described relation between sets of pre- and post-conditions) needed to do so. The format of all representations involved is symbolic allowing all goals and actions to be represented in basically the same way, although they can be arbitrarily linked to subsymbolic trigger states. This uniformity allows for a very efficient planning process, as action components can be easily manipulated and exchanged until the entire plan is optimal.</p>
+<p class="mb15">Symbolic action planning of this sort is consistent with early models of human action planning, which typically connected underspecified symbolic action representations with subsymbolic trigger states that took care of timing. For instance, Margaret Washburn considered that later action components might be triggered by the perception of the execution of the previous one: &#x0201C;If the necessary stimulus for pronouncing the last syllable of a series were the muscular contractions produced in pronouncing the next to the last syllable, then the proper sequence of movements would be insured&#x0201D; (<a href="#B66">Washburn, 1916</a>, p. 9). Along the same lines, <a href="#B26">James (1890)</a> suggested a <i>serial chaining model</i>, according to which each action component is triggered by the perception of the sensory feedback produced by the previous component. Accordingly, learners will create associations linking the motor patterns and their sensory consequences in a chain-like fashion.</p>
+<p class="mb15">As more studies were conducted, however, it was found that chaining accounts of sequential behavior cannot account for several empirical observations. In a seminal paper, the neurophysiologist <a href="#B36">Lashley (1951)</a> pointed out that the serial chaining models of the time were not adequate, because: (1) movements can still be executed if sensory feedback is impaired; (2) some movements are executed too quickly to have time to process feedback from preceding actions, and (3) errors in behavior suggest the presence of predetermined action plans (<a href="#B56">Rosenbaum et al., 2007</a>). <a href="#B56">Rosenbaum et al. (2007)</a> added further arguments against a chaining account of sequential action. For example, the time needed to initiate an action is a function of its complexity (<a href="#B21">Henry and Rogers, 1960</a>; <a href="#B30">Klapp, 1977</a>; <a href="#B53">Rosenbaum, 1987</a>), suggesting that the agent anticipates later action components before beginning to execute the first.</p>
+<p class="mb15">Along the same lines, <a href="#B9">Cohen and Rosenbaum (2004)</a>; [for another good example see <a href="#B65">Van der Wel and Rosenbaum (2007)</a>] had participants grasp a vertical cylinder placed on a platform and move it to another platform that was either higher or lower than the initial location. The researchers determined the vertical location of the grasp, and found that the grasp location was dependent on the expected end state. More specifically, subjects tended to choose a lower grasp location when bringing the cylinder to a higher position, and vice versa. Likewise, when subjects were asked to move the cylinder back to its starting position, they tended to grasp it in the location where they grasped it before. This <i>end-state comfort effect</i> suggests that people anticipate the position that they will assume after the action has been completed.</p>
+<p class="mb15">The same conclusion is suggested by studies on context effects in speech production. For example, people round their lips before pronouncing the <i>t</i> in the word <i>tulip</i>, in anticipation of pronouncing the <i>u</i> later in the sequence (<a href="#B11">Daniloff and Moll, 1968</a>; <a href="#B6">Bell-Berti and Harris, 1979</a>; <a href="#B16">Fowler, 1980</a>; <a href="#B54">Rosenbaum, 1991</a>). This does not seem to be a purely epiphenomenal property of human action; one can easily see how this produces more efficient, smoother speech, and a more careful use of the human speech-production &#x0201C;hardware.&#x0201D; An analogous action blending effect occurs when people reach for objects: people adaptively flex their fingers while moving the hand toward an object (<a href="#B27">Jeannerod et al., 1995</a>), and has been observed to develop when sequentially moving a cursor through a learned series of stimuli (Kachergis et al., under review). Compared to typical step-wise robotic motion, this action blending seems to be more efficient, using predictive motion to minimize the time and energy required to achieve the goal.</p>
+<p class="mb15">Further insights into human sequential action planning come from <a href="#B17">Gentner et al. (1980)</a>, who conducted a photographic study of a skilled typist. Using high-speed photography, they analyzed the hand movements of a 90-wpm typist, and found that the typist&#x02019;s hands were moving continuously, with fingers starting to move toward a destination before several preceding characters were to be typed. In fact, for 96% of all keystrokes, movement was initiated on average 137 ms before the preceding keystroke was completed, and for 21% the movement was initiated before the preceding keystroke was initiated. <a href="#B35">Larochelle (1984)</a> presents a similar but more extensive study, analyzing the typing of four professional typists while they typed either words or non-words, of which half were typed with one hand, and the other half with two hands. In more than half of the trials the movement was initiated before completion of the previous keystroke for two-handed trials.</p>
+<p class="mb15">These interactions between early and later sequence elements cast doubt on a simple chaining theory of sequential action. <a href="#B56">Rosenbaum et al. (2007)</a> interpreted these findings as evidence that sensory feedback is not a necessary component for action sequencing, in keeping with the conclusion of <a href="#B36">Lashley (1951)</a>. They argued that &#x0201C;the state of the nervous system can predispose the actor to behave in particular ways in the future,&#x0201D; (p. 526), or, there are <i>action plans</i> for some behaviors. And yet, studies on spontaneous speech repair (e.g., <a href="#B43">Nakatani and Hirschberg, 1994</a>) also show that people are very fast in fixing errors in early components of a word or sentence, much too fast to assume that action outcomes are evaluated only after entire sequences are completed. This means that action planning cannot be exclusively feedforward, as <a href="#B36">Lashley (1951)</a> seemed to suggest, but must include several layers of processing, with lower levels continuously checking whether the current action component proceeds as expected. In other words, action planning must be a temporally extended process in which abstract representations to some extent provide abstract goal descriptions, which must be integrated with lower-level subsymbolic representations controlling sensorimotor loops. The existence of subsymbolic sensorimotor representations would account for context and anticipation effects, as described above. In the more general field of knowledge representation, some authors even take it one step further, positing that subsymbolic, sensorimotor representations are <i>necessary</i> for higher-level symbolic cognition. For example, <a href="#B3">Barsalou&#x02019;s (1993</a>, <a href="#B4">1999</a>) perceptual symbol systems theory defines cognition as embedded in the world, stating that agents form grounded models via perception and interaction with their environments. With these models, the representation of abstract concepts can be implemented using grounded perceptual symbols. The empirical support for theories like these motivate the notion that both symbolic and subsymbolic representations can (and should) work together to account for human cognition.</p>
+<p class="mb15">A good example for an action planning model that includes one symbolic and one subsymbolic level is the typewriting model suggested by <a href="#B58">Rumelhart and Norman (1982)</a>. To control typing the word &#x0201C;WORD,&#x0201D; say, the model would assume that the symbolic/&#x0201C;semantic&#x0201D; representation WORD would activate motor units controlling the finger movements required to type &#x0201C;W,&#x0201D; &#x0201C;O,&#x0201D; &#x0201C;R,&#x0201D; and &#x0201C;D&#x0201D; in parallel. This parallel activation allows for crosstalk between the different units, which would account for context effects and anticipations. At the same time, the activated units are prevented from firing prematurely by means of a forward-inhibition structure. That is, each unit is inhibiting all following units in the sequence (so that the &#x0201C;W&#x0201D; unit inhibits the &#x0201C;O,&#x0201D; &#x0201C;R,&#x0201D; and &#x0201C;D&#x0201D; units, the &#x0201C;O&#x0201D; unit the &#x0201C;R&#x0201D; and &#x0201C;D&#x0201D; units, and the &#x0201C;R&#x0201D; the &#x0201C;D&#x0201D; unit) and release that inhibition only once they are executed. The dynamics of these inhibition and release processes automatically produce the necessary sequence. It is thought that such activation and inhibition processes play a role even in young infants (Verschoor et al., unpublished). Immediate feedback, though not explicitly addressed by <a href="#B58">Rumelhart and Norman (1982)</a>, could serve to repair the actions controlled by particular units, but the feedback would not be needed to produce the sequence &#x02013; a major advantage over chaining models. For an overview of similar models and other action domains, see <a href="#B37">Logan and Crump (2011)</a>.</p>
+<p class="mb0">The main lesson for robotic everyday action control is that purely symbolic planning may be too crude and context-insensitive to allow for smooth and efficient multi-component actions. Introducing multiple levels of action planning and action control may complicate the engineering considerably, but it is also likely to make robot action more flexible and robust &#x02013; and less &#x0201C;robotic&#x0201D; to the eye of the user.</p>
+<a id="h4" name="h4"></a><h2>Integrating Feedforward and Feedback Mechanisms</h2>
+<p class="mb15">In perfectly predictable environments such as industrial construction halls, there is hardly any need for feedback mechanisms. Indeed, early industrial robots, such as Unimate, could rely on fully preprogrammed feedforward control for repetitive multi-component actions such as picking up and manipulating objects (<a href="#B20">H&#x000E4;gele et al., 2008</a>). However, real-life environments are much too unpredictable to allow for purely feedforward control. Considering that purely feedback-based control is often much too slow to allow for real-life human action, it is unsurprising that human action control seeks for an optimal integration of feedforward and feedback mechanisms.</p>
+<p class="mb15">One of the earliest studies into feedforward planning is <a href="#B21">Henry and Rogers (1960)</a>, which compared reaction times of participants performing a simple finger movement to reaction times of a moderately complex arm movement (reaching and grasping) in response to a stimulus. The authors found that participants performing the more complex movement showed a 20% increase in reaction time, with as much as a 25% increase for even more complex movement. This suggests the existence of feedforward action planning prior to action execution.</p>
+<p class="mb15">Linguistic studies have shown a similar effect. <a href="#B13">Eriksen et al. (1970)</a> had participants read aloud two-digit numbers consisting of a varying number of syllables. Longer numbers were shown to have a longer onset delay. In order to account for the possibility that factors other than motor planning play a role, participants were given the same task with a delay between stimulus onset and vocalization. Here, the effect disappeared, again providing evidence for pre-execution action plan formation.</p>
+<p class="mb15">However, while it may be tempting to conclude that an action plan is formed completely before action onset, incremental approaches to sequential action posit that this is not the case. <a href="#B46">Palmer and Pfordresher (2003)</a> argued that it is unlikely for actors to have access to all elements in a long sequence, as this would place unnecessarily large demands on memory &#x02013; just think of a conductor starting to conduct a 4-h Wagner opera. Instead, planning and execution co-occur in time, limiting access to sequence elements that appeared much earlier or that lie far in the future. Evidence for this was indeed found by <a href="#B62">Sternberg et al. (1988)</a>, in which six participants prepared and produced sequences of mono- or tri-syllabic words. In addition to the length effect discussed above, preparation times were found to increase with length of the word sequence until approaching asymptote (which was 10.3 &#x000B1; 0.6 words for sequences of mono-syllabic words and 6.4 &#x000B1; 0.9 words for tri-syllabic words). This suggests that plan formation and execution occur simultaneously, at least for longer sequences of actions, with a limited capacity.</p>
+<p class="mb15">However, feedforward mechanisms alone cannot account for such complex action as our tea-making example. A complete feedforward program would need to incorporate numerous unknown parameters, such as the exact location and physical properties (e.g., weight) of all necessary objects. The prior unavailability of such parameters is not the only reason feedback mechanisms might be helpful. Some parameters might be possible to include in a feedforward program, but would simply be more efficient or optimal if filled in online, such as grip strength. Even if all this information were available, an actor still needs to be able to correct possible &#x02013; sometimes inevitable &#x02013; perturbations in action execution.</p>
+<p class="mb15">Indeed, it seems that the presence of uncertainty (i.e., unavailability of necessary parameters) increases the importance of feedback mechanisms. <a href="#B59">Saunders and Vijayakumar (2011)</a> fitted participants with a prosthetic hand that could provide vibrotactile feedback. Using this prosthetic hand, they were asked to manipulate objects of different weights. Manipulating both feedforward uncertainty by adding an unpredictable delay in the prosthetic hand and feedback information by manipulating vibrotactile feedback, they found that performance decreased when feedback was removed in situations with feedforward uncertainty. This illustrates that human action emerges from the interaction of feedforward and feedback mechanisms.</p>
+<p class="mb15">Integrating feedforward and feedback mechanisms holds the promise to get the best from two worlds. Feedforward mechanisms are likely to determine the necessary action components and pre-load at least some of them before initiating the action (<a href="#B21">Henry and Rogers, 1960</a>), and to selectively tune attention to stimuli and stimulus dimensions that are relevant for the task (<a href="#B23">Hommel, 2010</a>). Feedback processes, in turn, provide excellent accuracy &#x02013; often at the cost of speed (<a href="#B61">Seidler et al., 2004</a>). These strengths and weaknesses have motivated hybrid models claiming that feedforward mechanisms provide the skeleton of action plans which leave open slots for parameters provided by feedback processes (<a href="#B60">Schmidt, 1975</a>; <a href="#B18">Glover, 2004</a>; <a href="#B23">Hommel, 2010</a>). A particularly good example of this kind of interaction is provided by the observations of <a href="#B19">Goodale et al. (1986)</a>. In a clever experiment, participants were asked to rest their hand on a platform and point to a visual target presented at a random location on an imaginary line in their right visual field. The participants were not told that in half of the trials the target changed location during the first saccade. The authors found that participants would successfully point to the target on these trials without even being aware of the location change, and without additional delay. As feedforward programming is thought to take time, a fast and online feedback mechanism of which participants are unaware has to be responsible for this finding. After this study showing online adaptation of hand velocity, <a href="#B49">Prablanc and Martin (1992)</a> found that these results generalize to two dimensions. Using stimuli presented on a screen, it was found that both the velocity and trajectory of the hand were adjusted online. This demonstrates that action is the result of a preprogrammed action plan (the initial movement of the hand) combined with online adaptation to reach goal requirements. Interestingly, such a division of labor fits well with the architecture of the human brain, which includes both a slow, cognitively penetrated ventral route from perception to action and a fast dorsal sensorimotor loop (for a broader overview, see <a href="#B42">Milner and Goodale, 1995</a>).</p>
+<p class="mb15">It is clear that both feedforward and feedback mechanisms are responsible for producing complex action, but there remain a number of unanswered questions. Are feedforward processes always responsible for certain actions? How are these plans learned, and how do people know when to apply them? How does feedback on a lower level result in action re-planning on a higher level, and does this require conscious intervention? What is the division of labor between feedback and feedforward mechanisms? How fluid is it &#x02013; how hierarchical?</p>
+<p class="mb15">We know that with practice, the roles of feedback and feedforward processes change. In a standard rapid aimed limb movement paradigm, participants are asked to perform a manual action in order to reach a target. During such tasks, the response can be regarded as having two elements: (1) a ballistic primary movement, thought to be controlled by a feedforward mechanism, and (2) a secondary, corrective movement, thought to be caused by a feedback mechanism. <a href="#B50">Pratt and Abrams (1996)</a> used such a paradigm to investigate the effect of practice on the weight of primary and secondary movements. Participants were asked to repeatedly move a visual cursor to a target location using wrist rotation. With more practice, the percentage of time spent in the first movement increased, while time spent in the second movement decreased. As the first movement is feedforward-controlled, this suggests that practice reduces the need of feedback control, as the feedforward process becomes more accurate. But will this learning generalize to new situations with similar action requirements, and is it long-lasting?</p>
+<p class="mb15">To investigate the relationship between practice and feedback control, <a href="#B52">Proteau et al. (1987)</a> had participants practice an aiming task on either 200 or 2000 trials and found that, when visual feedback was taken away, participants who had more practice were more impaired by the removal of feedback. This is not what one would expect if practice simply shifts control to feedforward processes. Subsequent research has shown that, with practice, higher peak velocities are reached in the early phase of movement, thereby leaving more time for corrective submovements based on feedback. Thus, instead of a shift from feedback control to feedforward control, feedback processes seem to be optimized as a result of practice (<a href="#B52">Proteau et al., 1987</a>; <a href="#B29">Khan et al., 1998</a>; <a href="#B12">Elliott et al., 2010</a>).</p>
+<p class="mb0">While the first generation of robots and other intelligent systems had a strong preference for feedforward control, not in the least because of the rather predictable environments they were implemented in, some modern systems rely heavily on feedback control to perform actions &#x02013; especially humanoid systems operating in real-world scenarios. This is likely to work as long as action production in such robots is slower than the feedback loops informing them (<a href="#B48">Plooij et al., 2013</a>), but progress in action mechanics is likely to make hybrid feedforward/feedback systems an attractive alternative in the near future.</p>
+<a id="h5" name="h5"></a><h2>Hierarchical Action Representation</h2>
+<p class="mb15">Human actions can often be described in a hierarchical fashion: &#x0201C;Going on vacation&#x0201D; implies action such as &#x0201C;packing my bags,&#x0201D; &#x0201C;getting the car,&#x0201D; &#x0201C;loading it,&#x0201D; &#x0201C;driving down to city X,&#x0201D; and so forth and so on. Many authors have taken that to imply that action control is hierarchical as well. According to <a href="#B36">Lashley (1951)</a>, only a hierarchical organization of actions and action plans can provide the opportunity to have the same motor acts acquire different meanings, depending on the context in which the motor act is performed. In <a href="#B41">Miller et al. (1960)</a> seminal book, action plans are even hierarchical by definition: &#x0201C;A Plan is any hierarchical process in the organism that can control the order in which a sequence of operations is to be performed&#x0201D; (p. 16). And yet, while it is certainly uncontroversial that it is possible to <i>describe</i> actions as hierarchical, this need not have any implication for the cognitive organization of actions. As <a href="#B2">Badre (2008)</a> argues, &#x0201C;the fact that a task can be represented hierarchically does not require that the action system itself consist of structurally distinct processing levels&#x0201D; (p. 193; see also <a href="#B31">Klein, 1983</a>). Moreover, it is not always clear what authors mean if they say that actions are organized in a hierarchical fashion.</p>
+<p class="mb15"><a href="#B64">Uithol et al. (2012)</a> noted that there are at least two ways to look at hierarchical action. These two ways differ in what are considered to be the different levels in such a hierarchy. One way to look at action hierarchies is the view of part-whole relations. In this account, each level in the hierarchy exists solely as the sum of lower-level units. In other words, an action unit such as &#x0201C;get a pan for pancake making&#x0201D; consists of the subunits &#x0201C;open the cupboard,&#x0201D; &#x0201C;take pan from cupboard,&#x0201D; &#x0201C;place pan on counter,&#x0201D; and &#x0201C;close the cupboard.&#x0201D; It should be clear that when all subordinate units are present, the superordinate unit &#x0201C;get a pan&#x0201D; is also present, as it is identical to the sum of its parts. <a href="#B64">Uithol et al. (2012)</a> argues that this kind of hierarchy does not provide an explanation of the complex action; it merely provides a thorough description of the to-be-explained action, in which higher levels are more complex than lower levels. It also does not give information about the causal relationship between the different levels in the hierarchy, as you cannot consider an element to be the cause of its own parts. Another restriction of this type of hierarchy is that it can only accommodate levels that are of a similar nature. That is, actions can only be divided into sub-actions, not into objects or world states.</p>
+<p class="mb15">Another way to view hierarchies is to see the different levels as representing causal relations between the levels. In this approach, units on a higher level causally influence units on a lower level. In this type of hierarchy, lower-level units can be modulated by higher-level units. In contrast with the part-whole hierarchy, lower levels are not necessarily less complex than higher levels. Goals that are formulated as simple and propositional states can be the cause of more complex elements. Using this hierarchical approach also opens up the possibility of states or objects being the cause of an action, as it does not have the limitation of requiring action-type goals.</p>
+<p class="mb15"><a href="#B64">Uithol et al. (2012)</a> proposed a new model, in which the fundamental foundation for the hierarchical structure is not cause-and-effect (i.e., goals cause motor acts), or complexity (i.e., complex motor acts such as grabbing a pan consist of simpler acts such as flexing fingers and grasping the handle), but temporal stability. In this view, stable representations can be considered goal-related, while more temporary representations reflect motor acts on different levels, not unlike the more enduring conceptual representations and the less enduring motor units of <a href="#B58">Rumelhart and Norman&#x02019;s (1982)</a> model discussed above. However, this representation proposal does not include a model of how the hierarchies within a task are abstracted and learned from experience, nor of how they may be shared across tasks despite requiring different parameterizations.</p>
+<p class="mb15"><a href="#B7">Botvinick and Plaut (2004)</a> tackled some of these issues, pointing out that not only is it unclear how existing hierarchical models learn hierarchies from experience, but also that most theoretical accounts lead to a circular reference: acquiring sequence knowledge relies on the ability to identify event boundaries, which in turn requires sequence knowledge. A further problem is sequencing in hierarchical structures; many models (e.g., <a href="#B58">Rumelhart and Norman, 1982</a>; <a href="#B25">Houghton, 1990</a>) solve that by means of forward<i></i> inhibition, but this only works on units at the lowest level of a hierarchy. <a href="#B7">Botvinick and Plaut (2004)</a> offered a recurrent connectionist network model that helps avoiding these problems. Using computer simulations they showed that such a network, which contains no inherent hierarchical structure, can learn a range of sequential actions that many consider hierarchical. The hierarchy, they argued, emerges from the system as a whole. The network they used is a three-layer recurrent network, with an input layer representing held objects and fixated objects, an output layer representing actions to be taken, and a hidden layer (with recurrent connections) for the internal representation. Having trained this network on a routine complex task (making coffee or tea), they showed that it can perform complex action that can be considered hierarchical in nature (e.g., varying orders of subactions leading to the same outcome) without relying on a hierarchical system architecture. The network also showed slips of action when the internal representation layer was degraded, as well as other action errors found in empirical studies, although <a href="#B10">Cooper and Shallice (2006)</a> suggest that the relative frequency and types of errors shown by the recurrent model do not match human subjects.</p>
+<p class="mb0">We believe that architectures offering such hierarchical behavior, without necessarily being hierarchically structured, can provide robots with the needed flexibility to function in a dynamic, human-driven world. <a href="#B7">Botvinick and Plaut&#x02019;s (2004)</a> model seems to be able to account for some aspects of flexible behavior, but more complex and biologically inspired models such as LEABRA (<a href="#B45">O&#x02019;Reilly, 1996</a>; Kachergis et al., under review) promise to generalize to other tasks, as well as being able to learn relatively fast, two aspects of human behavior we consider essential to emulate in robot behavior.</p>
+<a id="h6" name="h6"></a><h2>Contextualizing Action Control</h2>
+<p class="mb15">As pointed out above, one of the reasons why <a href="#B36">Lashley (1951)</a> considered action representations to be necessarily hierarchically organized was the fact that the meaning and purpose of action components vary with the goal that they serve to accomplish: while making a kicking movement with your right leg can easily be replaced by moving your head sideways when trying to score a goal in a soccer game, that would not be a particularly good idea when performing a group can-can on stage during a performance of Orpheus in the Underworld. In other words, goals are needed to contextualize action components. In AI, robotics, and some information-processing approaches in psychology, the main function of goal representation is to guide the selection of task components, including stimulus and response representations or perception-action rules. In traditional processing models, like ACT-R or Soar (<a href="#B34">Laird et al., 1987</a>; <a href="#B1">Anderson, 1993</a>), goal representations limit the number of production rules considered for a task, which reduces the search space and makes task preparation more efficient (<a href="#B10">Cooper and Shallice, 2006</a>). Moreover, goals commonly serve as a reference in evaluating an action, when comparing the current state of the environment with the desired state (<a href="#B41">Miller et al., 1960</a>).</p>
+<p class="mb15">This practice was challenged by <a href="#B7">Botvinick and Plaut (2004)</a>, who pointed out at least two problems with goal representations in cognitive models. First, goals themselves may be context-dependent. The goal of cleaning the house may have rather different implications depending on whether it serves to satisfy the expectations of one&#x02019;s partner or to prepare for a visit of one&#x02019;s mother-in-law. Likewise, the goal of stirring will produce somewhat different behavior depending on whether one is stirring egg yolks or cement. Most models that postulate the existence of goals do not allow for such context dependence. Second, it is argued that many everyday activities do not seem to have definable, or at least not invariant goals; just think of playing a musical instrument or taking a walk. The authors demonstrated that goal-directed behavior can be achieved without the explicit representation of goals. In the previously mentioned simulation studies with recurrent neural networks, they were able to simulate goal-directed actions that operate very much like <a href="#B4">Miller et al.&#x02019;s (1960)</a> TOTE units, without any need to represent the goal explicitly. Obviating the need for representing goals, such a model could be applied to behavior with non-obvious goals, such as taking a walk as a consequence of feeling restless or having the thought of fresh air (<a href="#B7">Botvinick and Plaut, 2004</a>).</p>
+<p class="mb15"><a href="#B10">Cooper and Shallice (2006)</a> took issue with this non-representationalist account of goals, giving at least two reasons why goals <i>should</i> be implemented in cognitive models. First, goals allow for the distinction between critical and supporting actions. When making pancakes, the subaction of adding egg to the mixture consists of picking up an egg, breaking it (above the bowl), and discarding the empty shell (not above the bowl). It should be clear that the breaking of the egg is the most important action in this sequence. Dissociating important actions from non-important actions can account for skipping unnecessary steps. When applying butter to two slices of toast, it is not necessary to execute the supporting actions &#x0201C;discard knife&#x0201D; and &#x0201C;pick up knife&#x0201D; between the two executions of the &#x0201C;butter toast&#x0201D; action program. Second, the implementation of goals would allow for subactions that serve the same purpose to be interchanged. For example, flipping a pancake by flipping it in the air or flipping it using a spatula would both be perfectly good methods for pancake flipping, and the shared goal allows these actions to be interchanged. Models without goal representation can only show this behavior if they are explicitly trained on all the alternative actions that can be taken. To make the realization that a set of actions are equivalent for achieving a goal, a model would in essence have to contain a representation of that goal.</p>
+<p class="mb15">Interestingly, however, goal representations (whether explicit or implicit) can play an important role in contextualizing cognitive representations. Most representational accounts assume that representations of stimulus and action events are invariant. The need to contextualize representations &#x02013; i.e., to tailor them to the particular situation and task at hand &#x02013; thus seems to put the entire burden on the goal, so that the explicit representation of the goal seems to be a necessary precondition for adaptive behavior. But, from a grounded cognition perspective, it seems that alternative scenarios are possible. In a grounded cognition framework, the representation of objects and object categories takes an embodied form, using modal features from at least the visual, motor, and auditory modalities (<a href="#B51">Prinz and Barsalou, 2000</a>). For example, the concept of apple would be represented by a network of visual codes representing &#x0003C;green> and &#x0003C;round>, but also the auditory &#x0003C;crunchy sound> of biting into it. The embodied cognition framework has already been successfully implemented in robot platforms such as iCub, and shows stimulus compatibility effects similar to those that can be observed in humans (<a href="#B38">Macura et al., 2009</a>; <a href="#B47">Pezzulo et al., 2011</a>).</p>
+<p class="mb15">According to the Theory of Event Coding (<a href="#B24">Hommel et al., 2001</a>), events are represented &#x02013; like objects &#x02013; in a feature-based, distributed fashion. This will mean that the aforementioned apple would be represented by a network of codes representing not only the apple&#x02019;s perceptual features such as being &#x0003C;greenish> and &#x0003C;round>, but also its properties such as being &#x0003C;edible>, &#x0003C;graspable>, &#x0003C;carryable>, &#x0003C;throwable>, and so forth. In this view, one of the main roles of goals is to emphasize (i.e., increase the weight of) those features that in the present task are of particular importance. This means that when hungry, the feature of being &#x0003C;edible> will be primed in advance and become more activated when facing an apple, while &#x0003C;throwability> will become more important when being in danger and trying to defend oneself. Several studies have provided evidence that goals are indeed biasing attentional settings toward action-relevant feature dimensions (e.g., <a href="#B14">Fagioli et al., 2007</a>; <a href="#B67">Wykowska et al., 2009</a>; <a href="#B33">K&#x000FC;hn et al., 2011</a>), suggesting that the impact of goals goes beyond the selection of production rules and outcome evaluation. Interestingly, this kind of &#x0201C;intentional weighting&#x0201D; function (<a href="#B40">Memelink and Hommel, 2013</a>) can be considered to represent the current goal without requiring any explicit representation &#x02013; very much along the lines of <a href="#B7">Botvinick and Plaut (2004)</a>.</p>
+<p class="mb15">Another potential role of goals is related to temporal order. In chaining models, the dimension of time was unnecessary because the completion of each component automatically &#x0201C;ignites&#x0201D; the next component. The same holds for current planners in cognitive robotics, which commonly fix the order of action subcomponents (e.g., CRAM: <a href="#B5">Beetz et al., 2010</a>). But action plans may follow a more abstract syntax instead, much like how syntactic constraints of natural languages allow for various possible sequences. For instance, consider the process of making tea. With the possible exception of true connoisseurs, it doesn&#x02019;t make any difference for most tea drinkers whether one puts the tea or the water into the cup first; i.e., the order of these two subactions is interchangeable. A truly flexible system would thus allow for any of these orders, depending on whether water or tea is immediately at hand. While a chaining model would not allow for changing the original order, a more syntactic action plan would merely define possible slots for particular subcomponents (e.g., <a href="#B57">Rosenbaum et al., 1986</a>), so that the actual order of execution would be an emerging property of the interaction of the syntactic plan and the situational availability of the necessary ingredients.</p>
+<p class="mb0">These considerations suggest that robotic systems need to incorporate at least some rudimentary aspects of time and temporal order to get on par with humans. Along these lines, <a href="#B39">Maniadakis and Trahanias (2011)</a> have propagated the idea that robotic systems should be equipped with some kind of temporal cognition, be it by incorporating temporal logic or event calculus. Indeed, recent robotic knowledge representation systems, such as KnowRob (<a href="#B63">Tenorth and Beetz, 2012</a>), do possess the ability to do spatiotemporal reasoning about the changing locations of objects, such as predicting when and where objects can be found.</p>
+<a id="h7" name="h7"></a><h2>Conclusion</h2>
+<p class="mb15">We have discussed how conceptions of robotic action planning can benefit from insights into human action planning. Indeed, we believe that constructing truly flexible and autonomous robots requires inspiration from human cognition. We focused on four basic principles that characterize human action planning, and we have argued that taking these principles on board will help to make artificial cognition more human-like.</p>
+<p class="mb15">First, we have discussed evidence that human action planning emerges from the integration of a rather abstract, perhaps symbolic representational level and concurrent planning at a lower, more concrete representational level. It is certainly true that multi-level planning can create difficult coordination problems. Using grounded cognition approaches in robotics is potentially a good method to ground such higher-level symbolic representation in lower-level sensorimotor representations, which may allow robot action to become more flexible and efficient.</p>
+<p class="mb15">Second, we have argued that human action planning emerges from the interplay of feedforward and feedback mechanisms. Again, purely feedforward or purely feedback architectures are likely to be more transparent and easier to control. However, fast, real-time robotic action in uncertain environments will require a hybrid approach that distributes labor much like the human brain does by combining slow and highly optimized feedforward control with fast sensorimotor loops that continuously update the available environmental information. A major challenge for the near future will be to combine such hybrid systems with error-monitoring and error-correcting mechanisms. When preparing pancake dough, accidentally pouring some milk outside the bowl would need to trigger a fast correction mechanism informed by low-level sensory feedback but not necessarily the re-planning of (or crying over) the entire action. However, if for some reason the entire milk carton is emptied by this accident, leaving the agent without the necessary ingredient, feedback would have to propagate to higher, more abstract or more comprehensive planning levels to decide whether the plan needs to be aborted. How this works in detail and how decisions are made as to which level is to be informed is not well understood, but progress is being made. Research into feedback processes has yielded information about the optimal speed of sensorimotor loops (<a href="#B28">Joshi and Maass, 2005</a>), and we find it reasonable to expect that models using such fast feedback loops combined with accurate feedforward planning can ultimately produce human-like motor performance in robots.</p>
+<p class="mb15">Third, we have argued that while descriptions of human actions may refer to a hierarchy, it is not yet clear whether the cognitive &#x02013; <i>in vivo</i> or <i>in silico</i> &#x02013; representations of such actions need to be explicitly hierarchical as well. Equally unclear is whether representations that differ in hierarchical level would necessarily need to differ in format. However, it is clear that representations that are considered to be &#x0201C;higher in hierarchy&#x0201D; are more comprehensive. The concept of &#x0201C;making a pancake,&#x0201D; say, is necessarily richer and more abstract than the associated lower-level actions of &#x0201C;reaching for egg&#x0201D; and &#x0201C;grabbing a pan,&#x0201D; suggesting that the latter two are more directly grounded in sensorimotor activity (<a href="#B32">Kraft et al., 2008</a>). Future research will need to investigate how representations at different planning levels (or different levels of description) interact or relate to each other.</p>
+<p class="mb15">The nature of goals and their role in action control is also a matter of ongoing research. The two different viewpoints &#x02013; i.e., that goals require explicit representation or not &#x02013; seem to reflect different preferences in conceptualization and modeling techniques, and it may well turn out that an explicit representation of goals in the preferred modeling language translates to a more implicit representation of goals in the actual functional or neural architecture. In robotics, most modern plan languages use a form of explicit goal-related action control that defines a goal as a required world state on which constraints can be imposed. Such a structure is flexible enough to allow equifinality, but it is unclear how knowledge about the various means to produce a result is acquired. Ultimately, we believe that subsymbolic programming approaches may allow for more adaptive, &#x0201C;human&#x0201D; representational architectures &#x02013; though likely more difficult to engineer and define provably safe operating conditions for.</p>
+<p class="mb0">To conclude, we believe that the construction of robots that are up to real-life, everyday actions in environments that are as uncertain as human environments requires the consideration of cognitive principles like the four principles we have discussed in this article. The benefit of doing so will be twofold. For one, it will strongly increase the flexibility of robots. For another, it will make robots more human-like in the eyes of the human user, which will help us understand and cooperate with our future robotic colleagues.</p>
+<a id="h8" name="h8"></a><h2>Conflict of Interest Statement</h2>
+<p class="mb0">The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</p>
+<a id="h9" name="h9"></a><h2>Acknowledgment</h2>
+<p class="mb0">The preparation of this work was supported by the European Commission (EU Cognitive Systems project ROBOHOW.COG; FP7-ICT-2011).</p>
+<a id="h10" name="h10"></a><h2>References</h2>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B1" id="B1"></a>Anderson, J. R. (1993). <i>Rules of the Mind</i>. Hillsdale, NJ: Erlbaum.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B2" id="B2"></a>Badre, D. (2008). Cognitive control, hierarchy, and the rostro-caudal organization of the frontal lobes. <i>Trends Cogn. Sci.</i> 12, 193&#x02013;200. doi: 10.1016/j.tics.2008.02.004</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=18403252" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=18403252" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1016/j.tics.2008.02.004" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B3" id="B3"></a>Barsalou, L. W. (1993). &#x0201C;Flexibility, structure, and linguistic vagary in concepts: manifestations of a compositional system of perceptual symbols,&#x0201D; in <i>Theories of Memory</i>, eds A. C. Collins, S. E. Gathercole, and M. A. Conway (London: Lawrence Erlbaum Associates), 29&#x02013;101.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B4" id="B4"></a>Barsalou, L. W. (1999). Perceptual symbol systems. <i>Behav. Brain Sci.</i> 22, 577&#x02013;660.</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=11301525" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=11301525" target="_blank">Pubmed Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B5" id="B5"></a>Beetz, M., M&#x000F6;senlechner, L., and Tenorth, M. (2010). &#x0201C;CRAM: a cognitive robot abstract machine for everyday manipulation in human environments,&#x0201D; in <i>IEEE/RSJ International Conference on Intelligent RObots and Systems</i>, Taipei.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B6" id="B6"></a>Bell-Berti, F., and Harris, K. S. (1979). Anticipatory coarticulation: some implications from a study of lip rounding. <i>J. Acoust. Soc. Am.</i> 65, 1268&#x02013;1270. doi: 10.1121/1.382794</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=458048" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=458048" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1121/1.382794" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B7" id="B7"></a>Botvinick, M., and Plaut, D. C. (2004). Doing without schema hierarchies: a recurrent connectionist approach to normal and impaired routine sequential action. <i>Psychol. Rev.</i> 111, 395&#x02013;429. doi: 10.1037/0033-295X.111.2.395</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=15065915" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=15065915" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/0033-295X.111.2.395" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B8" id="B8"></a>Clark, A. (1997). <i>Being there: Putting Brain, Body and World Together Again</i>. Cambridge, MA: MIT Press.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B9" id="B9"></a>Cohen, R. G., and Rosenbaum, D. A. (2004). Where grasps are made reveals how grasps are planned: generation and recall of motor plans. <i>Exp. Brain Res.</i> 157, 486&#x02013;495. doi: 10.1007/s00221-004-1862-9</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=15071711" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=15071711" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1007/s00221-004-1862-9" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B10" id="B10"></a>Cooper, R. P., and Shallice, T. (2006). Hierarchical schemas and goals in the control of sequential behavior. <i>Psychol. Rev.</i> 113, 887&#x02013;916. doi: 10.1037/0033-295X.113.4.887</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=17014307" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=17014307" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/0033-295X.113.4.887" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B11" id="B11"></a>Daniloff, R., and Moll, K. (1968). Coarticulation of lip rounding. <i>J. Speech Hear. Res.</i> 11, 707&#x02013;721. doi: 10.1044/jshr.1104.707</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=5719225" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=5719225" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1044/jshr.1104.707" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B12" id="B12"></a>Elliott, D., Hansen, S., Grierson, L. E., Lyons, J., Bennett, S. J., and Hayes, S. J. (2010). Goal-directed aiming: two components but multiple processes. <i>Psychol. Bull.</i> 136, 1023&#x02013;1044. doi: 10.1037/a0020958</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=20822209" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=20822209" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/a0020958" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B13" id="B13"></a>Eriksen, C. W., Pollack, M. D., and Montague, W. E. (1970). Implicit speech: mechanism in perceptual encoding? <i>J. Exp. Psychol.</i> 84, 502&#x02013;507. doi: 10.1037/h0029274</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1037/h0029274" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B14" id="B14"></a>Fagioli, S., Hommel, B., and Schubotz, R. I. (2007). Intentional control of attention: action planning primes action-related stimulus dimensions. <i>Psychol. Res.</i> 71, 22&#x02013;29. doi: 10.1007/s00426-005-0033-3</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=16317565" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=16317565" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1007/s00426-005-0033-3" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B15" id="B15"></a>Fikes, R., and Nilsson, N. (1971). STRIPS: a new approach to the application of theorem proving to problem solving. <i>Artific. Intell.</i> 2, 189&#x02013;208. doi: 10.1016/0004-3702(71)90010-5</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1016/0004-3702(71)90010-5" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B16" id="B16"></a>Fowler, C. A. (1980). Coarticulation and theories of extrinsic timing control. <i>J. Phonet.</i> 8, 113&#x02013;133.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B17" id="B17"></a>Gentner, D. R., Grudin, J., and Conway, E. (1980). <i>Skilled Finger Movements in Typing (Technical Report 8001)</i>. San Diego, CA: Center for Human Information Processing.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B18" id="B18"></a>Glover, S. (2004). Separate visual representations in the planning and control of action. <i>Behav. Brain Sci.</i> 27, 3&#x02013;24.</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=15481943" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=15481943" target="_blank">Pubmed Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B19" id="B19"></a>Goodale, M. A., P&#x000E9;lisson, D., and Prablanc, C. (1986). Large adjustments in visually guided reaching do not depend on vision of the hand or perception of target displacement. <i>Nature</i> 320, 748&#x02013;750. doi: 10.1038/320748a0</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=3703000" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=3703000" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1038/320748a0" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B20" id="B20"></a>H&#x000E4;gele, M., Nilsson, K., and Norberto Pires, J. (2008). &#x0201C;Industrial robotics,&#x0201D; in <i>Springer Handbook of Robotics</i>, eds B. Siciliano and O. Khatib (Berlin: Springer), 963&#x02013;986.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B21" id="B21"></a>Henry, F. M., and Rogers, D. E. (1960). Increased response latency for complicated movements and a &#x0201C;memory drum&#x0201D; theory of neuromotor reaction. <i>Res. Q.</i> 31, 448&#x02013;458.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B22" id="B22"></a>Hommel, B. (2009). Action control according to TEC (theory of event coding). <i>Psychol. Res.</i> 73, 512&#x02013;526. doi: 10.1007/s00426-009-0234-2</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=19337749" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=19337749" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1007/s00426-009-0234-2" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B23" id="B23"></a>Hommel, B. (2010). &#x0201C;Grounding attention in action control: the intentional control of selection,&#x0201D; in <i>Effortless Attention: A New Perspective in the Cognitive Science of Attention and Action</i>, ed. B. J. Bruya (Cambridge, MA: MIT Press), 121&#x02013;140. doi: 10.7551/mitpress/9780262013840.003.0006</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.7551/mitpress/9780262013840.003.0006" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B24" id="B24"></a>Hommel, B., M&#x000FC;sseler, J., Aschersleben, G., and Prinz, W. (2001). The theory of event coding (TEC): a framework for perception and action planning. <i>Behav. Brain Sci.</i> 24, 849&#x02013;878. doi: 10.1017/S0140525X01000103</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=12239891" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=12239891" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1017/S0140525X01000103" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B25" id="B25"></a>Houghton, G. (1990). &#x0201C;The problem of serial order: a neural network model of sequence learning and recall,&#x0201D; in <i>Current Research in Natural Language Generation</i>, eds R. Dale, C. Mellish, and M. Zock (San Diego, CA: Academic Press), 287&#x02013;319.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B26" id="B26"></a>James, W. (1890). <i>Principles of Psychology</i>, Vol. 1. New York: Holt. doi: 10.1037/10538-000</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1037/10538-000" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B27" id="B27"></a>Jeannerod, M., Arbib, M. A., Rizzolatti, G., and Sakata, H. (1995). Grasping objects: the cortical mechanisms of visuomotor transformation. <i>Trends Neurosci.</i> 18, 314&#x02013;320. doi: 10.1016/0166-2236(95)93921-J</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1016/0166-2236(95)93921-J" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B28" id="B28"></a>Joshi, P., and Maass, W. (2005). Movement generation with circuits of spiking neurons. <i>Neural Comput.</i> 17, 1715&#x02013;1738. doi: 10.1162/0899766054026684</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=15969915" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=15969915" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1162/0899766054026684" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B29" id="B29"></a>Khan, M. A., Franks, I. M., and Goodman, D. (1998). The effect of practice on the control of rapid aiming movements: evidence for an interdependency between programming and feedback processing. <i>Q. J. Exp. Psychol. Hum. Exp. Psychol.</i> 51A, 425&#x02013;444. doi: 10.1080/713755756</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1080/713755756" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B30" id="B30"></a>Klapp, S. T. (1977). Reaction time analysis of programmed control. <i>Exerc. Sport Sci. Rev.</i> 5, 231&#x02013;253. doi: 10.1249/00003677-197700050-00008</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=357159" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=357159" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1249/00003677-197700050-00008" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B31" id="B31"></a>Klein, R. (1983). Nonhierarchical control of rapid movement sequences. <i>J. Exp. Psychol. Hum. Percept. Perform.</i> 9, 834&#x02013;836. doi: 10.1037/0096-1523.9.5.834</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=6227694" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=6227694" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/0096-1523.9.5.834" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B32" id="B32"></a>Kraft, D., Baseski, E., Popovic, M., Batog, A. M., Kj&#x000E6;r-Nielsen, A., Kr&#x000FC;ger, N., et al. (2008). Exploration and planning in a three level cognitive architecture. <i>Proceedings of the International Conference on Cognitive Systems (CogSys 2008)</i>, Karlsruhe.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B33" id="B33"></a>K&#x00FC;hn, S., Keizer, A., Rombouts, S. A. R. B., and Hommel, B. (2011). The functional and neural mechanism of action preparation: roles of EBA and FFA in voluntary action control. <i>J. Cogn. Neurosci.</i> 23, 214&#x02013;220. doi: 10.1162/jocn.2010.21418</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=20044885" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=20044885" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1162/jocn.2010.21418" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B34" id="B34"></a>Laird, J. E., Newell, A., and Rosenbloom, P. S. (1987). SOAR: an architecture for general intelligence. <i>Artific. Intell.</i> 33, 1&#x02013;64. doi: 10.1016/0004-3702(87)90050-6</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1016/0004-3702(87)90050-6" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B35" id="B35"></a>Larochelle, S. (1984). &#x0201C;Some aspects of movements in skilled typewriting,&#x0201D; in <i>Attention and Performance. Control of Language Processes</i>, Vol. 10, eds H. Bouma and D. G. Bouwhuis (Hillsdale, NJ.: Erlbaum), 43&#x02013;54.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B36" id="B36"></a>Lashley, K. S. (1951). &#x0201C;The problem of serial order in behavior,&#x0201D; in <i>Cerebral Mechanisms in Behavior</i>, ed. L. A. Jeffress (New York: Wiley), 112&#x02013;131.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B37" id="B37"></a>Logan, G. D., and Crump, M. J. C. (2011). Response to M. Ullsperger and Danielmeier&#x02019;s E-Letter.<i> Sci. E Lett.</i> (February 9, 2011).</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B38" id="B38"></a>Macura, Z., Cangelosi, A., Ellis, R., Bugmann, D., Fischer, M. H., and Myachykov, A. (2009). A cognitive robotic model of grasping. <i>Proceedings of the Ninth International Conference on Epigenetic Robotics</i>, Venice.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B39" id="B39"></a>Maniadakis, M., and Trahanias, P. (2011). Temporal cognition: a key ingredient of intelligent systems. <i>Front. Neurorobot.</i> 5:2. doi: 10.3389/fnbot.2011.00002</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=21954384" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=21954384" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.3389/fnbot.2011.00002" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B40" id="B40"></a>Memelink, J., and Hommel, B. (2013). Intentional weighting: a basic principle in cognitive control. <i>Psychol. Res.</i> 77, 249&#x02013;259. doi: 10.1007/s00426-012-0435-y</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=22526717" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=22526717" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1007/s00426-012-0435-y" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B41" id="B41"></a>Miller, G. A., Galanter, E., and Pribram, K. H. (1960). <i>Plans and the Structure of Behavior</i>. New York: Holt, Rinehart &#x00026; Winston. doi: 10.1037/10039-000</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1037/10039-000" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B42" id="B42"></a>Milner, A. D., and Goodale, M. A. (1995). <i>The Visual Brain in Action</i>. Oxford: Oxford University Press.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B43" id="B43"></a>Nakatani, C. H., and Hirschberg, J. (1994). A corpus-based study of repair cues in spontaneous speech. <i>J. Acoust. Soc. Am.</i> 95, 1603&#x02013;1616. doi: 10.1121/1.408547</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=8176063" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=8176063" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1121/1.408547" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B44" id="B44"></a>O&#x02019;Regan, J. K., and Noe, A. (2001). A sensorimotor account of vision and visual consciousness. <i>Behav. Brain Sci.</i> 24, 939&#x02013;1031. doi: 10.1017/S0140525X01000115</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=12239892" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=12239892" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1017/S0140525X01000115" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B45" id="B45"></a>O&#x02019;Reilly, R. C. (1996). <i>The LEABRA Model of Neural Interactions and Learning in the Neocortex</i>. Ph.D. thesis, Carnegie Mellon University, Pittsburgh, PA.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B46" id="B46"></a>Palmer, C., and Pfordresher, P. Q. (2003). Incremental planning in sequence production. <i>Psychol. Rev.</i> 110, 683&#x02013;712. doi: 10.1037/0033-295X.110.4.683</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=14599238" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=14599238" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/0033-295X.110.4.683" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B47" id="B47"></a>Pezzulo, G., Barsalou, L. W., Cangelosi, A., Fischer, M. H., McRae, K., and Spivey, M. J. (2011). The mechanics of embodiment: A dialog on embodiment and computational modeling. <i>Front. Psychol.</i> 2:5. doi: 10.3389/fpsyg.2011.00005</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=21713184" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=21713184" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.3389/fpsyg.2011.00005" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B48" id="B48"></a>Plooij, M., de Vries, M., Wolfslag, W., and Wisse, M. (2013). <i>Optimization of Feedforward Controllers to Minimize Sensitivity to Model Inaccuracies</i>. Paper submitted to and accepted for IROS 2013, Tokyo. </p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B49" id="B49"></a>Prablanc, C., and Martin, O. (1992). Automatic control during hand reaching at undetected two-dimensional target displacements. <i>J. Neurophysiol.</i> 67, 455&#x02013;469.</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=1569469" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=1569469" target="_blank">Pubmed Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B50" id="B50"></a>Pratt, J., and Abrams, R. A. (1996). Practice and component submovements: the roles of programming and feedback in rapid aimed limb movements. <i>J. Mot. Behav.</i> 28, 149&#x02013;156. doi: 10.1080/00222895.1996.9941741</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=12529216" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=12529216" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1080/00222895.1996.9941741" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B51" id="B51"></a>Prinz, J. J., and Barsalou, L. W. (2000). &#x0201C;Steering a course for embodied representation,&#x0201D; in <i>Cognitive Dynamics: Conceptual Change in Humans and Machines</i>, eds E. Dietrich and A. Markman (Cambridge, MA: MIT Press), 51&#x02013;77.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B52" id="B52"></a>Proteau, L., Marteniuk, R. G., Girouard, Y., and Dugas, C. (1987). On the type of information used to control and learn an aiming movement after moderate and extensive practice. <i>Hum. Mov. Sci.</i> 6, 181&#x02013;199. doi: 10.1016/0167-9457(87)90011-X</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1016/0167-9457(87)90011-X" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B53" id="B53"></a>Rosenbaum, D. A. (1987). Successive approximations to a model of human motor programming. <i>Psychol. Learn. Motivat.</i> 21, 153&#x02013;182. doi: 10.1016/S0079-7421(08)60028-6</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1016/S0079-7421(08)60028-6" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B54" id="B54"></a>Rosenbaum, D. A. (1991). <i>Human Motor Control</i>. New York, NY: Academic.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B55" id="B55"></a>Rosenbaum, D. A. (2005). The Cinderella of psychology: the neglect of motor control in the science of mental life and behavior. <i>Am. Psychol.</i> 60, 308&#x02013;317. doi: 10.1037/0003-066X.60.4.308</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=15943523" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=15943523" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/0003-066X.60.4.308" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B56" id="B56"></a>Rosenbaum, D. A., Cohen, R. G., Jax, S. A., Weiss, D. J., and van der Wel, R. (2007). The problem of serial order in behavior: Lashley&#x02019;s legacy. <i>Hum. Mov. Sci.</i> 26, 525&#x02013;554. doi: 10.1016/j.humov.2007.04.001</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=17698232" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=17698232" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1016/j.humov.2007.04.001" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B57" id="B57"></a>Rosenbaum, D. A., Weber, R. J., Hazelett, W. M., and Hindorff, V. (1986). The parameter remapping effect in human performance: evidence from tongue twisters and finger fumblers. <i>J. Mem. Lang.</i> 25, 710&#x02013;725. doi: 10.1016/0749-596X(86)90045-8</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1016/0749-596X(86)90045-8" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B58" id="B58"></a>Rumelhart, D. E., and Norman, D. A. (1982). Simulating a skilled typist: a study of skilled cognitive-motor performance. <i>Cogn. Sci.</i> 6, 1&#x02013;36. doi: 10.1207/s15516709cog0601_1</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1207/s15516709cog0601_1" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B59" id="B59"></a>Saunders, I., and Vijayakumar, S. (2011). The role of feed-forward and feedback processes for closed-loop prosthesis control. <i>J. NeuroEng. Rehabilit.</i> 8, 60. doi: 10.1186/1743-0003-8-60</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=22032545" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=22032545" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1186/1743-0003-8-60" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B60" id="B60"></a>Schmidt, R. A. (1975). A schema theory of discrete motor skill learning. <i>Psychol. Rev</i>. 82, 225&#x02013;260. doi: 10.1037/h0076770</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1037/h0076770" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B61" id="B61"></a>Seidler, R. D., Noll, D. C., and Thiers, G. (2004). Feedforward and feedback processes in motor control. <i>Neuroimage</i> 22, 1775&#x02013;1783. doi: 10.1016/j.neuroimage.2004.05.003</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=15275933" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=15275933" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1016/j.neuroimage.2004.05.003" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B62" id="B62"></a>Sternberg, S., Knoll, R. L., Monsell, S., and Wright, C. E. (1988). Motor programs and hierarchical organization in the control of rapid speech. <i>Phonetica</i> 45, 175&#x02013;197. doi: 10.1159/000261825</p>
+<p class="ReferencesCopy2"><a href="http://dx.doi.org/10.1159/000261825" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B63" id="B63"></a>Tenorth, M., and Beetz, M. (2012). Knowledge processing for autonomous robot control. <i>AAAI Spring Symposium on Designing Intelligent Robots: Reintegrating AI</i>, Stanford.</p>
+</div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B64" id="B64"></a>Uithol, S., van Rooij, I., Bekkering, H., and Haselager, W. F. G. (2012). Hierarchies in action and motor control. <i>J. Cogn. Neurosci.</i> 24, 1077&#x02013;1086. doi: 10.1162/jocn_a_00204</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=22288396" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=22288396" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1162/jocn_a_00204" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B65" id="B65"></a>Van der Wel, R. P. R. D., and Rosenbaum, D. A. (2007). Coordination of locomotion and prehension. <i>Exp. Brain Res.</i> 176, 281&#x02013;287. doi: 10.1007/s00221-006-0618-0</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=16874513" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=16874513" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1007/s00221-006-0618-0" target="_blank">CrossRef Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B66" id="B66"></a>Washburn, M. F. (1916). <i>Movement and Mental Imagery</i>. Boston: Houghton Mifflin.</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=17775403" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=17775403" target="_blank">Pubmed Full Text</a></p></div>
+<div class="References" style="margin-bottom:0.5em;">
+<p class="ReferencesCopy1"><a name="B67" id="B67"></a>Wykowska, A., Schub&#x000F6;, A., and Hommel, B. (2009). How you move is what you see: action planning biases selection in visual search. <i>J. Exp. Psychol. Hum. Percept. Perform.</i> 35, 1755&#x02013;1769. doi: 10.1037/a0016798</p>
+<p class="ReferencesCopy2"><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=pubmed&#x00026;Cmd=ShowDetailView&#x00026;TermToSearch=19968433" target="_blank">Pubmed Abstract</a> | <a href="http://eutils.ncbi.nlm.nih.gov/entrez/eutils/elink.fcgi?db=pubmed&#x00026;cmd=prlinks&#x00026;retmode=ref&#x00026;id=19968433" target="_blank">Pubmed Full Text</a> | <a href="http://dx.doi.org/10.1037/a0016798" target="_blank">CrossRef Full Text</a></p></div>
+</div>
+<div class="thinLineM20"></div>
+<div class="AbstractSummary">
+<p><span>Keywords</span>: complex action, action control, action sequencing, naturalistic action, goal-directed behavior</p>
+<p><span>Citation:</span> de Kleijn R, Kachergis G and Hommel B (2014) Everyday robotic action: lessons from human action control. <i>Front. Neurorobot.</i> <b>8</b>:13. <a href="http://dx.doi.org/10.3389/fnbot.2014.00013">doi: 10.3389/fnbot.2014.00013</a></p>
+<p id="timestamps">
+<span>Received:</span> 01 December 2013; <span>Accepted:</span> 25 February 2014; <br/><span>Published online:</span> 17 March 2014.</p>
+<div>
+<p>Edited by:</p>
+<a href="http://www.frontiersin.org/people/u/29116">Michail Maniadakis</a>, Foundation for Research and Technology &#x02013; Hellas, Greece</div>
+<div>
+<p>Reviewed by:</p>
+<a href="http://www.frontiersin.org/people/u/559">Jos&#x000E9; F. Fontanari</a>, University of S&#x000E3;o Paulo, Brazil<br/>
+<a href="http://www.frontiersin.org/people/u/79635">Maryam Abbapour Babaei</a>, University Putra Malaysia, Malaysia</div>
+<p><span>Copyright</span> &#x000A9; 2014 de Kleijn, Kachergis and Hommel. This is an open-access article distributed under the terms of the <a id="lnkNonCommercialLicense" href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License (CC BY)</a>. The use, distribution or reproduction in other forums is permitted, provided the original author(s) or licensor are credited and that the original publication in this journal is cited, in accordance with accepted academic practice. No use, distribution or reproduction is permitted which does not comply with these terms.</p>
+<p><span>*Correspondence:</span> Roy de Kleijn, Cognitive Psychology Unit, Institute for Psychological Research, Leiden University, Wassenaarseweg 52, 2333 AK Leiden, Netherlands e-mail: kleijnrde@fsw.leidenuniv.nl</p>
+<div class="clear"></div>
+</div>
+
+                <div class="thin-line-dark"></div>
+                    <div class="social-feed"></div>
+                    <div class="container-bordered comment-list social-feed">
+                        <div class="container-comments">
+                        </div>
+
+                        <div class="loading-wrapper" style="padding-left: 49%">
+                            <img style="padding-top: 5%; padding-bottom: 5%;" src="/areas/research-topics/Content/Images/frontiers/common/icon/loading.gif" alt="Loading.." />
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+            <div class="clearfix visible-sm"></div>
+
+            
+    <div class="c col-xs-12 col-sm-12 col-lg-2 col-md-3 pull-right side-article related right-container-articles" style="clear: right !important">
+        
+        <article class="widget-listing commentary-article hidden">
+            <h5 class="like-h4">COMMENTARY</h5>
+        </article>
+
+        <article class="widget-listing original-article hidden">
+            <h5 class="like-h4">ORIGINAL ARTICLE</h5>
+        </article>
+
+        <article class="widget-listing people-also-looked-at side-article-related hidden">
+            <h5 class="like-h4">People also looked at</h5>
+        </article>
+            <div class="side-article-mrk clearfix hidden-md hidden-lg">
+                <div style="padding: 100% 0 0 0; position: relative; border-bottom: 1px solid #e7e7e7;"><iframe src="https://player.vimeo.com/video/369504878?background=1&amp;autoplay=1&amp;loop=0" allowfullscreen="" frameborder="0" allow="autoplay; fullscreen" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<p style="text-align: center;"><a href="https://spotlight.frontiersin.org/submit?utm_source=fweb&amp;utm_medium=fjour&amp;utm_campaign=rtlg_sl19_gen"><br /><strong>Suggest a Research Topic &gt;</strong></a></p>
+            </div>
+
+
+    </div>
+
+
+        </div>
+    </div>
+</div>
+<div id="divTemplates">
+    <div class="modal fade modal-container impact-modal-container" data-backdrop="static" id="impactModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+
+
+
+
+
+<script type="text/template" id="template-impact-modal">
+
+    <div class="container">
+        <div class="row">
+            <div style="padding-bottom: 100px">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header clearfix">
+                            <button type="button" class="close btn-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3 class="modal-title" id="myModalLabel">Impact</h3>
+                            <h6>
+                                <a href="javascript:void(0)" class="article-title" data-dismiss="modal" aria-hidden="true">
+                                    Everyday robotic action: lessons from human action control
+                                </a>
+                            </h6>
+                        </div>
+                        <div class="modal-body">
+                            <img class="loader" src="/areas/journals/Content/images/icon/loading.gif" alt="Loading.." />
+
+                            <div class="row article-impact-tabs hidden">
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs impact-tabs clearfix">
+                                    <li class="active nav-tab-views"><a href="#views-tab" data-toggle="tab" data-tab-type="views"><span class="total-views" data-tab-type="views"></span>Views</a></li>
+                                    <li class="nav-tab-citations"><a href="#citations-tab" data-toggle="tab" data-tab-type="citations"><span class="highest-Citation" data-tab-type="citations"></span>Citations</a></li>
+                                    <li class="nav-tab-demographics"><a href="#demographics-tab" data-toggle="tab" data-tab-type="demographics">Demographics</a></li>
+                                        <li class="nav-tab-social-buzz"><a href="#social-buzz-tab" data-toggle="tab" data-tab-type="socialbuzz">Social Buzz</a></li>
+                                </ul>
+                                <div class="tab-content impact-tabs">
+                                    <!-- VIEWS TAB -->
+                                    <div class="tab-pane active" id="views-tab">
+                                        <h5 style="padding-left: 68px; display: none;" class="sincebeginning">Since beginning</h5>
+                                        <h5 style="padding-left: 68px; display: none;" class="thisyear">Last 12 months</h5>
+                                        <h5 style="padding-left: 68px; display: none;" class="thismonth">Last 30 days</h5>
+
+
+                                        <p style="display: none;height:60px" class="views-empty-message lead">No records found</p>
+                                        <div class="chart-container">
+                                            <p class="info sincebeginning" style="display: none;"><strong class="begin-views-downloads download-font-styles"> </strong> views and downloads <strong class="begin-views year-font-styles"> </strong> views <strong class="begin-downloads year-font-styles"> </strong> downloads</p>
+                                            <p class="info thisyear" style="display: none;"><strong class="year-views-downloads download-font-styles"> </strong> views and downloads <strong class="year-views year-font-styles"> </strong> views <strong class="year-downloads year-font-styles"> </strong> downloads</p>
+                                            <p class="info thismonth" style="display: none;"><strong class="month-views-downloads download-font-styles"> </strong> views and downloads <strong class="month-views year-font-styles"> </strong> views <strong class="month-downloads year-font-styles"> </strong> downloads</p>
+                                            <div id="views-timeline-chart" class="views-bar-charts"></div>
+                                            <div id="views-bar-chart" class="views-timeline-charts"></div>
+                                        </div>
+                                        <div id="views-chart-controls" class="input-block-level" style="display: none;">
+                                            <!-- Split button -->
+                                            <div class="btn-group pull-right">
+                                                <button type="button" class="btn btn-flat dropdown-toggle" data-toggle="dropdown" >
+                                                    <span id="Period" data-bind="label">Select a time period</span>&nbsp;<span class="caret"></span>
+                                                </button>
+                                                <ul id="PeriodDrop" class="dropdown-menu" role="menu">
+                                                    <li class="beginning" ><a>Since beginning</a></li>
+                                                    <li class="year"><a>Last 12 months</a></li>
+                                                    <li class="month"><a>Last 30 days</a></li>
+                                                </ul>
+                                            </div>
+                                            <div style="padding-left: 72px;" class="btn-group pull-left" data-toggle="tooltip" title="Toggle between timeline and bar chart views">
+                                                <button type="button" class="btn btn-flat btn-line active" id="views-timeline-button">
+                                                    <span style="padding: 0 4px">&nbsp;&nbsp;</span>
+                                                </button>
+                                                <button type="button" class="btn btn-flat btn-line" id="views-bar-button">
+                                                    <span style="padding: 0 4px">&nbsp;&nbsp;</span>
+                                                </button>
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div><!-- /#views-chart-controls -->
+
+                                    </div><!-- /#views-tab -->
+                                    <!-- CITATIONS TAB -->
+                                    <div class="tab-pane " id="citations-tab">
+                                        <img class="citation-loader" src="/Images/Frontiers/Common/Icon/loading.gif" alt="Loading.." />
+                                        <div style="width: 350px; margin: 0 auto;" class="citation-container hidden">
+                                            <h5 style="text-align:center; margin-bottom: 0; padding-bottom: 0;">Article Citations</h5>
+                                            <div class="scopus" style="width: 50%; float: left; text-align: center;">
+                                                <a href= "http://www.scopus.com/inward/citedby.url?partnerID=HzOxMe3b&amp;doi=10.3389/fnbot.2014.00013&amp;origin=inward"><h5><span class="repository">by Scopus</span></h5></a>
+                                                <!-- Split button -->
+                                                <div class="citation-count-container">
+                                                    <div class="citation-panel">
+                                                        <p class="citation-count"><span class="citaion-scopus"></span></p>
+                                                    </div><!-- /.citation-panel -->
+                                                </div><!-- /.well -->
+                                            </div>
+
+                                            <div class="crossref" style="width: 50%; float: right; text-align: center;">
+                                                <a href="http://www.crossref.org/"><h5><span class="repository">by CrossRef</span></h5></a>
+                                                <!-- Split button -->
+                                                <div class="clearfix"></div>
+                                                <div class="citation-count-container">
+                                                    <div class="citation-panel">
+                                                        <p class="citation-count"><span class="citation-crossref"></span></p>
+                                                    </div><!-- /.citation-panel -->
+
+                                                </div><!-- /.well -->
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div><!-- /#citations-tab -->
+                                    <!-- DEMOGRAPHICS TAB -->
+                                    <div class="tab-pane " id="demographics-tab">
+
+                                        <div class="btn-group pull-right" id="demographics-dropdown" style="margin-right: 10px;">
+                                            &nbsp;
+                                        </div>
+
+                                        <div id="map-container">
+
+                                            <div id="map">
+
+                                            </div>
+                                            <img class="map-loading" src="/Images/Frontiers/Common/Icon/loading.gif" alt="Loading.." />
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <h5>Top countries</h5>
+                                                <div id="demographics-top-countries"></div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <h5>Top referring sites</h5>
+                                                <div id="demographics-top-sites"></div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <h5 style="text-align: center;">Domain</h5>
+                                                <div id="demographics-domain"></div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h5 style="text-align: center;">Field</h5>
+                                                <div id="demographics-field"></div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <h5 style="text-align: center;">Specialty</h5>
+                                                <div id="demographics-specialty"></div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <h5 style="text-align: center;">Industry</h5>
+                                                <div id="demographics-industry"></div>
+                                            </div>
+
+                                            <div class="col-xs-4">
+                                                <h5 style="text-align: center;">Education</h5>
+                                                <div id="demographics-education"></div>
+                                            </div>
+
+                                            <div class="col-xs-4">
+                                                <h5 style="text-align: center;">Position</h5>
+                                                <div id="demographics-position"></div>
+                                            </div>
+                                          
+                                        </div>
+                                        <div class="clearfix"></div>
+
+                                        <div class="demographics-age-gender">
+                                            <hr>
+                                            <h5 style="margin: 35px 0px;">Age and Gender</h5>
+                                            <div id="demographics-age" style="min-width: 800px; height: 400px; margin: 0 auto"></div>
+                                        </div>
+                                    </div><!-- /#demographics-tab -->
+                                        <!-- SOCIAL BUZZ TAB -->
+                                        <div class="tab-pane " id="social-buzz-tab">
+                                            <h5 class="altmetric-title">Altmetric</h5>
+                                            <div id="altmetric-donut" data-badge-details="right" data-badge-type="medium-donut" data-doi="<%- doi %>" data-hide-no-mentions="false" class="altmetric-embed"></div>
+
+                                            <div id='main' class="social-buzz-content-area hidden">
+                                                <div id='content'>
+                                                    <div id='details'>
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <h5>Sources</h5>
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <ul class="nav nav-tabs pull-right">
+                                                                    <li class='active'><a href="#altmetric-all-tab"  data-toggle="tab">All</a></li>
+                                                                    <li id='tab_for_msm'><a href="#details_msm" data-toggle="tab">News</a></li>
+                                                                    <li id='tab_for_blogs'><a href="#details_blogs" data-toggle="tab">Blogs</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="tabbable">
+                                                            <div class="tab-content">
+
+                                                                <div class='details tab-pane ' id='details_blogs'>
+
+                                                                    <div class="blogs-posts"></div>
+                                                                </div> <!--Blog-->
+
+                                                                <div class='details tab-pane' id='details_msm'>
+
+                                                                    <div class="news-posts"></div>
+                                                                </div> <!--News-->
+
+                                                                <div class='details tab-pane active' id='altmetric-all-tab'>
+                                                                    <div class="all-posts"></div>
+                                                                </div> <!--All-->
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class='clearfix'></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /#social-buzz-tab -->
+                                </div>
+                            </div><!-- /.row -->
+
+                        </div><!-- /.modal-body -->
+                        <div class="modal-footer">
+                            <span class="modal-footer-pmc">The displayed data aggregates results from <a href="https://www.frontiersin.org">Frontiers</a> and <a href="http://www.ncbi.nlm.nih.gov/pmc/">PubMed Central®</a>.</span>
+                            <button type="button" class="btn btn-new-orange btn-flat btn-close" data-dismiss="modal">Close</button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- /.col-xs-9 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+
+</script>
+
+
+
+<script type="text/template" id="template-social-buzz-blogs-posts">
+    <div class='posts_info'>So far Altmetric has seen <b><%- blogsCount %></b> posts.</div>
+    <% _.each( socialBuzzPosts, function( socialBuzzPost ){ %>
+
+    <div class='postbox'>
+        <div class='title'><a target='_blank' href="<%- socialBuzzPost.Url%>" ><%- socialBuzzPost.Title %></a></div>
+        <div class='source'><a target='_blank' href="<%- socialBuzzPost.Author.Url %>" ><%- socialBuzzPost.Author.Name %></a></div>
+        <div class='snippet'>
+            <p><%- socialBuzzPost.Summary %></p>
+        </div>
+        <div class="footer blog">
+            <%-  FRArticleImpact.formattedPostedDate(socialBuzzPost.PostedOn) %>
+        </div>
+    </div>
+
+    <% }); %>
+
+</script>
+
+
+<script type="text/template" id="template-social-buzz-news-posts">
+    <div class='posts_info'>So far Altmetric has seen <b><%- newsCount %></b> stories.</div>
+    <% _.each( socialBuzzPosts, function( socialBuzzPost ){ %>
+    <div class='postbox'>
+        <div class='author source' style='width: 80px;'>
+            <div style='max-width: 80px; overflow: hidden;'>
+                <img width='80' src="<%- socialBuzzPost.Author.Image %>" class="photo" />
+            </div>
+        </div>
+
+        <div class="entry-content" style="margin-left: 0px;">
+            <div class='title'>
+                <a target='_blank' href="<%- socialBuzzPost.Url%>"><%- socialBuzzPost.Title %> </a>
+            </div>
+            <div class='source'><%- socialBuzzPost.Author.Name %></div>
+            <div class='snippet'>
+                <p><%- socialBuzzPost.Summary %></p>
+            </div>
+        </div>
+        <div class="footer">
+            <%-  FRArticleImpact.formattedPostedDate(socialBuzzPost.PostedOn) %>
+        </div>
+    </div>
+
+    <% }); %>
+
+</script>
+
+
+<script type="text/template" id="template-social-buzz-all-posts">
+
+    <div class="posts_info">So far Altmetric has seen <b><%- allCount %></b> stories.</div>
+
+    <% _.each( socialBuzzPosts, function( socialBuzzPost ){ %>
+    <% if (socialBuzzPost.Type == "Blogs") {%>
+
+    <div class='postbox'>
+        <div class='title'><a target='_blank' href="<%- socialBuzzPost.Url%>" ><%- socialBuzzPost.Title %></a></div>
+        <div class='source'><a target='_blank' href="<%- socialBuzzPost.Author.Url %>" ><%- socialBuzzPost.Author.Name %></a></div>
+        <div class='snippet'>
+            <p><%- socialBuzzPost.Summary %></p>
+        </div>
+        <div class="footer blog">
+            <%-  FRArticleImpact.formattedPostedDate(socialBuzzPost.PostedOn) %>
+        </div>
+    </div>
+
+    <% } %>
+    <%  if(socialBuzzPost.Type == "News"){ %>
+    <div class='postbox'>
+        <div class='author source' style='width: 80px;'>
+            <div style='max-width: 80px; overflow: hidden;'>
+                <img width='80' src="<%- socialBuzzPost.Author.Image %>" class="photo" />
+            </div>
+        </div>
+
+        <div class="entry-content" style="margin-left: 0px;">
+            <div class='title'>
+                <a target='_blank' href="<%- socialBuzzPost.Url%>"><%- socialBuzzPost.Title %> </a>
+            </div>
+            <div class='source'><%- socialBuzzPost.Author.Name %></div>
+            <div class='snippet'>
+                <p><%- socialBuzzPost.Summary %></p>
+            </div>
+        </div>
+        <div class="footer">
+            <%-  FRArticleImpact.formattedPostedDate(socialBuzzPost.PostedOn)%>
+        </div>
+    </div>
+    <% } %>
+    <% }); %>
+
+</script>
+
+
+
+
+
+
+    <div class="modal fade modal-container supplementary-modal-container"
+     data-backdrop="static"
+     data-keyboard="false"
+     id="supplementaryFilesModal"
+     tabindex="-1" role="dialog"
+     aria-labelledby="mySupplementaryModalLabel"
+     aria-hidden="true">
+</div>
+
+
+
+
+<script type="text/template" id="template-supplementary-files-modal">
+    <div class="supplementary-material-wrapper modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <a class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a>
+                <h4>Supplementary Material</h4><br>
+                <p class="supplementary-empty-message">There is no supplementary material currently available for this article</p>
+                <div class="loading-wrapper"
+                     id="loader"
+                     style="display:none">
+                    Loading supplemental data...
+                    <img style="" src="/Areas/Articles/Images/Icon/loading.gif" alt="Loading.." />
+                </div>
+                <br />
+                <div class="table-responsive" id="localFiles">
+                </div>
+                <div id="figshare-widget-container">
+
+                </div>
+            </div>
+            <br />
+            <div class="modal-footer bottom-links">
+                <a class="btn btn-default" data-dismiss="modal">Close</a>
+            </div>
+        </div>
+
+    </div>
+</script>
+
+
+
+
+
+<script type="text/template" id="template-local-files-modal">
+    <table class="table table-striped supplementary-content" id="localFilesTable">
+        <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>File Name</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody class="file-content">
+            <% _.each(supplimentalFileDetails.FileDetails, function(fileViewModel){   %>
+            <tr>
+                <th scope="row"><a data-test-id="<%= fileViewModel.TestId %>" href="<%= fileViewModel.FileDownloadUrl %>"><img class="img-figure" src="<%= fileViewModel.ImageUrl %>"></a></th>
+                <td>
+                    <a  href="<%= fileViewModel.FileDownloadUrl %>">
+                        <%= fileViewModel.FileName %>
+                    </a>
+                </td>
+                <td><a  href="<%= fileViewModel.FileDownloadUrl %>" class="btn-link"><i class="fa fa-download" aria-hidden="true"></i></a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</script>
+
+
+
+
+
+
+
+    <div class="modal fade modal-container notifyme-modal-container" data-backdrop="static" id="notifyModal" tabindex="-1" role="dialog" aria-labelledby="Notify on publication" aria-hidden="true">
+</div>
+
+
+
+<script type="text/template" id="template-notify-me-modal">
+    <div class="modal-f page-container simple-modal" role="dialog" aria-labelledby="NotfifyMeModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <form onsubmit="return false" id="modalnotifyme">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h3>Notify me on publication</h3>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label>Please enter your email address:</label>
+                            <input type="email" required class="form-control" id="txt_notification_email_id" placeholder="Email">
+                            </div>
+
+                        <div class="g-recaptcha" id="recaptcha"></div><br />
+
+                        <p class="small" style="color: #555;">If you already have an account, please <a href="<%=login.FrontiersLoginUrl%>?returnUrl=<%=currentPage%>" class="text-blue">login</a>.</p>
+                        <p class="small" style="color: #555;">You don't have a Frontiers account ? You can <a href="<%=login.FrontiersRegistrationUrl%>" class="text-blue">register here</a>.</p>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" id="article_notify_non_registered_user" class="btn btn-default btn-progress" style="width: 118px; visibility:hidden;">Notify me</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</script>
+
+<script type="text/template" id="template-notifyme-mailselection-modal">
+    <div class="modal-f page-container simple-modal" tabindex="-1" role="dialog" aria-labelledby="NotfifyMeModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h3>Select one of your emails</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>You have multiple emails registered with Frontiers:</label>
+                        </div>
+                                           
+                        <% _.each(userEmailList, function(user){   %>
+                        <input type="radio" value="<%=user%>" name="notify_Emailcollection"> <%=user%><br>
+                        <% }); %>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="article_notify_loggedin_user" class="btn btn-default btn-progress" style="width: 118px;">Notify me</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</script>
+
+<script type="text/template" id="template_notifyme_error_modal">
+    <div class="modal-f page-container simple-modal" tabindex="-1" role="dialog" aria-labelledby="NotfifyMeModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h3>Notify me on publication</h3>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <p class="text-red"><strong><%=message%></strong></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-default btn-progress" style="width: 118px;">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+
+
+
+
+
+
+    
+
+<script type="text/template" id="template-article-comments">
+
+    <div class="w100pc float_left CommentsHolder" id="div_article_comment_holder">
+        <% if(journalComments.Count !=0) { %>
+        <div id="divActivityBox" class="commentBox bubbleInfo " style="z-index: 300;">
+            <div class="float_left w100pc divActivityBox">
+                <p id="pAllUsers" class="pb0 float_left w581 pAllUsers">
+                    <a id="aAllUsers" href="javascript:void(0);" class="fontnormal trigger">
+                        <%- journalComments.Count %> Comments
+                    </a> <%= journalComments.CommentedUsers %>
+                </p>
+            </div>
+        </div>
+        <% } %>
+
+        <% _.each( journalComments.Comments, function( comment ){ %>
+
+        <div class="commentBox">
+
+            <% if (comment.IsDeleted) {%>
+
+            <div class="wrapper pt4 pb4">
+                <div class="imgHolder mr10"> <!--<a  class="fontnormal">--><img width="32" src="/Areas/Articles/Design/Images/default_profile_32.jpg" onerror="if (!this.src.endsWith('/Areas/Articles/Design/Images/default_profile_32.jpg')) this.src='/Areas/Articles/Design/Images/default_profile_32.jpg';" alt=""><!--</a>--></div>
+                <div class="content w555">
+                    <!-- <p class="mtm3" style='word-wrap:break-word'><a  class="fontnormal">User</a> </p>-->
+                    <p class="mtm3">User</p><ul class="toolbar mt4 disblk w100pc">
+                        <li class="pl0">
+                            <p class="date">Comment deleted on <%- GetFormattedCommentDeletedDate(comment.CommentedDate) %></p>
+                        </li>
+                        <li class="float_right pr0"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <% } else {%>
+
+            <div class="wrapper pt4 pb4">
+                <div class="imgHolder mr10"> <a class="fontnormal" data-test-id="article_commenteduser_profileimage_link" href="<%- comment.CommentedUser.ProfileUrl %>"><img src="<%- comment.CommentedUser.ThumbnailUrl %>" onerror="if (!this.src.endsWith('/Areas/Articles/Images/Frontiers/Common/Profile/default_profile_32.jpg')) this.src='/Areas/Articles/Images/Frontiers/Common/Profile/default_profile_32.jpg';" alt=""></a></div>
+                <div class="content w555 comment-body">
+                    <p class="mtm3" style="word-wrap:break-word">
+                        <a class="fontnormal" data-test-id="article_commenteduser_profile_link" href="<%- comment.CommentedUser.ProfileUrl %>">
+                            <%- comment.CommentedUser.FullName %>
+                        </a>
+                        <span class="comment-text"><%= comment.Comment %></span>
+                    </p>
+                    <ul class="toolbar mt4 disblk w100pc">
+                        <li class="pl0"><p class="date"><%- GetFormattedCommentDate(comment.CommentedDate) %></p></li>
+                        <% if (comment.IsEditVisible)
+                        { %>
+                        <li>|</li>
+                        <li><a href="javascript:void(0);" data-test-id="article_comment_edit_link" class="fontnormal btn-edit-comment" id="btnEditcom" data-comment-id="<%- comment.CommentId %>">Edit</a></li>
+                        <% } %>
+                        <% if (comment.IsDeleteVisible)
+                        { %>
+                        <li>|</li>
+                        <li><a href="javascript:void(0);" data-test-id="article_comment_delete_link" class="fontnormal btn-delete-comment" id="btnDeletecom" data-comment-id="<%- comment.CommentId %>">Delete</a></li>
+                        <% }%>
+                        <li class="float_right pr0"></li>
+                    </ul>
+                </div>
+            </div>
+            <% }%>
+        </div>
+
+        <%  }); %>
+    </div>
+
+    <div id="div_add_comment" class="commentBox">
+        <div class="imgTn32"
+             style="display: none;">
+            <% if(journalComments.LoginUserId !=0) { %>
+            <img src="<%- journalComments.LoggedInUserInfo.ThumbnailUrl %>" alt=""
+                 onerror="if (!this.src.endsWith('/Areas/Articles/Images/Frontiers/Common/Profile/default_profile_32.jpg')) this.src='/Areas/Articles/Images/Frontiers/Common/Profile/default_profile_32.jpg';">
+            <% } else {%>
+            <img src="/Areas/Articles/Design/Images/default_profile_32.jpg" alt=""
+                 onerror="if (!this.src.endsWith('/Areas/Articles/Images/Frontiers/Common/Profile/default_profile_32.jpg')) this.src='/Areas/Articles/Images/Frontiers/Common/Profile/default_profile_32.jpg';">
+            <% }%>
+
+        </div>
+        <div class="wrapper pt4 pb4 wAuto">
+            <textarea onfocus="showUserImageOnAdd(this)"
+                      onblur="hideUserImage(this)"
+                      id="txt_comment"
+                      cols=""
+                      rows="1"
+                      style="overflow: hidden; word-wrap: break-word; resize: horizontal;"
+                      data-test-id="article_comment_add_textarea"
+                      class="write setfocus autoext w535 frUIResizeTextArea comment-textarea is-ui animated-resize grey_90">Write a comment...</textarea>
+        </div>
+        <div class="commentAddWrap">
+            <div>
+                <a class="addBtnComment" data-test-id="article_comment_add_button"  onclick="javascript:AddComments(this);" href="javascript:void(0);" id="btnAddcom"><span>Add</span></a>
+            </div>
+        </div>
+    </div>
+
+
+</script>
+
+<script type="text/template" id="template-article-comments-warning">
+    <div class="commentBox">
+        <div class="wrapper">
+            <p class="comment-warning">The comment section has been closed.</p>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="template-article-edit-comments">
+
+
+    <div id="edit-comment-form" class="wrapper pt4 pb4 wAuto edit-comments">
+        <textarea class="txt-comment"
+                  onfocus="showUserImageOnEdit(this)"
+                  onblur="hideUserImage(this)"
+                  data-test-id="article_comment_edit_textarea"
+                  rows="3"><%= commentText %> </textarea>
+        <div>
+            <a class="btn btn-add-comment addBtnComment" data-test-id="article_comment_edit_button" data-comment-id="<%- commentId %>">Add</a>
+        </div>
+    </div>
+
+</script>
+
+
+
+</div>
+
+    </div>
+
+    <!-- TODO:BEGIN IS PART OF RT-->
+    <script type="text/javascript">
+        function setIsPartOrRT() {
+            const isPartOfRTElements = document.getElementsByClassName('research-topic-container');
+
+            if (isPartOfRTElements.length > 0) {
+                const journalAbstractElements = document.getElementsByClassName('JournalAbstract');
+
+                if (journalAbstractElements.length > 0) {
+                    const abstract = journalAbstractElements[0];
+                    const abstractTitle = abstract.getElementsByTagName('h1')[0];
+
+                    abstract.insertBefore(isPartOfRTElements[0], abstractTitle.nextElementSibling);
+
+                    isPartOfRTElements[0].style.display = 'block';
+                }
+            }
+        }
+        window.onload = setIsPartOrRT;
+    </script>
+    <!-- TODO:END IS PART OF RT-->
+
+    <div data-navigation-plugin="footer"></div>
+    <script src="https://static.frontiersin.org/navigation-plugins/footer/js"></script>
+
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+    <script src="https://static.frontiersin.org/areas/articles/js/banner?v=yYDjFxaNGvXopv7kCrOOp405vTAk8OcPIuc69xlQSzQ1"></script>
+
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://static.frontiersin.org/areas/articles/js/vendors?v=ygjL-ZM7HLAoWWjVcHqPBLlSjGooDB3IHD1kVXFmvmI1"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+ 
+    <script src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+ 
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <script src="https://static.frontiersin.org/areas/articles/js/frontiers?v=XYr95hGppqUymOItogGDm2VrKmx6PTFHwi2zHWFdFr41"></script>
+
+
+
+    <script type="text/javascript">
+
+        var FRArticle = (function() {
+            return {
+                ArticleId: '73519',
+                DOI:'10.3389/fnbot.2014.00013',
+                LoginUserId: '0',
+                DomainId: '1',
+                FieldId: '55',
+                SpecialityId: '768',
+                IsPreview: FRSafe.boolean('False'),
+                IsViewImpactFromLoop: FRSafe.boolean('False'),
+                IsPublished: 'True',
+                FigShareApiUrl: 'https://api.figshare.com/v2/collections/search',
+                FigShareTimeOut: '3000'
+            };
+        })();
+
+        var FRSocial = (function() {
+            return {
+                itemId: 14,
+                itemTypeId: 1,
+                entityId: '73519',
+                ownerId: '116899',
+                sanPath: 'https://www.frontiersin.org/files/',
+                subItemId: '8',
+                loginUserId: '0',
+                ownerNWDBId: '20',
+                pageType: 1,
+                loopUrl:'https://loop.frontiersin.org'
+            };
+        })();
+    </script>
+
+    <script>
+        var FRAjaxSettings = (function () {
+
+            function urlLowercase() {
+                $.ajaxSetup({
+                    beforeSend: function (jqXHR, settings) {
+                        settings.url = settings.url.toLowerCase();
+                    }
+                });
+            }
+
+            return { urlLowercase: urlLowercase };
+        })();
+
+        FRAjaxSettings.urlLowercase();
+    </script>
+
+    <script src="https://static.frontiersin.org/areas/articles/js/schema?v=13am1aL5JpCh_IIFOIFRdlFySxVv16JLaVykDEyHCu81"></script>
+
+
+    
+    <script src="https://static.frontiersin.org/areas/articles/js/app?v=y-VvmO0KLQQCanAeLX7ZfOfHunEnz-N9Ze8C_KSzXdc1"></script>
+
+    <script src="https://widgets.figshare.com/static/figshare.js"></script>
+
+
+</body>
+</html>
