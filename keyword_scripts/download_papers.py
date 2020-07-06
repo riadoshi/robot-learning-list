@@ -1,4 +1,5 @@
 import csv
+import os
 import shutil
 import urllib.request
 
@@ -17,6 +18,12 @@ for row in csv_contents:
     paper_id = row[id_index]
     paper_url = row[url_index]
 
+    # Skip if already downloaded
+    if os.path.exists(f"papers/{paper_id}.pdf") or os.path.exists(
+        f"papers/{paper_id}.html"
+    ):
+        continue
+
     # For arXiv: prefer PDF
     paper_url = paper_url.replace("arxiv.org/abs", "arxiv.org/pdf")
 
@@ -24,7 +31,7 @@ for row in csv_contents:
     try:
         sock = urllib.request.urlopen(paper_url)
     except Exception as e:
-        print("Paper {paper_id} download failed")
+        print(f"Paper {paper_id} download failed")
         print(e)
         continue
 
