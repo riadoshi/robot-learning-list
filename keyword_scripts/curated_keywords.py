@@ -1,6 +1,7 @@
 import typing
 
 curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
+    ("survey", "review"),
     (
         "learning from demonstration",  # not a detected keyword
         "inverse reinforcement learning",
@@ -20,23 +21,23 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
     (
         "visual perception",
         "computer vision",
-        "vision",
+        # "vision",
         "image classification",
         "visual features",
         "visual feedback",
         "visual information",
-        "perception",
-        "pixels",
+        # "perception",
+        # "pixels",
         "object detection",
         "object localization",
         "object recognition",
         "object segmentation",
         "robot vision",
-        "raw images",
+        # "raw images",
         "visual image features",
         "object recognition",
-        "images",
-        "image",
+        # "images",
+        # "image",
     ),
     ("contact dynamics", "tactile sensors", "grasp"),
     # ( # too broad
@@ -70,10 +71,7 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
         "system dynamics",
         "robot dynamics",
     ),
-    (
-        "evolution",  # these categories are just kinda small on their own
-        "evolutionary computation",
-    ),
+    ("evolution", "evolutionary computation"),
     ("genetic algorithms", "genetic"),
     (
         "gaussians",
@@ -89,7 +87,7 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
     #     "gradient descent",
     #     "stochastic gradient descent",
     # ),
-    ("humanoid robotics", "humanoid robot", "humanoid robots",),
+    ("humanoid robotics", "humanoid robot", "humanoid robots"),
     ("locomotion", "walking", "gait", "gaits"),
     # ( # too broad
     #     "machine learning",
@@ -97,8 +95,8 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
     #     "machine learning research",
     #     "machine learning techniques",
     # ),
-    # ("markov", "hidden markov models", "markov decision processes",),
-    ("mobile robots", "navigation", "localization",),
+    # ("markov", "hidden markov models", "markov decision processes"),
+    ("mobile robots", "navigation", "localization"),
     # (
     #     "motor learning",
     #     "motor skills",
@@ -117,7 +115,7 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
         "deep learning",
         "deep networks",
     ),
-    ("nonlinear systems", "nonlinear dynamical systems",),
+    ("nonlinear systems", "nonlinear dynamical systems"),
     # ("online learning"),
     (
         "optimal control",
@@ -150,16 +148,16 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
     ),
     (
         "probabilistic models",
-        "probability",
+        # "probability",
         "probabilistic",
         "probabilistic inference",
         "probability distributions",
-        "bayes",
+        # "bayes",
         "bayesian",
         "bayesian inference",
     ),
-    ("legged robots", "quadruped robots", "bipeds", "walker", "walking",),
-    # ("real data", "real images", "real robots", "physical systems",),
+    ("legged robots", "quadruped robots", "bipeds", "walker", "walking"),
+    # ("real data", "real images", "real robots", "physical systems"),
     # ("recurrent neural networks"), # too rare :(
     (
         "reinforcement learning",
@@ -169,6 +167,7 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
         # "reinforcement learning policy search methods",
         # "deep reinforcement",
         "deep reinforcement learning",
+        "policy search",
         # "agents",
         # "rl algorithms",
         # "rl methods",
