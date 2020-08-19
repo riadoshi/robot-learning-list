@@ -168,6 +168,7 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
         # "deep reinforcement",
         "deep reinforcement learning",
         "policy search",
+        "learning policies",
         # "agents",
         # "rl algorithms",
         # "rl methods",
@@ -206,6 +207,7 @@ curated_keywords: typing.List[typing.Union[str, typing.Tuple[str, ...]]] = [
     (
         "manipulation",
         "robotic manipulation",
+        "robotic manipulation policies",
         "robot manipulation",
         "grasping",
         "grasping",
