@@ -131,7 +131,7 @@
     <section class="feature_part" style="margin-top:65px;margin-bottom:-50px" name = "about" id = "about">
         <div class="section_title text-center">
 
-                        <h1 style="margin-bottom:40px;font-size:45px;">About This Database</h2>
+                        <h1 style="margin-bottom:40px;font-size:45px;">About This Database</h1>
                     </div>
         <div class="container">
             <div class="row align-items-center justify-content-between">
