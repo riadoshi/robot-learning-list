@@ -35,7 +35,6 @@
     <!-- style CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-
 <style>
 .teamBorder {
     border-spacing:10px;
